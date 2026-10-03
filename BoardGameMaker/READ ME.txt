@@ -1,0 +1,6 @@
+
+-----| BoardGameMaker Guide|-----
+
+--| Installation instructions
+Drop the "BoardGameMaker" folder into your project.
+Then, move the "script_templates" folder inside it into your root "res://" directory.

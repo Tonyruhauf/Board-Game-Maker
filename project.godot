@@ -39,13 +39,14 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "r
 [file_customization]
 
 folder_colors={
-"res://Core/": "orange",
-"res://Games/": "blue",
-"res://Networking/": "gray",
-"res://Resources/": "yellow",
-"res://Shared Assets/": "green",
-"res://Systems/": "purple",
-"res://UI/": "teal"
+"res://BoardGameMaker/": "blue",
+"res://BoardGameMaker/Core/": "orange",
+"res://BoardGameMaker/Networking/": "gray",
+"res://BoardGameMaker/Resources/": "yellow",
+"res://BoardGameMaker/Shared Assets/": "green",
+"res://BoardGameMaker/Systems/": "purple",
+"res://BoardGameMaker/UI/": "teal",
+"res://script_templates/": "blue"
 }
 
 [rendering]

@@ -59,6 +59,11 @@
 			"uuid": "6bced1c8-2d50-488a-b97e-23293fab8bb8",
 			"title": "Documentation",
 			"color": "f0d13a"
+		},
+		{
+			"uuid": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
+			"title": "Persistence",
+			"color": "ad1c3e"
 		}
 	],
 	"stages": [
@@ -72,14 +77,8 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"24de71d6-58a0-4433-9bde-ccf14160f2da",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"cd83899e-7f1c-453e-959b-a227e0d70c87",
-				"dabe6618-44a8-49c7-82d3-95777eef3364",
-				"883d9aa2-573d-4293-966f-5988b90991d7",
-				"df4dbb80-56c1-4548-b1e7-5161ec42e918",
-				"27e92e20-6e84-4ac6-b194-935f32891a6a",
-				"40e32417-40d9-4417-bf51-9c681de2ad74",
 				"d50f32ea-c421-4ca8-9111-9f5b49b5bdd2",
 				"0a776eb5-1429-4f95-a121-96e695616efa",
 				"8b65f5af-bcbc-4c01-9cd5-afbf0bb5aaed",
@@ -95,7 +94,15 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
-				"8ca71694-caaa-4a26-a51b-e0479e7f61ee"
+				"40e32417-40d9-4417-bf51-9c681de2ad74",
+				"27e92e20-6e84-4ac6-b194-935f32891a6a",
+				"df4dbb80-56c1-4548-b1e7-5161ec42e918",
+				"94cd968b-1799-4b13-8f77-6e8d72c31bbc",
+				"883d9aa2-573d-4293-966f-5988b90991d7",
+				"dabe6618-44a8-49c7-82d3-95777eef3364",
+				"24de71d6-58a0-4433-9bde-ccf14160f2da",
+				"8ca71694-caaa-4a26-a51b-e0479e7f61ee",
+				"cb3e2619-2156-4d21-8c13-bfe5e0ce49e3"
 			]
 		},
 		{
@@ -167,28 +174,28 @@
 		{
 			"uuid": "883d9aa2-573d-4293-966f-5988b90991d7",
 			"title": "Create GameState base class",
-			"description": "Define the object representing the complete logical state of a match.\nIt should contain game data rather than scene nodes or visual objects.\nMake duplication possible for simulation/debugging later.",
+			"description": "",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		},
 		{
 			"uuid": "df4dbb80-56c1-4548-b1e7-5161ec42e918",
 			"title": "Create Player base class",
-			"description": "Define common player information such as ID, name and connection/local status.\nKeep it generic enough for different kinds of board games.",
+			"description": "",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		},
 		{
 			"uuid": "27e92e20-6e84-4ac6-b194-935f32891a6a",
 			"title": "Create GameAction base class",
-			"description": "Define the standardized representation of something a player does.\nInclude the player performing it, an action type and the data required by the action.\nThis will become one of the most important parts of the framework.",
+			"description": "Define the standardized representation of something a player does.",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		},
 		{
 			"uuid": "40e32417-40d9-4417-bf51-9c681de2ad74",
 			"title": "Create an action validation/execution pipeline",
-			"description": "Establish a standard flow:\n  request action → validate → execute → state changes.\nEnsure games cannot arbitrarily modify their state from UI code.",
+			"description": "Establish a standard flow:\n  request action → validate → execute → state changes.\nTo ensure games cannot arbitrarily modify their state from UI code.",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		},
@@ -256,10 +263,17 @@
 			"steps": []
 		},
 		{
-			"uuid": "060a5020-d82e-483b-a67c-16dd984924a6",
-			"title": "RULES",
+			"uuid": "94cd968b-1799-4b13-8f77-6e8d72c31bbc",
+			"title": "Create GameSession class",
 			"description": "",
-			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "cb3e2619-2156-4d21-8c13-bfe5e0ce49e3",
+			"title": "03/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
 			"steps": []
 		}
 	],
