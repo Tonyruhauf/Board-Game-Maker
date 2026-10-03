@@ -1,0 +1,2 @@
+This folder is home to modules imported
+using the modules importer from "Project -> tools -> import module"

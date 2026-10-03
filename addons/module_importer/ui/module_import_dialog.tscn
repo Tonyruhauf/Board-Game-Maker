@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccg4y7h0quo1b"]
+
+[ext_resource type="Script" uid="uid://brgd228o4ydl2" path="res://addons/module_importer/ui/module_import_dialog.gd" id="1_srrlu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srrlu"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="ModuleImportDialog" type="Window"]
+oversampling_override = 1.0
+title = "Import Module"
+position = Vector2i(0, 36)
+size = Vector2i(500, 600)
+script = ExtResource("1_srrlu")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 504.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_srrlu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 496.0
+offset_bottom = 596.0
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 540)
+layout_mode = 2
+item_count = 13
+item_0/text = "Achievements System"
+item_1/text = "Drawing Module"
+item_2/text = "Saving System"
+item_3/text = "SceneTransitioner"
+item_4/text = "Time Resources"
+item_5/text = "TimeInputBox"
+item_6/text = "ClickableSprite.gd"
+item_7/text = "ClickableSprite_OldVersion.gd"
+item_8/text = "FillContainer.gd"
+item_9/text = "GameSettings.gd"
+item_10/text = "RaritySystem.gd"
+item_11/text = "SignalBus.gd"
+item_12/text = "Toolbox.gd"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="ImportButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Import"
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cancel
+"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="item_clicked" from="VBoxContainer/ItemList" to="." method="_on_item_list_item_clicked"]

@@ -1,0 +1,280 @@
+{
+	"categories": [
+		{
+			"uuid": "d7eec21d-bff8-4a74-a2f0-b5c183337dfe",
+			"title": "Architecture",
+			"color": "3c516d"
+		},
+		{
+			"uuid": "4d096707-4085-4dda-930c-197d016c00c7",
+			"title": "Core",
+			"color": "e7873c"
+		},
+		{
+			"uuid": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"title": "Bugs",
+			"color": "f65738"
+		},
+		{
+			"uuid": "2a4f5820-9594-47fb-8e96-b95153bfc2bf",
+			"title": "Polish",
+			"color": "c46ef8"
+		},
+		{
+			"uuid": "960e1227-ed98-4446-900d-158bb453c5f7",
+			"title": "Testing",
+			"color": "69e836"
+		},
+		{
+			"uuid": "b38dfdd7-c810-470a-a4a8-5fea65ae8f77",
+			"title": "Note",
+			"color": "eafb43"
+		},
+		{
+			"uuid": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"title": "Date",
+			"color": "ffffff"
+		},
+		{
+			"uuid": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"title": "SubCategory",
+			"color": "b7f8db"
+		},
+		{
+			"uuid": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
+			"title": "Other",
+			"color": "2389cc"
+		},
+		{
+			"uuid": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"title": "UI",
+			"color": "e4ddb6"
+		},
+		{
+			"uuid": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
+			"title": "Integration",
+			"color": "7c9dbb"
+		},
+		{
+			"uuid": "6bced1c8-2d50-488a-b97e-23293fab8bb8",
+			"title": "Documentation",
+			"color": "f0d13a"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "a549cb8e-33c4-4150-ac7e-0bccba3425e2",
+			"title": "Ideas for later",
+			"tasks": []
+		},
+		{
+			"uuid": "08c0258f-53c0-47de-b29f-f2fb2cb07369",
+			"title": "📋 Todo",
+			"tasks": [
+				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
+				"24de71d6-58a0-4433-9bde-ccf14160f2da",
+				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
+				"cd83899e-7f1c-453e-959b-a227e0d70c87",
+				"dabe6618-44a8-49c7-82d3-95777eef3364",
+				"883d9aa2-573d-4293-966f-5988b90991d7",
+				"df4dbb80-56c1-4548-b1e7-5161ec42e918",
+				"27e92e20-6e84-4ac6-b194-935f32891a6a",
+				"40e32417-40d9-4417-bf51-9c681de2ad74",
+				"d50f32ea-c421-4ca8-9111-9f5b49b5bdd2",
+				"0a776eb5-1429-4f95-a121-96e695616efa",
+				"8b65f5af-bcbc-4c01-9cd5-afbf0bb5aaed",
+				"43407d37-ef53-47cd-b0c4-8ac4624e7ad2",
+				"6b763bd6-6261-4876-9df2-93d452b81e60",
+				"4990d163-0380-4859-a38e-221b81a9b5d8",
+				"3af1b4eb-aff7-40af-a855-bb877434e45e",
+				"abc4a7c8-2f1e-4b90-9279-d37730853cc0",
+				"2aa7c252-0fcb-4d0b-ab3c-b7fadabb3a09"
+			]
+		},
+		{
+			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
+			"title": "✅ Completed",
+			"tasks": [
+				"8ca71694-caaa-4a26-a51b-e0479e7f61ee"
+			]
+		},
+		{
+			"uuid": "8a4eae89-e56b-4b0f-9fec-20eabbb32b0e",
+			"title": "Notes",
+			"tasks": [
+				"0fba11df-7780-484b-827b-b8870022143c",
+				"cce5c2fc-2b14-44a3-afa5-4e9cf1dc023c"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "0fba11df-7780-484b-827b-b8870022143c",
+			"title": "Project Infos",
+			"description": "Project started on:\n03/10/2026",
+			"category": "b38dfdd7-c810-470a-a4a8-5fea65ae8f77",
+			"steps": []
+		},
+		{
+			"uuid": "cce5c2fc-2b14-44a3-afa5-4e9cf1dc023c",
+			"title": "CREDITS",
+			"description": "",
+			"category": "b38dfdd7-c810-470a-a4a8-5fea65ae8f77",
+			"steps": []
+		},
+		{
+			"uuid": "feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
+			"title": "________________________________________",
+			"description": "",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		},
+		{
+			"uuid": "f2616c12-0e06-4d8e-9c15-494bb96260b3",
+			"title": "----|  In Progress  |----",
+			"description": "",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		},
+		{
+			"uuid": "cd83899e-7f1c-453e-959b-a227e0d70c87",
+			"title": "--| Foundation",
+			"description": "",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		},
+		{
+			"uuid": "8ca71694-caaa-4a26-a51b-e0479e7f61ee",
+			"title": "Setup the basic folder structure",
+			"description": "Core/, Games/, UI/, Systems/, Networking/, etc.",
+			"category": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
+			"steps": []
+		},
+		{
+			"uuid": "24de71d6-58a0-4433-9bde-ccf14160f2da",
+			"title": "Define the framework architecture",
+			"description": "Decide what belongs to the framework and what belongs to an individual game.\nEstablish the rule that a game should only implement its own rules, state, actions and presentation.",
+			"category": "d7eec21d-bff8-4a74-a2f0-b5c183337dfe",
+			"steps": []
+		},
+		{
+			"uuid": "dabe6618-44a8-49c7-82d3-95777eef3364",
+			"title": "Create BoardGame base class",
+			"description": "Create the common parent class for every game.\nGive it basic lifecycle functions such as setup, start, end and reset.\nDo not put game-specific rules in it.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "883d9aa2-573d-4293-966f-5988b90991d7",
+			"title": "Create GameState base class",
+			"description": "Define the object representing the complete logical state of a match.\nIt should contain game data rather than scene nodes or visual objects.\nMake duplication possible for simulation/debugging later.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "df4dbb80-56c1-4548-b1e7-5161ec42e918",
+			"title": "Create Player base class",
+			"description": "Define common player information such as ID, name and connection/local status.\nKeep it generic enough for different kinds of board games.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "27e92e20-6e84-4ac6-b194-935f32891a6a",
+			"title": "Create GameAction base class",
+			"description": "Define the standardized representation of something a player does.\nInclude the player performing it, an action type and the data required by the action.\nThis will become one of the most important parts of the framework.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "40e32417-40d9-4417-bf51-9c681de2ad74",
+			"title": "Create an action validation/execution pipeline",
+			"description": "Establish a standard flow:\n  request action → validate → execute → state changes.\nEnsure games cannot arbitrarily modify their state from UI code.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "d50f32ea-c421-4ca8-9111-9f5b49b5bdd2",
+			"title": "Create the turn system abstraction",
+			"description": "Support basic turn handling without assuming every game works the same way.\nThink in terms of \"whose turn / what phase / what actions are allowed.\"",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "0a776eb5-1429-4f95-a121-96e695616efa",
+			"title": "Create the event/notification system",
+			"description": "Separate logical events from visual reactions.\nExample: CARD_DRAWN happens logically, then the UI decides how to animate it.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "8b65f5af-bcbc-4c01-9cd5-afbf0bb5aaed",
+			"title": "--| Small Game (Test)",
+			"description": "",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		},
+		{
+			"uuid": "43407d37-ef53-47cd-b0c4-8ac4624e7ad2",
+			"title": "Create a minimal test game",
+			"description": "Make a tiny game with almost no visuals.\nExample: players take turns pressing a button to gain 1 point.",
+			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
+			"steps": []
+		},
+		{
+			"uuid": "6b763bd6-6261-4876-9df2-93d452b81e60",
+			"title": "Implement the test game's GameState",
+			"description": "Store only the data actually required by the game.\nExample: player scores, current player and turn number.",
+			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
+			"steps": []
+		},
+		{
+			"uuid": "4990d163-0380-4859-a38e-221b81a9b5d8",
+			"title": "Implement the test game's actions",
+			"description": "Create actions such as GAIN_POINT and END_TURN.\nMake sure invalid actions are rejected.",
+			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
+			"steps": []
+		},
+		{
+			"uuid": "abc4a7c8-2f1e-4b90-9279-d37730853cc0",
+			"title": "Test saving and restoring the test game",
+			"description": "Save the logical state.\nClose/reopen the game.\nRestore it exactly.",
+			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
+			"steps": []
+		},
+		{
+			"uuid": "3af1b4eb-aff7-40af-a855-bb877434e45e",
+			"title": "Run the entire game through the framework",
+			"description": "The game should start, run, change state and finish without bypassing the framework.",
+			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
+			"steps": []
+		},
+		{
+			"uuid": "2aa7c252-0fcb-4d0b-ab3c-b7fadabb3a09",
+			"title": "Check ChatGPT for next steps guidance",
+			"description": "https://chatgpt.com/c/6ac0592e-0fb8-83e8-85a2-fe8a6ef1fcca",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		},
+		{
+			"uuid": "060a5020-d82e-483b-a67c-16dd984924a6",
+			"title": "RULES",
+			"description": "",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"a549cb8e-33c4-4150-ac7e-0bccba3425e2",
+				"8a4eae89-e56b-4b0f-9fec-20eabbb32b0e"
+			],
+			[
+				"08c0258f-53c0-47de-b29f-f2fb2cb07369"
+			],
+			[
+				"d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f"
+			]
+		]
+	}
+}

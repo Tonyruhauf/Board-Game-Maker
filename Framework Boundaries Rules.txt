@@ -1,0 +1,30 @@
+
+The framework owns:
+	- Game lifecycle
+	- Players
+	- Match/session
+	- Generic game state infrastructure
+	- Generic actions infrastructure
+	- Turn/phase infrastructure
+	- Save/load
+	- Replay infrastructure
+	- Game registry
+	- Game browser
+	- Common game manager
+	- Networking
+	- Common UI
+
+
+The games own:
+	- Rules
+	- Game-specific state
+	- Game-specific actions
+	- Game board
+	- Pieces
+	- Cards
+	- Game-specific UI
+	- Victory conditions
+	- Scoring rules
+	- Game-specific animations
+
+Theses boundaries acts like rules and are a guide for development.
