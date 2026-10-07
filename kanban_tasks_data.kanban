@@ -77,8 +77,6 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"6b763bd6-6261-4876-9df2-93d452b81e60",
-				"e3056713-df91-470f-a8b5-389f81eca6ac",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"8b65f5af-bcbc-4c01-9cd5-afbf0bb5aaed",
 				"4990d163-0380-4859-a38e-221b81a9b5d8",
@@ -91,6 +89,8 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"e3056713-df91-470f-a8b5-389f81eca6ac",
+				"6b763bd6-6261-4876-9df2-93d452b81e60",
 				"43407d37-ef53-47cd-b0c4-8ac4624e7ad2",
 				"b9c26112-f977-4182-b945-6d411c3d52bb",
 				"0a776eb5-1429-4f95-a121-96e695616efa",
@@ -290,6 +290,13 @@
 			"title": "Players score should be in the TestGame GameState",
 			"description": "NOT INSIDE PLAYER",
 			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "9952b356-f7cf-4873-b61b-3d412f1b1bbd",
+			"title": "________________________________________",
+			"description": "",
+			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
 			"steps": []
 		}
 	],

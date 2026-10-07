@@ -1,10 +1,18 @@
 class_name TestGame extends BoardGame
 
 
+var state: TestGameState:
+	get(): return game_state as TestGameState
+
+
+func _create_game_state() -> void:
+	game_state = TestGameState.new()
+
+
 func start() -> void:
-	if game_state.players.is_empty(): return
+	if state.players.is_empty(): return
 	
-	turn_manager.players = game_state.players
+	turn_manager.players = state.players
 	start_first_turn()
 
 
@@ -17,7 +25,7 @@ func reset() -> void:
 
 
 func start_first_turn() -> void:
-	turn_manager.start_turn(game_state.players[0])
+	turn_manager.start_turn(state.players[0])
 
 
 func request_action(action: GameAction) -> bool:
@@ -47,8 +55,7 @@ func execute_action(action: GameAction) -> void:
 		turn_manager.end_turn()
 	
 	elif action is AddScoreAction:
-		var player: Player = game_state.get_player(action.player_id)
-		player.score += action.value
+		state.increase_player_score(action.player_id, action.value)
 
 
 func emit_action_event(action: GameAction) -> void:

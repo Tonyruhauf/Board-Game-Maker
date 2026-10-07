@@ -2,7 +2,7 @@ class_name BoardGame extends Node
 
 
 var turn_manager: TurnManager = TurnManager.new()
-var game_state: GameState = GameState.new()
+var game_state: GameState
 var session_state: GameSession.SessionState
 
 var local_player: Player
@@ -11,10 +11,16 @@ signal game_ready
 
 
 func setup(players: Array[Player], _local_player) -> void:
+	_create_game_state()
 	game_state.players = players
+	
 	local_player = _local_player
 	
 	game_ready.emit()
+
+
+func _create_game_state() -> void:
+	game_state = GameState.new()
 
 
 func start() -> void:
