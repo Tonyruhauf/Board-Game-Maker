@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 SignalBus="*res://scripts/autoloads/SignalBus.gd"
 Toolbox="*res://scripts/autoloads/Toolbox.gd"
 SceneTransitioner="*res://modules/SceneTransitioner/autoloads/SceneTransitioner.gd"
+EventsBus="*uid://xdyjyg3sm11d"
 
 [display]
 
