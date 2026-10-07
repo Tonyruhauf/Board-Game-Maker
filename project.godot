@@ -16,14 +16,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Board Game Maker"
 config/description="Enter an interesting project description here!"
+run/main_scene="uid://cs3eegnos0342"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
 
 [autoload]
 
-SignalBus="*res://scripts/autoloads/SignalBus.gd"
-Toolbox="*res://scripts/autoloads/Toolbox.gd"
-SceneTransitioner="*res://modules/SceneTransitioner/autoloads/SceneTransitioner.gd"
 EventsBus="*uid://xdyjyg3sm11d"
 
 [display]

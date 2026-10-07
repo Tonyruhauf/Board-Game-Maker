@@ -1,4 +1,4 @@
-class_name GameAction extends Resource
+class_name PlayerScoredEvent extends GameEvent
 
 
 var player_id: int

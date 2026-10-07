@@ -5,9 +5,16 @@ var turn_manager: TurnManager = TurnManager.new()
 var game_state: GameState = GameState.new()
 var session_state: GameSession.SessionState
 
+var local_player: Player
 
-func setup() -> void:
-	pass
+signal game_ready
+
+
+func setup(players: Array[Player], _local_player) -> void:
+	game_state.players = players
+	local_player = _local_player
+	
+	game_ready.emit()
 
 
 func start() -> void:
@@ -46,5 +53,5 @@ func execute_action(action: GameAction) -> void:
 	pass
 
 
-func emit_action_event(action) -> void:
+func emit_action_event(action: GameAction) -> void:
 	pass

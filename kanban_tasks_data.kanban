@@ -77,10 +77,10 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
+				"6b763bd6-6261-4876-9df2-93d452b81e60",
+				"e3056713-df91-470f-a8b5-389f81eca6ac",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"8b65f5af-bcbc-4c01-9cd5-afbf0bb5aaed",
-				"43407d37-ef53-47cd-b0c4-8ac4624e7ad2",
-				"6b763bd6-6261-4876-9df2-93d452b81e60",
 				"4990d163-0380-4859-a38e-221b81a9b5d8",
 				"3af1b4eb-aff7-40af-a855-bb877434e45e",
 				"abc4a7c8-2f1e-4b90-9279-d37730853cc0",
@@ -91,6 +91,8 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"43407d37-ef53-47cd-b0c4-8ac4624e7ad2",
+				"b9c26112-f977-4182-b945-6d411c3d52bb",
 				"0a776eb5-1429-4f95-a121-96e695616efa",
 				"d50f32ea-c421-4ca8-9111-9f5b49b5bdd2",
 				"47bc4679-17d6-43bb-b41e-33b1b7783fdc",
@@ -274,6 +276,20 @@
 			"title": "06/10/2026",
 			"description": "",
 			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "b9c26112-f977-4182-b945-6d411c3d52bb",
+			"title": "07/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "e3056713-df91-470f-a8b5-389f81eca6ac",
+			"title": "Players score should be in the TestGame GameState",
+			"description": "NOT INSIDE PLAYER",
+			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
 			"steps": []
 		}
 	],

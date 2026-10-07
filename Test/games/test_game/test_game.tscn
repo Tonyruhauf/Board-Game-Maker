@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://co3kymccpdbww"]
+
+[ext_resource type="Script" uid="uid://dcfrfuesqde8w" path="res://Test/games/test_game/TestGame.gd" id="1_6by2c"]
+[ext_resource type="Script" uid="uid://dybjv00qliupg" path="res://Test/games/test_game/score_label.gd" id="2_38kim"]
+
+[node name="TestGame" type="Control" unique_id=391380196]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6by2c")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1701047613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1832688078]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="NextTurnButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1974952369]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "End turn"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1694475748]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Tony: 10 points
+Loïc: 10 points"
+horizontal_alignment = 1
+script = ExtResource("2_38kim")
+
+[node name="ScoreButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1104338662]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "+ 10 points"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NextTurnButton" to="." method="_on_next_turn_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScoreButton" to="." method="_on_score_button_pressed"]
