@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameInfo" format=3 uid="uid://bxudorpmr1r3x"]
+
+[ext_resource type="Script" uid="uid://bgu3cbpvv54yk" path="res://BoardGameMaker/Core/Game/GameInfo.gd" id="1_18lbp"]
+[ext_resource type="PackedScene" uid="uid://co3kymccpdbww" path="res://Test/games/test_game/test_game.tscn" id="1_nhrpq"]
+[ext_resource type="Texture2D" uid="uid://c1nvpsrx2r06b" path="res://icon.png" id="3_ow1v4"]
+
+[resource]
+script = ExtResource("1_18lbp")
+game_scene = ExtResource("1_nhrpq")
+name = "Test Game"
+description = "Just to test stuff"
+thumbnail = ExtResource("3_ow1v4")
+min_players = 1
+max_players = 3
+metadata/_custom_type_script = "uid://bgu3cbpvv54yk"

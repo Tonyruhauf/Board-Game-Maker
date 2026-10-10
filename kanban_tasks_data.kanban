@@ -18,7 +18,7 @@
 		{
 			"uuid": "2a4f5820-9594-47fb-8e96-b95153bfc2bf",
 			"title": "Polish",
-			"color": "c46ef8"
+			"color": "cd88f7"
 		},
 		{
 			"uuid": "960e1227-ed98-4446-900d-158bb453c5f7",
@@ -48,7 +48,7 @@
 		{
 			"uuid": "46ad6a55-2209-43ac-a839-687605a431d5",
 			"title": "UI",
-			"color": "e4ddb6"
+			"color": "8f4ce0"
 		},
 		{
 			"uuid": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
@@ -64,6 +64,11 @@
 			"uuid": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
 			"title": "Persistence",
 			"color": "ad1c3e"
+		},
+		{
+			"uuid": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
+			"title": "Game Browser",
+			"color": "ff9ccc"
 		}
 	],
 	"stages": [
@@ -78,19 +83,22 @@
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"8b65f5af-bcbc-4c01-9cd5-afbf0bb5aaed",
-				"4990d163-0380-4859-a38e-221b81a9b5d8",
-				"3af1b4eb-aff7-40af-a855-bb877434e45e",
-				"abc4a7c8-2f1e-4b90-9279-d37730853cc0",
-				"2aa7c252-0fcb-4d0b-ab3c-b7fadabb3a09"
+				"2a6a90a3-c5e7-4f70-843b-999c0ecba3b1",
+				"7c2c027f-04e3-4bd8-acf2-5241cc2da261",
+				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"6b88604e-9679-48f9-900e-13c94336271e",
+				"5169a007-672d-4e3b-873c-df4540180ca6",
+				"d3e822a2-fb77-46bc-9314-8c894a5a2087",
+				"3af1b4eb-aff7-40af-a855-bb877434e45e",
 				"e3056713-df91-470f-a8b5-389f81eca6ac",
 				"6b763bd6-6261-4876-9df2-93d452b81e60",
+				"4990d163-0380-4859-a38e-221b81a9b5d8",
 				"43407d37-ef53-47cd-b0c4-8ac4624e7ad2",
 				"b9c26112-f977-4182-b945-6d411c3d52bb",
 				"0a776eb5-1429-4f95-a121-96e695616efa",
@@ -237,24 +245,10 @@
 			"steps": []
 		},
 		{
-			"uuid": "abc4a7c8-2f1e-4b90-9279-d37730853cc0",
-			"title": "Test saving and restoring the test game",
-			"description": "Save the logical state.\nClose/reopen the game.\nRestore it exactly.",
-			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
-			"steps": []
-		},
-		{
 			"uuid": "3af1b4eb-aff7-40af-a855-bb877434e45e",
 			"title": "Run the entire game through the framework",
 			"description": "The game should start, run, change state and finish without bypassing the framework.",
 			"category": "960e1227-ed98-4446-900d-158bb453c5f7",
-			"steps": []
-		},
-		{
-			"uuid": "2aa7c252-0fcb-4d0b-ab3c-b7fadabb3a09",
-			"title": "Check ChatGPT for next steps guidance",
-			"description": "https://chatgpt.com/c/6ac0592e-0fb8-83e8-85a2-fe8a6ef1fcca",
-			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
 			"steps": []
 		},
 		{
@@ -297,6 +291,48 @@
 			"title": "________________________________________",
 			"description": "",
 			"category": "b035833b-9ae9-49e8-8104-6cac5071bb89",
+			"steps": []
+		},
+		{
+			"uuid": "d3e822a2-fb77-46bc-9314-8c894a5a2087",
+			"title": "09/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "6b88604e-9679-48f9-900e-13c94336271e",
+			"title": "Create a minimal game browser UI",
+			"description": "Display the registered games as selectable cards or a list. Include the game name, icon, player count, and a short description.",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "2a6a90a3-c5e7-4f70-843b-999c0ecba3b1",
+			"title": "Create the game details screen",
+			"description": "Show the selected game's information and provide a Play button.\nDeliverable: selecting a game opens its details.",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "7c2c027f-04e3-4bd8-acf2-5241cc2da261",
+			"title": "Implement game launching",
+			"description": "Connect the Play button to your existing framework. The manager should create a session, initialize the selected game, and display it.\nDeliverable: you can launch your test game and return to the browser afterward.",
+			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
+			"steps": []
+		},
+		{
+			"uuid": "279f1812-ab56-4075-8c8e-fc1d54b2b9ed",
+			"title": "Add basic session management",
+			"description": "Handle returning to the hub, exiting a match, and ending a game when everyone has left.",
+			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
+			"steps": []
+		},
+		{
+			"uuid": "5169a007-672d-4e3b-873c-df4540180ca6",
+			"title": "Create GameInfo resource class",
+			"description": "Resource containing a game's metadata: ID, name, description, icon, preview image, player limits, and the scene or entry point used to launch it.",
+			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
 			"steps": []
 		}
 	],

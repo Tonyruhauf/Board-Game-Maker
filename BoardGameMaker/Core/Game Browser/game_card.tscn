@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bhgsqcmxf2cgr"]
+
+[ext_resource type="Script" uid="uid://dhdb7q8b00bko" path="res://BoardGameMaker/Core/Game Browser/game_card.gd" id="1_6rcxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxjn2"]
+bg_color = Color(0.95, 0.95, 0.95, 0.6627451)
+
+[node name="GameCard" type="PanelContainer" unique_id=1743505910]
+custom_minimum_size = Vector2(450, 300)
+offset_right = 450.0
+offset_bottom = 300.0
+script = ExtResource("1_6rcxl")
+
+[node name="Thumbnail" type="TextureRect" parent="." unique_id=1331943391]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="InfoCard" type="PanelContainer" parent="." unique_id=1884851545]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxjn2")
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoCard" unique_id=1290602867]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoCard/MarginContainer" unique_id=772316040]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PlayersCount" type="Label" parent="InfoCard/MarginContainer/VBoxContainer" unique_id=120577951]
+custom_minimum_size = Vector2(435, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 34
+text = "👤 0 - 0"
+autowrap_mode = 3
+max_lines_visible = 5
+
+[node name="NameLabel" type="Label" parent="InfoCard/MarginContainer/VBoxContainer" unique_id=1405886495]
+custom_minimum_size = Vector2(435, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.19430003, 0.32115322, 0.67, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 34
+text = "Game Name"
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 5
+
+[node name="Description" type="Label" parent="InfoCard/MarginContainer/VBoxContainer" unique_id=1179595625]
+custom_minimum_size = Vector2(435, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.26, 0.26, 1)
+theme_override_font_sizes/font_size = 24
+text = "This is the game description."
+autowrap_mode = 3
+text_overrun_behavior = 3
+max_lines_visible = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

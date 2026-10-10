@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://wt7wdrxi1lsj"]
+
+[ext_resource type="Script" uid="uid://ds0yy4ybw3npi" path="res://BoardGameMaker/Core/Game Browser/game_browser.gd" id="1_j3m3v"]
+
+[node name="GameBrowser" type="Control" unique_id=16343003]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j3m3v")
+
+[node name="BG" type="ColorRect" parent="." unique_id=6970290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1510435992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1719527030]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1550442981]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="GamesContainer" type="HFlowContainer" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=466752832]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+alignment = 1
