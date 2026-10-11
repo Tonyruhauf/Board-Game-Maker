@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://bu4uitt7rqb0e"]
+
+[ext_resource type="Script" uid="uid://bbsgamfansd22" path="res://BoardGameMaker/Core/Game Browser/game_setup.gd" id="1_i488e"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l66rp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i488e"]
+bg_color = Color(0.20467621, 0.53800297, 0.6572889, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6pou"]
+bg_color = Color(0.118657, 0.3564525, 0.44233754, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsrov"]
+bg_color = Color(0.16277248, 0.4541943, 0.55983263, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uxca"]
+bg_color = Color(0.98, 0.9754267, 0.9408, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_poy3h"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.61, 0.60756004, 0.5856, 1)
+corner_detail = 5
+
+[node name="GameSetup" type="Control" unique_id=1208002965]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i488e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2050572127]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Thumbnail" type="TextureRect" parent="VBoxContainer" unique_id=502275675]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("PlaceholderTexture2D_l66rp")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="GameInfos" type="ColorRect" parent="VBoxContainer/Thumbnail" unique_id=633617579]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Thumbnail/GameInfos" unique_id=1811783104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer" unique_id=1505982562]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer" unique_id=1271106613]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 80
+
+[node name="Name" type="Label" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer" unique_id=527293420]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.58272886, 0.6918917, 0.9396253, 1)
+theme_override_font_sizes/font_size = 72
+text = "Game Name"
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer" unique_id=674379242]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tags" type="HBoxContainer" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=677670806]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Infos" type="HBoxContainer" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=694268863]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="PlayersCount" type="Label" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Infos" unique_id=1344322018]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 45
+text = "👤0 - 0"
+max_lines_visible = 5
+
+[node name="AverageDuration" type="Label" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Infos" unique_id=607475325]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 45
+text = "⌛0 min"
+max_lines_visible = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer" unique_id=875411912]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 80
+
+[node name="Description" type="Label" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1388807172]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 45
+text = "This is the game description."
+autowrap_mode = 3
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1731620377]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_i488e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6pou")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wsrov")
+text = "Play"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1811815977]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScrollContainer" unique_id=1710724189]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4uxca")
+
+[node name="GameOptions" type="ScrollContainer" parent="VBoxContainer/ScrollContainer/PanelContainer" unique_id=432844317]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions" unique_id=1433681066]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer" unique_id=410703315]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayersPanel" type="PanelContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer" unique_id=1233301845]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_poy3h")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel" unique_id=557945777]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer" unique_id=79509295]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/VBoxContainer" unique_id=841564693]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Players" type="GridContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=772301593]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[connection signal="pressed" from="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]

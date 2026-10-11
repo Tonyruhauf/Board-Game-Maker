@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d03chdd0776ft"]
+
+[ext_resource type="Texture2D" uid="uid://blguelnbst5hu" path="res://BoardGameMaker/UI/Textures/user-profile-icon.png" id="1_g5sc3"]
+
+[node name="PlayerCard" type="TextureRect" unique_id=638546954]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 85.0
+offset_bottom = 85.0
+texture = ExtResource("1_g5sc3")
+expand_mode = 1
+stretch_mode = 5

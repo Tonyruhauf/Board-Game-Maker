@@ -3,9 +3,12 @@ extends Control
 
 @onready var games_container: HFlowContainer = $VBoxContainer/ScrollContainer/MarginContainer/GamesContainer
 
+var Main: MainNode
+
 var games: Array[GameInfo]
 
 const GAME_CARD_SCENE: PackedScene = preload("res://BoardGameMaker/Core/Game Browser/game_card.tscn")
+const GAME_SETUP_SCENE_PATH: String = "res://BoardGameMaker/Core/Game Browser/game_setup.tscn"
 
 
 func _ready() -> void:
@@ -28,4 +31,9 @@ func reload_games() -> void:
 func create_game_card(game_info: GameInfo) -> void:
 	var instance = GAME_CARD_SCENE.instantiate()
 	instance.game_info = game_info
+	instance.pressed.connect(start_game.bind(game_info))
 	games_container.add_child(instance)
+
+
+func start_game(game_info: GameInfo) -> void:
+	Main.change_scene(GAME_SETUP_SCENE_PATH, {"game_info":game_info})

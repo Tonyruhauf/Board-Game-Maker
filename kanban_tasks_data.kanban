@@ -82,9 +82,8 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
+				"6dee5a55-ad85-4795-a101-68c3a7ac9fd7",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"2a6a90a3-c5e7-4f70-843b-999c0ecba3b1",
-				"7c2c027f-04e3-4bd8-acf2-5241cc2da261",
 				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
 		},
@@ -92,6 +91,9 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"7c2c027f-04e3-4bd8-acf2-5241cc2da261",
+				"2a6a90a3-c5e7-4f70-843b-999c0ecba3b1",
+				"b2c5b217-c2d8-4065-a75f-816f1dc0be8c",
 				"6b88604e-9679-48f9-900e-13c94336271e",
 				"5169a007-672d-4e3b-873c-df4540180ca6",
 				"d3e822a2-fb77-46bc-9314-8c894a5a2087",
@@ -317,7 +319,7 @@
 		{
 			"uuid": "7c2c027f-04e3-4bd8-acf2-5241cc2da261",
 			"title": "Implement game launching",
-			"description": "Connect the Play button to your existing framework. The manager should create a session, initialize the selected game, and display it.\nDeliverable: you can launch your test game and return to the browser afterward.",
+			"description": "Connect the Play button to your existing framework. The manager should initialize the selected game, and display it.",
 			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
 			"steps": []
 		},
@@ -333,6 +335,20 @@
 			"title": "Create GameInfo resource class",
 			"description": "Resource containing a game's metadata: ID, name, description, icon, preview image, player limits, and the scene or entry point used to launch it.",
 			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
+			"steps": []
+		},
+		{
+			"uuid": "b2c5b217-c2d8-4065-a75f-816f1dc0be8c",
+			"title": "11/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "6dee5a55-ad85-4795-a101-68c3a7ac9fd7",
+			"title": "Display players in the game setup screen",
+			"description": "",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
 			"steps": []
 		}
 	],

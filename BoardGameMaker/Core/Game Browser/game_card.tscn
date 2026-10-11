@@ -31,14 +31,12 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="PlayersCount" type="Label" parent="InfoCard/MarginContainer/VBoxContainer" unique_id=120577951]
-custom_minimum_size = Vector2(435, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 theme_override_constants/shadow_outline_size = 12
 theme_override_font_sizes/font_size = 34
-text = "👤 0 - 0"
-autowrap_mode = 3
+text = "👤0 - 0"
 max_lines_visible = 5
 
 [node name="NameLabel" type="Label" parent="InfoCard/MarginContainer/VBoxContainer" unique_id=1405886495]

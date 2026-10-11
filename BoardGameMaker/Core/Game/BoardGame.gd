@@ -7,16 +7,13 @@ var session_state: GameSession.SessionState
 
 var local_player: Player
 
-signal game_ready
-
 
 func setup(players: Array[Player], _local_player) -> void:
 	_create_game_state()
 	game_state.players = players
+	turn_manager.players = players
 	
 	local_player = _local_player
-	
-	game_ready.emit()
 
 
 func _create_game_state() -> void:
@@ -26,7 +23,6 @@ func _create_game_state() -> void:
 func start() -> void:
 	if game_state.players.is_empty(): return
 	
-	turn_manager.players = game_state.players
 	start_first_turn()
 
 

@@ -11,10 +11,12 @@ extends PanelContainer
 
 var is_hovered: bool = false
 
+signal pressed
+
 
 func _ready() -> void:
 	name_label.text = game_info.name
-	players_count.text = "👤 %d - %d" % [game_info.min_players, game_info.max_players]
+	players_count.text = "👤%d - %d" % [game_info.min_players, game_info.max_players]
 	thumbnail.texture = game_info.thumbnail
 	description.text = game_info.description
 	
@@ -29,7 +31,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed and is_hovered:
-				pass # TODO
+				pressed.emit()
 
 
 func _on_mouse_entered() -> void:

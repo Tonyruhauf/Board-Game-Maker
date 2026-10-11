@@ -12,7 +12,6 @@ func _create_game_state() -> void:
 func start() -> void:
 	if state.players.is_empty(): return
 	
-	turn_manager.players = state.players
 	start_first_turn()
 
 

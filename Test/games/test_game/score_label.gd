@@ -6,7 +6,6 @@ var board_game: TestGame
 
 func _ready() -> void:
 	board_game = owner
-	await board_game.game_ready
 	
 	EventsBus.connect_event(PlayerScoredEvent, _on_player_scored)
 	

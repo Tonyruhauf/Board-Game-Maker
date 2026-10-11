@@ -2,6 +2,7 @@ class_name GameInfo extends Resource
 
 
 @export var game_scene: PackedScene
+@export var game_state_class: GDScript
 
 @export_multiline() var name: String
 @export_multiline() var description: String
