@@ -2,6 +2,7 @@ class_name MainNode extends Control
 
 
 var current_scene: Node
+var local_player: Player = Player.new().setup("Tony")
 
 const STARTING_SCENE: String = "res://BoardGameMaker/Core/Game Browser/game_browser.tscn"
 

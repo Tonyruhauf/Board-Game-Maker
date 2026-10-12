@@ -82,8 +82,10 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"6dee5a55-ad85-4795-a101-68c3a7ac9fd7",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
+				"506f90fe-ab8a-4d2d-9862-1f8d8ac58963",
+				"9c5c696e-4c92-4da7-be0e-377c8fc25915",
+				"6a093341-71d6-4ce4-aab5-677d06401830",
 				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
 		},
@@ -91,6 +93,8 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"60f46b8f-8f0e-4d76-83ea-afdbe97a4867",
+				"6dee5a55-ad85-4795-a101-68c3a7ac9fd7",
 				"7c2c027f-04e3-4bd8-acf2-5241cc2da261",
 				"2a6a90a3-c5e7-4f70-843b-999c0ecba3b1",
 				"b2c5b217-c2d8-4065-a75f-816f1dc0be8c",
@@ -349,6 +353,34 @@
 			"title": "Display players in the game setup screen",
 			"description": "",
 			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "506f90fe-ab8a-4d2d-9862-1f8d8ac58963",
+			"title": "Add a way to modify the local player profile",
+			"description": "Could be a PlayerCard on the top right, that opens a page with the player profile, with buttons to modify it (changing the name).\nThis should be linked to the \"local player\".",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "60f46b8f-8f0e-4d76-83ea-afdbe97a4867",
+			"title": "Implement the local player",
+			"description": "There should be a \"local player\" var on the Main scene.",
+			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
+			"steps": []
+		},
+		{
+			"uuid": "6a093341-71d6-4ce4-aab5-677d06401830",
+			"title": "Implement player invites",
+			"description": "Clicking an empty slot should open a popup to research and select a player to invite.",
+			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
+			"steps": []
+		},
+		{
+			"uuid": "9c5c696e-4c92-4da7-be0e-377c8fc25915",
+			"title": "Implement a simple players database",
+			"description": "There could be a free Database on AstraDB, with a list of all connected players.\nNo need for accounts for now, just connecting to the game add your profile name to the database.\nChanging your profile name should update it in the database.",
+			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
 			"steps": []
 		}
 	],

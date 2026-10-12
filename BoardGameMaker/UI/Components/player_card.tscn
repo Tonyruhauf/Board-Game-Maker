@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://d03chdd0776ft"]
 
 [ext_resource type="Texture2D" uid="uid://blguelnbst5hu" path="res://BoardGameMaker/UI/Textures/user-profile-icon.png" id="1_g5sc3"]
+[ext_resource type="Script" uid="uid://ceyneoy5g8wv4" path="res://BoardGameMaker/UI/Components/player_card.gd" id="2_mvg7l"]
 
-[node name="PlayerCard" type="TextureRect" unique_id=638546954]
+[node name="PlayerCard" type="VBoxContainer" unique_id=1490828700]
+offset_right = 100.0
+offset_bottom = 135.0
+script = ExtResource("2_mvg7l")
+
+[node name="ProfileIcon" type="TextureRect" parent="." unique_id=638546954]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 85.0
-offset_bottom = 85.0
+layout_mode = 2
 texture = ExtResource("1_g5sc3")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Name" type="Label" parent="." unique_id=423431074]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Player Name"
+horizontal_alignment = 1
