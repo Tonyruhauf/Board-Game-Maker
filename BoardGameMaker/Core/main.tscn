@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgl1xgnaxeso8"]
 
 [ext_resource type="Script" uid="uid://dxkiuicha2pvv" path="res://BoardGameMaker/Core/main.gd" id="1_mvayl"]
+[ext_resource type="PackedScene" uid="uid://buyc1mbm2rayt" path="res://BoardGameMaker/UI/Components/top_bar.tscn" id="2_hm7iv"]
 
 [node name="Main" type="Control" unique_id=1105573428]
 layout_mode = 3
@@ -10,3 +11,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mvayl")
+
+[node name="BG" type="ColorRect" parent="." unique_id=506691328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1804225060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1463968988]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="TopBar" parent="ScrollContainer/VBoxContainer" unique_id=588951502 instance=ExtResource("2_hm7iv")]
+z_index = 1
+layout_mode = 2
+
+[node name="SceneContainer" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=149529927]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://buyc1mbm2rayt"]
+
+[ext_resource type="Texture2D" uid="uid://blguelnbst5hu" path="res://BoardGameMaker/UI/Textures/user-profile-icon.png" id="1_dp7ci"]
+[ext_resource type="Script" uid="uid://c5xkxipw78ayb" path="res://BoardGameMaker/UI/Components/top_bar.gd" id="1_g3k1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3m3v"]
+bg_color = Color(1, 1, 1, 0.19215687)
+
+[node name="TopBar" type="PanelContainer" unique_id=588951502]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j3m3v")
+script = ExtResource("1_g3k1q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1742971579]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=646934724]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="GamesBrowserButton" type="Button" parent="HBoxContainer" unique_id=1342421117]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "GAMES"
+flat = true
+
+[node name="Spacer2" type="Control" parent="HBoxContainer" unique_id=264876823]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=537730368]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="ProfileButton" type="TextureButton" parent="HBoxContainer/Control" unique_id=1178582657]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+offset_transform_visual_only = false
+texture_normal = ExtResource("1_dp7ci")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="HBoxContainer/GamesBrowserButton" to="." method="_on_games_browser_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Control/ProfileButton" to="." method="_on_profile_button_pressed"]

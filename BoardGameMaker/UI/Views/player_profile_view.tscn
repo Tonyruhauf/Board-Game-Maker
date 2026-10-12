@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://hdh6rq888wo7"]
+
+[ext_resource type="Texture2D" uid="uid://blguelnbst5hu" path="res://BoardGameMaker/UI/Textures/user-profile-icon.png" id="1_5235m"]
+[ext_resource type="Script" uid="uid://di3161jqtdthx" path="res://BoardGameMaker/UI/Views/player_profile_view.gd" id="1_di6l5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di6l5"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxjn2"]
+bg_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+
+[node name="PlayerProfileView" type="Control" unique_id=2088886387]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_di6l5")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1322774515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2122817774]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=172938461]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ProfilePicture" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=341320396]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("1_5235m")
+expand_mode = 1
+
+[node name="Control" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1481003848]
+layout_mode = 2
+
+[node name="PlayerNameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=1408775378]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_di6l5")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_rxjn2")
+text = "Player name"
+editable = false
+expand_to_text_length = true
+flat = true
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1787384424]
+layout_mode = 2
+
+[node name="EditNameButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CenterContainer" unique_id=1354833712]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "✏️"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/EditNameButton" to="." method="_on_edit_name_button_pressed"]

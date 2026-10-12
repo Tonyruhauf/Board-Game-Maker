@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var games_container: HFlowContainer = $VBoxContainer/ScrollContainer/MarginContainer/GamesContainer
+@onready var games_container: HFlowContainer = $ScrollContainer/MarginContainer/GamesContainer
 
 var Main: MainNode
 
