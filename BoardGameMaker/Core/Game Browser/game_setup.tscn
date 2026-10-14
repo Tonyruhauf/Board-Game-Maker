@@ -36,6 +36,9 @@ content_margin_bottom = 0.0
 bg_color = Color(0.61, 0.60756004, 0.5856, 1)
 corner_detail = 5
 
+[sub_resource type="Theme" id="Theme_i488e"]
+PopupMenu/font_sizes/font_size = 36
+
 [node name="GameSetup" type="Control" unique_id=1208002965]
 layout_mode = 3
 anchors_preset = 15
@@ -189,17 +192,39 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer" unique_id=79509295]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/VBoxContainer" unique_id=841564693]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer" unique_id=841564693]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Players" type="GridContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=772301593]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer" unique_id=79509295]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1723306727]
+layout_mode = 2
+
+[node name="PlayersCountButton" type="OptionButton" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer" unique_id=1478929920]
+custom_minimum_size = Vector2(105, 40)
+layout_mode = 2
+theme = SubResource("Theme_i488e")
+theme_override_font_sizes/font_size = 38
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+
+[node name="Players" type="HFlowContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1744987165]
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 4
+alignment = 1
+last_wrap_alignment = 3
 
 [connection signal="pressed" from="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer/PlayersCountButton" to="." method="_on_players_count_button_item_selected"]

@@ -137,8 +137,9 @@ func _make_request(url: String, method: HTTPClient.Method, body: String = "", cu
 # --- Database Operations ---
 
 ## SELECT (pass filter_by_user = true to automatically target current user)
+## [br][br]
 ## @return: A Dictionary containing {"code": int, "data": Variant, "error": String}.
-## 
+## [br][br]
 ## Example Usage:
 ## var result = await SupabaseManager.select("player_profiles", "select=username,score&limit=10", false)
 ## if result.code == 200:
@@ -150,7 +151,7 @@ func select(table: String, query_params: String = "", filter_by_user: bool = fal
 
 
 ## @return: A Dictionary containing {"code": int, "data": Variant, "error": String}.
-##
+## [br][br]
 ## Example Usage:
 ## var result = await SupabaseManager.insert("player_profiles", {"username": "CyberKnight", "score": 500})
 ## if result.code == 201:
@@ -161,8 +162,9 @@ func insert(table: String, data: Dictionary) -> Dictionary:
 
 
 ## UPDATE (defaults to filter_by_user = true for safety)
+## [br][br]
 ## @return: A Dictionary containing {"code": int, "data": Variant, "error": String}.
-##
+## [br][br]
 ## Example Usage:
 ## var result = await SupabaseManager.update("player_profiles", "id=eq.5", {"score": 750}, true)
 ## if result.code == 200:

@@ -82,8 +82,8 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"6a093341-71d6-4ce4-aab5-677d06401830",
+				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
 		},
@@ -91,6 +91,8 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"26f1ae5f-d5eb-46aa-bb3f-51bf8b88b5f6",
+				"28903075-68c1-4a15-a9fa-df6148f3524e",
 				"c4e1102c-a14c-4f3d-9324-e85661a93e20",
 				"d143eb26-d4c3-4aa3-9b34-79b1e299efce",
 				"4cb2a92b-1cb0-4945-bdd0-78988e747222",
@@ -379,7 +381,7 @@
 		{
 			"uuid": "6a093341-71d6-4ce4-aab5-677d06401830",
 			"title": "Implement player invites",
-			"description": "Clicking an empty slot should open a popup to research and select a player to invite.",
+			"description": "Use Supabase Realtime system to send the invitation to the other player. Also implement accepting the invitation.",
 			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
 			"steps": []
 		},
@@ -437,6 +439,20 @@
 			"title": "14/10/2026",
 			"description": "",
 			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "28903075-68c1-4a15-a9fa-df6148f3524e",
+			"title": "Add a way to choose the amount of players for a match",
+			"description": "",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "26f1ae5f-d5eb-46aa-bb3f-51bf8b88b5f6",
+			"title": "Add and implement the \"invite player\" popup",
+			"description": "Clicking an empty slot should open a popup to research and select a player to invite.",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
 			"steps": []
 		}
 	],

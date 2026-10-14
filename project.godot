@@ -43,12 +43,17 @@ folder_colors={
 "res://BoardGameMaker/": "blue",
 "res://BoardGameMaker/Core/": "orange",
 "res://BoardGameMaker/Networking/": "gray",
+"res://BoardGameMaker/Registries/": "red",
 "res://BoardGameMaker/Resources/": "yellow",
 "res://BoardGameMaker/Shared Assets/": "green",
 "res://BoardGameMaker/Systems/": "purple",
 "res://BoardGameMaker/UI/": "teal",
 "res://script_templates/": "blue"
 }
+
+[global_group]
+
+"Player Slots"=""
 
 [rendering]
 

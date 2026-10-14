@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://j7god1du07l0"]
+
+[ext_resource type="Texture2D" uid="uid://blguelnbst5hu" path="res://BoardGameMaker/UI/Textures/user-profile-icon.png" id="1_5x0fn"]
+[ext_resource type="Script" uid="uid://d0efblpc3iul0" path="res://BoardGameMaker/UI/Components/player_slot.gd" id="1_p741d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nknyd"]
+bg_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p741d"]
+content_margin_top = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.1472, 0.3296667, 0.46, 1)
+
+[node name="PlayerSlot" type="TextureRect" unique_id=694450955 groups=["Player Slots"]]
+custom_minimum_size = Vector2(100, 100)
+texture = ExtResource("1_5x0fn")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("1_p741d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=99659107]
+
+[node name="InvitePopup" type="PanelContainer" parent="CanvasLayer" unique_id=1098428424]
+offset_right = 520.0
+offset_bottom = 377.0
+offset_transform_position = Vector2(-470, 50)
+offset_transform_visual_only = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_nknyd")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/InvitePopup" unique_id=191922378]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/InvitePopup/MarginContainer" unique_id=750349879]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="UsernameEdit" type="LineEdit" parent="CanvasLayer/InvitePopup/MarginContainer/VBoxContainer" unique_id=1880155184]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+placeholder_text = "Player username..."
+expand_to_text_length = true
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/InvitePopup/MarginContainer/VBoxContainer" unique_id=376976831]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "This player does't exist!"
+horizontal_alignment = 1
+
+[node name="InviteButton" type="Button" parent="CanvasLayer/InvitePopup/MarginContainer/VBoxContainer" unique_id=738508840]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_p741d")
+text = "Invite"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="text_changed" from="CanvasLayer/InvitePopup/MarginContainer/VBoxContainer/UsernameEdit" to="." method="_on_username_edit_text_changed"]
+[connection signal="pressed" from="CanvasLayer/InvitePopup/MarginContainer/VBoxContainer/InviteButton" to="." method="_on_invite_button_pressed"]
