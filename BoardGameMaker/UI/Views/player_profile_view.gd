@@ -33,4 +33,10 @@ func _set_editing_mode(enabled: bool) -> void:
 
 
 func _apply_modifications() -> void:
-	Main.local_player.name = player_name_edit.text
+	var success = await GameService.try_update_player_username(player_name_edit.text)
+	
+	if success:
+		Main.local_player.name = player_name_edit.text
+	else:
+		player_name_edit.text = Main.local_player.name
+		print("Can't update username!")

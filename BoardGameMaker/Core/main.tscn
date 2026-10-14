@@ -46,4 +46,5 @@ custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
 
 [node name="LoginScreen" parent="." unique_id=113582753 instance=ExtResource("3_hm7iv")]
+visible = false
 layout_mode = 1

@@ -22,6 +22,27 @@ expand_margin_top = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp18u"]
+content_margin_left = 70.0
+content_margin_top = 4.0
+content_margin_right = 70.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qmlt"]
+content_margin_left = 70.0
+content_margin_top = 4.0
+content_margin_right = 70.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14901961, 0.32941177, 0.45882353, 1)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxjn2"]
 bg_color = Color(0.1472, 0.3296667, 0.46, 1)
 
@@ -59,12 +80,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_68wgx")
 [node name="TabContainer" type="TabContainer" parent="CenterContainer/PanelContainer" unique_id=2069352589]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_fp18u")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_3qmlt")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 tab_0/title = "Sign Up"
+tab_1/title = "Log in"
 tab_2/hidden = true
 
 [node name="SignUp" type="MarginContainer" parent="CenterContainer/PanelContainer/TabContainer" unique_id=222572577]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
@@ -117,58 +142,59 @@ theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_rxjn2")
 text = "Create account"
 
-[node name="Login" type="MarginContainer" parent="CenterContainer/PanelContainer/TabContainer" unique_id=625658510]
-visible = false
+[node name="LogIn" type="MarginContainer" parent="CenterContainer/PanelContainer/TabContainer" unique_id=625658510]
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 metadata/_tab_index = 1
+metadata/_tab_name = "Log in"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/TabContainer/Login" unique_id=2037202413]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/TabContainer/LogIn" unique_id=2037202413]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=1619972653]
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=1619972653]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Email"
 horizontal_alignment = 1
 
-[node name="EmailEdit" type="LineEdit" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=1237128345]
+[node name="EmailEdit" type="LineEdit" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=1237128345]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 placeholder_text = "Your email address"
 
-[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=127937584]
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=127937584]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=1765867491]
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=1765867491]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Password"
 horizontal_alignment = 1
 
-[node name="PasswordEdit" type="LineEdit" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=1226368555]
+[node name="PasswordEdit" type="LineEdit" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=1226368555]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 placeholder_text = "Your password"
+secret = true
 
-[node name="Spacer2" type="Control" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=1175540955]
+[node name="Spacer2" type="Control" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=1175540955]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
-[node name="LoginButton" type="Button" parent="CenterContainer/PanelContainer/TabContainer/Login/VBoxContainer" unique_id=1902444501]
+[node name="LogInButton" type="Button" parent="CenterContainer/PanelContainer/TabContainer/LogIn/VBoxContainer" unique_id=1902444501]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.94, 1, 1)
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_rxjn2")
-text = "Login"
+text = "Log in"
 
 [node name="SetUsername" type="MarginContainer" parent="CenterContainer/PanelContainer/TabContainer" unique_id=379004723]
 visible = false

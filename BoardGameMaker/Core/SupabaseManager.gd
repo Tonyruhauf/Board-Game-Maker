@@ -6,16 +6,70 @@ extends Node
 
 # Holds the JWT access token of the currently logged-in user
 var current_access_token: String = ""
+var current_refresh_token: String = ""
+
+const SESSION_FILE_PATH = "user://supabase_session.save"
 
 
-# Set this after a successful sign-in/sign-up
-func set_session(access_token: String) -> void:
+# Save tokens to a local file
+func save_session(access_token: String, refresh_token: String) -> void:
 	current_access_token = access_token
+	current_refresh_token = refresh_token
+	
+	var session_data = {
+		"access_token": access_token,
+		"refresh_token": refresh_token
+	}
+	
+	var file = FileAccess.open(SESSION_FILE_PATH, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(session_data))
+		file.close()
 
 
-# Clear this on logout
+# Clear session and delete the save file on logout
 func clear_session() -> void:
 	current_access_token = ""
+	current_refresh_token = ""
+	if FileAccess.file_exists(SESSION_FILE_PATH):
+		DirAccess.remove_absolute(SESSION_FILE_PATH)
+
+
+## Attempts to restore the session from local storage on game start
+func try_restore_session() -> bool:
+	if not FileAccess.file_exists(SESSION_FILE_PATH):
+		return false
+		
+	var file = FileAccess.open(SESSION_FILE_PATH, FileAccess.READ)
+	if not file:
+		return false
+		
+	var json = JSON.new()
+	if json.parse(file.get_as_text()) != OK:
+		file.close()
+		return false
+	file.close()
+	
+	var session_data = json.get_data()
+	if not session_data is Dictionary or not session_data.has("refresh_token"):
+		return false
+		
+	var stored_refresh_token = session_data["refresh_token"]
+	
+	# Request a fresh access token from Supabase using the refresh token
+	var url = "%s/auth/v1/token?grant_type=refresh_token" % [supabase_url]
+	var payload = {"refresh_token": stored_refresh_token}
+	
+	var res = await _make_request(url, HTTPClient.METHOD_POST, JSON.stringify(payload), supabase_key)
+	
+	if res.code == 200 and typeof(res.data) == TYPE_DICTIONARY and res.data.has("access_token"):
+		save_session(res.data["access_token"], res.data.get("refresh_token", stored_refresh_token))
+		print("Session restored successfully!")
+		return true
+	else:
+		print("Saved session expired or invalid. Clearing session.")
+		clear_session()
+		return false
 
 
 # Generic request helper managing dynamic HTTPRequests with optional token support
@@ -83,18 +137,36 @@ func _make_request(url: String, method: HTTPClient.Method, body: String = "", cu
 # --- Database Operations ---
 
 ## SELECT (pass filter_by_user = true to automatically target current user)
+## @return: A Dictionary containing {"code": int, "data": Variant, "error": String}.
+## 
+## Example Usage:
+## var result = await SupabaseManager.select("player_profiles", "select=username,score&limit=10", false)
+## if result.code == 200:
+##     print(result.data)
 func select(table: String, query_params: String = "", filter_by_user: bool = false) -> Dictionary:
 	var query_string = _build_query_string(query_params, filter_by_user)
 	var url = "%s/rest/v1/%s%s" % [supabase_url, table, query_string]
 	return await _make_request(url, HTTPClient.METHOD_GET)
 
 
+## @return: A Dictionary containing {"code": int, "data": Variant, "error": String}.
+##
+## Example Usage:
+## var result = await SupabaseManager.insert("player_profiles", {"username": "CyberKnight", "score": 500})
+## if result.code == 201:
+##     print("Inserted successfully!")
 func insert(table: String, data: Dictionary) -> Dictionary:
 	var url = "%s/rest/v1/%s" % [supabase_url, table]
 	return await _make_request(url, HTTPClient.METHOD_POST, JSON.stringify(data))
 
 
 ## UPDATE (defaults to filter_by_user = true for safety)
+## @return: A Dictionary containing {"code": int, "data": Variant, "error": String}.
+##
+## Example Usage:
+## var result = await SupabaseManager.update("player_profiles", "id=eq.5", {"score": 750}, true)
+## if result.code == 200:
+##     print("Updated successfully!")
 func update(table: String, query_params: String, data: Dictionary, filter_by_user: bool = true) -> Dictionary:
 	var query_string = _build_query_string(query_params, filter_by_user)
 	var url = "%s/rest/v1/%s%s" % [supabase_url, table, query_string]
@@ -118,8 +190,10 @@ func sign_in(email: String, password: String) -> Dictionary:
 	var res = await _make_request(url, HTTPClient.METHOD_POST, JSON.stringify(payload), supabase_key)
 	
 	if res.code == 200 and typeof(res.data) == TYPE_DICTIONARY and res.data.has("access_token"):
-		set_session(res.data["access_token"])
-		
+		var access = res.data["access_token"]
+		var refresh = res.data.get("refresh_token", "")
+		save_session(access, refresh)
+	
 	return res
 
 
@@ -135,8 +209,10 @@ func sign_up(email: String, password: String) -> Dictionary:
 	# Note: Depending on your Supabase project settings, sign up might require email confirmation 
 	# before returning an access_token, but if email confirmations are disabled, it logs them in right away.
 	if res.code == 200 and typeof(res.data) == TYPE_DICTIONARY and res.data.has("access_token"):
-		set_session(res.data["access_token"])
-		
+		var access = res.data["access_token"]
+		var refresh = res.data.get("refresh_token", "")
+		save_session(access, refresh)
+	
 	return res
 
 
@@ -146,9 +222,9 @@ func _build_query_string(query_params: String, filter_by_user: bool) -> String:
 	if filter_by_user:
 		var uid = _get_current_user_id()
 		if uid != "":
-			var user_filter = "user_id=eq." + uid
+			var user_filter = "id=eq." + uid
 			if final_params != "":
-				if not "user_id=eq." in final_params:
+				if not "id=eq." in final_params:
 					final_params = user_filter + "&" + final_params
 			else:
 				final_params = user_filter

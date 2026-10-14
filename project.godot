@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 
 EventsBus="*uid://xdyjyg3sm11d"
 SupabaseManager="*uid://m8qf2mhjcjx2"
+GameService="*uid://bdl1g4qwu21pe"
 
 [display]
 
