@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxkiuicha2pvv" path="res://BoardGameMaker/Core/main.gd" id="1_mvayl"]
 [ext_resource type="PackedScene" uid="uid://buyc1mbm2rayt" path="res://BoardGameMaker/UI/Components/top_bar.tscn" id="2_hm7iv"]
+[ext_resource type="PackedScene" uid="uid://cow2bin18prxn" path="res://BoardGameMaker/UI/Components/login_screen.tscn" id="3_hm7iv"]
 
 [node name="Main" type="Control" unique_id=1105573428]
 layout_mode = 3
@@ -43,3 +44,6 @@ layout_mode = 2
 [node name="SceneContainer" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=149529927]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
+
+[node name="LoginScreen" parent="." unique_id=113582753 instance=ExtResource("3_hm7iv")]
+layout_mode = 1

@@ -4,6 +4,7 @@ class_name MainNode extends Control
 @onready var background: ColorRect = $BG
 @onready var top_bar: PanelContainer = $ScrollContainer/VBoxContainer/TopBar
 @onready var scene_container: Control = $ScrollContainer/VBoxContainer/SceneContainer
+@onready var login_screen: Control = $LoginScreen
 
 var current_scene: Node
 var local_player: Player = Player.new().setup("Tony")
@@ -13,6 +14,7 @@ const STARTING_SCENE: String = "res://BoardGameMaker/Core/Game Browser/game_brow
 
 func _ready() -> void:
 	top_bar.Main = self
+	login_screen.Main = self
 	change_scene(STARTING_SCENE)
 
 

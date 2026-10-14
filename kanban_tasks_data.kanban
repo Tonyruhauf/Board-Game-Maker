@@ -83,7 +83,7 @@
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"9c5c696e-4c92-4da7-be0e-377c8fc25915",
+				"c4e1102c-a14c-4f3d-9324-e85661a93e20",
 				"6a093341-71d6-4ce4-aab5-677d06401830",
 				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
@@ -92,6 +92,11 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"6c1207f4-6999-48e2-8cac-a4cebbb8a7c3",
+				"9d92d92c-f607-4be4-89e0-cd5c11c7ee66",
+				"9c5c696e-4c92-4da7-be0e-377c8fc25915",
+				"d58b2afc-af3e-4247-ac48-4dac6de0c0e6",
+				"b4c74164-423d-400b-a866-1eeedfe2d08a",
 				"506f90fe-ab8a-4d2d-9862-1f8d8ac58963",
 				"60f46b8f-8f0e-4d76-83ea-afdbe97a4867",
 				"6dee5a55-ad85-4795-a101-68c3a7ac9fd7",
@@ -379,8 +384,43 @@
 		{
 			"uuid": "9c5c696e-4c92-4da7-be0e-377c8fc25915",
 			"title": "Implement a simple players database",
-			"description": "There could be a free Database on AstraDB, with a list of all connected players.\nNo need for accounts for now, just connecting to the game add your profile name to the database.\nChanging your profile name should update it in the database.",
-			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
+			"description": "https://supabase.com/dashboard/project/vescafepxaxywnqcqmpi/database/schemas",
+			"category": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
+			"steps": []
+		},
+		{
+			"uuid": "d58b2afc-af3e-4247-ac48-4dac6de0c0e6",
+			"title": "Learn how to use Supabase",
+			"description": "Will be useful to implement a database.",
+			"category": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
+			"steps": []
+		},
+		{
+			"uuid": "b4c74164-423d-400b-a866-1eeedfe2d08a",
+			"title": "13/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "6c1207f4-6999-48e2-8cac-a4cebbb8a7c3",
+			"title": "Implement Register/Login with Supabase",
+			"description": "",
+			"category": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
+			"steps": []
+		},
+		{
+			"uuid": "9d92d92c-f607-4be4-89e0-cd5c11c7ee66",
+			"title": "Add a register/login page",
+			"description": "",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "c4e1102c-a14c-4f3d-9324-e85661a93e20",
+			"title": "Implement username editing",
+			"description": "Changing your username in the profile view should update it in the database.",
+			"category": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
 			"steps": []
 		}
 	],
