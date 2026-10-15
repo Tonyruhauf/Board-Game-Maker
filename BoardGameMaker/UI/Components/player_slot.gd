@@ -6,9 +6,11 @@ extends TextureRect
 @onready var result_label: Label = $CanvasLayer/InvitePopup/MarginContainer/VBoxContainer/ResultLabel
 @onready var invite_button: Button = $CanvasLayer/InvitePopup/MarginContainer/VBoxContainer/InviteButton
 
+var match_id: String
 var prev_global_pos: Vector2
 var search_cooldown_remaining: float = 0.0
 var searched_username: String
+var found_user_profile: Dictionary
 
 const SEARCH_COOLDOWN: float = 1.2
 
@@ -57,6 +59,7 @@ func run_search() -> void:
 	
 	if result.code == 200 and not result.data.is_empty():
 		result_label.text = "Player found:\n" + result.data[0].username
+		found_user_profile = result.data[0]
 		invite_button.disabled = false
 	else:
 		result_label.text = "This player does't exist!"
@@ -69,4 +72,9 @@ func _on_username_edit_text_changed(new_text: String) -> void:
 
 
 func _on_invite_button_pressed() -> void:
-	pass # TODO
+	var invite_data: Dictionary = {
+		"sender": GameService.get_player_id(),
+		"recipient": found_user_profile.id,
+		"match_id": match_id
+	}
+	SupabaseManager.insert("invites", invite_data)

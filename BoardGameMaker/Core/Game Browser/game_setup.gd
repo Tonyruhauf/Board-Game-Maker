@@ -18,6 +18,8 @@ var Main: MainNode
 
 @export var game_info: GameInfo
 
+var match_state: MatchState = MatchState.new()
+
 var player_slots_count: int
 var invited_players: Array[Player]
 var joined_players: Array[Player]
@@ -35,7 +37,25 @@ func _ready() -> void:
 	players_panel.hide()
 	
 	joined_players = [Main.local_player]
+	
 	_update_players_display()
+	create_match()
+
+
+func create_match() -> void:
+	var result: Dictionary = await SupabaseManager.insert("matches", {
+		"created_by": GameService.get_player_id(),
+		"game_state": {}
+	})
+	
+	if result.code == 201:
+		match_state.match_id = result.data[0].id
+		
+		result = await SupabaseManager.insert("match_players", {
+			"match_id": result.data[0].id,
+			"user_id": GameService.get_player_id(),
+			"seat": 0
+		})
 
 
 func _update_players_display() -> void:
@@ -58,6 +78,7 @@ func _update_players_display() -> void:
 	
 	for i in get_remaining_slots_count():
 		var slot = PLAYER_SLOT_SCENE.instantiate()
+		slot.match_id = match_state.match_id
 		players_container.add_child(slot)
 
 

@@ -3,7 +3,7 @@ class_name BoardGame extends Node
 
 var turn_manager: TurnManager = TurnManager.new()
 var game_state: GameState
-var session_state: GameSession.SessionState
+#var session_state: GameSession.SessionState
 
 var local_player: Player
 

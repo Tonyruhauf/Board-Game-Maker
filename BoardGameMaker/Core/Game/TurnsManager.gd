@@ -16,5 +16,5 @@ func end_turn():
 	start_turn(players[next_index])
 
 
-func is_current_player(player_ID: int) -> bool:
+func is_current_player(player_ID: String) -> bool:
 	return player_ID == current_player.ID

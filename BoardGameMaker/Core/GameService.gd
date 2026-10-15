@@ -1,12 +1,19 @@
 extends Node
 
 
+var Main: MainNode
+
+
 func get_player_profile() -> Dictionary:
 	var result = await SupabaseManager.select("player_profiles", "select=*&limit=1", true)
 	
 	if result.code == 200 and result.data is Array and not result.data.is_empty():
 		return result.data[0]
 	return {}
+
+
+func get_player_id() -> String:
+	return Main.local_player.ID
 
 
 func get_player_by_username(username: String) -> Dictionary:
