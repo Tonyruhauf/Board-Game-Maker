@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxkiuicha2pvv" path="res://BoardGameMaker/Core/main.gd" id="1_mvayl"]
 [ext_resource type="PackedScene" uid="uid://buyc1mbm2rayt" path="res://BoardGameMaker/UI/Components/top_bar.tscn" id="2_hm7iv"]
 [ext_resource type="PackedScene" uid="uid://cow2bin18prxn" path="res://BoardGameMaker/UI/Components/login_screen.tscn" id="3_hm7iv"]
+[ext_resource type="PackedScene" uid="uid://bavhqjc3ndei4" path="res://BoardGameMaker/UI/Components/match_invite.tscn" id="4_u5ijw"]
 
 [node name="Main" type="Control" unique_id=1105573428]
 layout_mode = 3
@@ -48,3 +49,18 @@ layout_mode = 2
 [node name="LoginScreen" parent="." unique_id=113582753 instance=ExtResource("3_hm7iv")]
 visible = false
 layout_mode = 1
+
+[node name="MatchInvite" parent="." unique_id=385667349 instance=ExtResource("4_u5ijw")]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0

@@ -45,7 +45,8 @@ func _ready() -> void:
 func create_match() -> void:
 	var result: Dictionary = await SupabaseManager.insert("matches", {
 		"created_by": GameService.get_player_id(),
-		"game_state": {}
+		"game_state": {},
+		"game_info": {}
 	})
 	
 	if result.code == 201:

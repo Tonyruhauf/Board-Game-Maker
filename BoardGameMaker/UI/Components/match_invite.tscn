@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bavhqjc3ndei4"]
+
+[ext_resource type="Script" uid="uid://ct16bs20q7x3x" path="res://BoardGameMaker/UI/Components/match_invite.gd" id="1_jliqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nknyd"]
+bg_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a6r8"]
+content_margin_top = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.1472, 0.3296667, 0.46, 1)
+
+[node name="MatchInvite" type="PanelContainer" unique_id=385667349]
+custom_minimum_size = Vector2(500, 300)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nknyd")
+script = ExtResource("1_jliqc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=197605645]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2044781969]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GameName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=115166796]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.19430003, 0.32115322, 0.67, 1)
+theme_override_font_sizes/font_size = 42
+text = "Game Name"
+
+[node name="Sender" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1888193847]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "👤Sender"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=550964149]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AcceptButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1312206518]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_5a6r8")
+text = "Accept"

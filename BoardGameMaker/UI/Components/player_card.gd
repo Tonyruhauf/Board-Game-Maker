@@ -9,7 +9,7 @@ var has_joined: bool = true
 
 
 func _ready() -> void:
-	player_name.text = player.name
+	player_name.text = player.username
 	
 	if not has_joined:
 		modulate.a = 0.65

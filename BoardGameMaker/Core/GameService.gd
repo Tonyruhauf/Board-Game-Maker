@@ -23,6 +23,15 @@ func get_player_by_username(username: String) -> Dictionary:
 	return result
 
 
+func get_match(match_id: String) -> Dictionary:
+	var query: String = "select=*&id=eq.%s&limit=1" % match_id
+	var result = await SupabaseManager.select("matches", query)
+	
+	if result.code == 200 and result.data is Array and not result.data.is_empty():
+		return result.data[0]
+	return {}
+
+
 func try_update_player_username(new_username: String) -> bool:
 	var result = await SupabaseManager.update(
 		"player_profiles",

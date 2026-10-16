@@ -21,4 +21,4 @@ func _update_display():
 	
 	for player in board_game.game_state.players:
 		var score: int = board_game.game_state.get_player_score(player.ID)
-		text += "%s: %d points\n" % [player.name, score]
+		text += "%s: %d points\n" % [player.username, score]

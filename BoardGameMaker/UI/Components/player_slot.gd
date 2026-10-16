@@ -77,4 +77,8 @@ func _on_invite_button_pressed() -> void:
 		"recipient": found_user_profile.id,
 		"match_id": match_id
 	}
-	SupabaseManager.insert("invites", invite_data)
+	var result = await SupabaseManager.insert("invites", invite_data)
+	
+	if result.code == 201:
+		var channel: String = "user-%s" % found_user_profile.username
+		SupabaseRealtime.send_broadcast(channel, "match_invite", result.data[0])
