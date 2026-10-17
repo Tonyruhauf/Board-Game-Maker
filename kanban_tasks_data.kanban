@@ -82,7 +82,7 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"6a093341-71d6-4ce4-aab5-677d06401830",
+				"291ed709-ce0a-48fa-8b97-742f2ea13cbc",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
@@ -91,6 +91,8 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"6a093341-71d6-4ce4-aab5-677d06401830",
+				"7a4c57a9-3984-4c4c-8528-be1ca563f3ab",
 				"26f1ae5f-d5eb-46aa-bb3f-51bf8b88b5f6",
 				"28903075-68c1-4a15-a9fa-df6148f3524e",
 				"c4e1102c-a14c-4f3d-9324-e85661a93e20",
@@ -453,6 +455,20 @@
 			"title": "Add and implement the \"invite player\" popup",
 			"description": "Clicking an empty slot should open a popup to research and select a player to invite.",
 			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "7a4c57a9-3984-4c4c-8528-be1ca563f3ab",
+			"title": "15-17/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "291ed709-ce0a-48fa-8b97-742f2ea13cbc",
+			"title": "Implement \"user joined match\" logic",
+			"description": "Implementation idea:\n\nBroadcast an event when a user joins a match, in a channel that all users in the match are connected.\n\nWhen any player receive this broadcast, it won't do anything (its only for the owner).\nWhen the match owner receives this broadcast, he will update the database and send another broadcast to notify the changes in the database.\n\nWhen any player receive this other broadcast, it will update their match state resource and display the changes.",
+			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
 			"steps": []
 		}
 	],

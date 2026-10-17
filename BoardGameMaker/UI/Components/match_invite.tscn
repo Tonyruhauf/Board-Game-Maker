@@ -53,3 +53,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_5a6r8")
 text = "Accept"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]

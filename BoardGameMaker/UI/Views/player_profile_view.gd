@@ -9,7 +9,7 @@ var is_editing: bool = false
 
 
 func _ready() -> void:
-	player_name_edit.text = Main.local_player.username
+	player_name_edit.text = GameService.local_player.username
 
 
 func _on_edit_name_button_pressed() -> void:
@@ -35,8 +35,6 @@ func _set_editing_mode(enabled: bool) -> void:
 func _apply_modifications() -> void:
 	var success = await GameService.try_update_player_username(player_name_edit.text)
 	
-	if success:
-		Main.local_player.username = player_name_edit.text
-	else:
-		player_name_edit.text = Main.local_player.username
+	if not success:
+		player_name_edit.text = GameService.local_player.username
 		print("Can't update username!")

@@ -8,7 +8,7 @@ var game_state: GameState
 var local_player: Player
 
 
-func setup(players: Array[Player], _local_player) -> void:
+func setup(players: Array[String], _local_player) -> void:
 	_create_game_state()
 	game_state.players = players
 	turn_manager.players = players

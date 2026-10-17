@@ -55,11 +55,12 @@ func _update_popup_pos() -> void:
 
 
 func run_search() -> void:
-	var result = await GameService.get_player_by_username(searched_username)
+	var profile =\
+		await GameService.get_player_profile_by_username(searched_username)
 	
-	if result.code == 200 and not result.data.is_empty():
-		result_label.text = "Player found:\n" + result.data[0].username
-		found_user_profile = result.data[0]
+	if not profile.is_empty():
+		result_label.text = "Player found:\n" + profile.username
+		found_user_profile = profile
 		invite_button.disabled = false
 	else:
 		result_label.text = "This player does't exist!"
@@ -72,8 +73,10 @@ func _on_username_edit_text_changed(new_text: String) -> void:
 
 
 func _on_invite_button_pressed() -> void:
+	invite_popup.hide()
+	
 	var invite_data: Dictionary = {
-		"sender": GameService.get_player_id(),
+		"sender": GameService.local_player.ID,
 		"recipient": found_user_profile.id,
 		"match_id": match_id
 	}

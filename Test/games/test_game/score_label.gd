@@ -19,6 +19,7 @@ func _on_player_scored(_event: PlayerScoredEvent):
 func _update_display():
 	text = ""
 	
-	for player in board_game.game_state.players:
+	for player_id in board_game.game_state.players:
+		var player: Player = await GameService.get_player(player_id)
 		var score: int = board_game.game_state.get_player_score(player.ID)
 		text += "%s: %d points\n" % [player.username, score]

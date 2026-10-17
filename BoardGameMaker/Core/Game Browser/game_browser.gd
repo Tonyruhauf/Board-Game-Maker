@@ -31,9 +31,9 @@ func reload_games() -> void:
 func create_game_card(game_info: GameInfo) -> void:
 	var instance = GAME_CARD_SCENE.instantiate()
 	instance.game_info = game_info
-	instance.pressed.connect(start_game.bind(game_info))
+	instance.pressed.connect(open_game_page.bind(game_info))
 	games_container.add_child(instance)
 
 
-func start_game(game_info: GameInfo) -> void:
-	Main.change_scene(GAME_SETUP_SCENE_PATH, {"game_info":game_info})
+func open_game_page(game_info: GameInfo) -> void:
+	Main.change_scene(GAME_SETUP_SCENE_PATH, {"game_info": game_info})

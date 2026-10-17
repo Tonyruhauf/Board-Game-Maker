@@ -163,6 +163,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScrollContainer" unique_id=1710724189]
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

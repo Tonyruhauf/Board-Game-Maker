@@ -18,35 +18,40 @@ var Main: MainNode
 
 @export var game_info: GameInfo
 
-var match_state: MatchState = MatchState.new()
+var match_state: MatchState = null
 
 var player_slots_count: int
-var invited_players: Array[Player]
-var joined_players: Array[Player]
 
 const PLAYER_CARD_SCENE: PackedScene = preload("res://BoardGameMaker/UI/Components/player_card.tscn")
 const PLAYER_SLOT_SCENE: PackedScene = preload("res://BoardGameMaker/UI/Components/player_slot.tscn")
 
 
 func _ready() -> void:
-	thumbnail.texture = game_info.thumbnail
-	name_label.text = game_info.name
-	description.text = game_info.description
-	players_count.text = "👤%d - %d" % [game_info.min_players, game_info.max_players]
+	update_display()
+
+
+func update_display():
+	if game_info:
+		thumbnail.texture = game_info.thumbnail
+		name_label.text = game_info.name
+		description.text = game_info.description
+		players_count.text = "👤%d - %d" % [game_info.min_players, game_info.max_players]
 	
 	players_panel.hide()
-	
-	joined_players = [Main.local_player]
-	
 	_update_players_display()
-	create_match()
 
 
 func create_match() -> void:
+	match_state = MatchState.new()
+	
+	match_state.joined_players = [GameService.local_player.ID]
+	update_display()
+	
 	var result: Dictionary = await SupabaseManager.insert("matches", {
-		"created_by": GameService.get_player_id(),
-		"game_state": {},
-		"game_info": {}
+		"created_by": GameService.local_player.ID,
+		"game_info": game_info.to_dict(),
+		"joined_players": match_state.joined_players,
+		"invited_players": match_state.invited_players,
 	})
 	
 	if result.code == 201:
@@ -54,27 +59,40 @@ func create_match() -> void:
 		
 		result = await SupabaseManager.insert("match_players", {
 			"match_id": result.data[0].id,
-			"user_id": GameService.get_player_id(),
+			"user_id": GameService.local_player.ID,
 			"seat": 0
 		})
 
 
+func join_match(match_data: Dictionary) -> void:
+	match_state = MatchState.from_dict(match_data)
+	game_info = GameInfo.from_dict(match_data.game_info)
+	
+	update_display()
+
+
 func _update_players_display() -> void:
+	if match_state == null:
+		return
+	
+	var invited_players: Array[String] = match_state.invited_players
+	var joined_players: Array[String] = match_state.joined_players
+	
 	players_panel.visible =\
 		(invited_players.size() > 0 or joined_players.size() > 0)
 	
 	for player_card in players_container.get_children():
 		player_card.queue_free()
 	
-	for player in invited_players:
+	for player_id in invited_players:
 		var card = PLAYER_CARD_SCENE.instantiate()
-		card.player = player
+		card.player = await GameService.get_player(player_id)
 		card.has_joined = false
 		players_container.add_child(card)
 	
-	for player in joined_players:
+	for player_id in joined_players:
 		var card = PLAYER_CARD_SCENE.instantiate()
-		card.player = player
+		card.player = await GameService.get_player(player_id)
 		players_container.add_child(card)
 	
 	for i in get_remaining_slots_count():
@@ -85,14 +103,20 @@ func _update_players_display() -> void:
 
 func get_remaining_slots_count() -> int:
 	var remaining_slots: int = player_slots_count
-	remaining_slots -= invited_players.size()
-	remaining_slots -= joined_players.size()
+	remaining_slots -= match_state.invited_players.size()
+	remaining_slots -= match_state.joined_players.size()
 	return remaining_slots
 
 
 func _on_play_button_pressed() -> void:
+	if match_state == null:
+		play_button.disabled = true
+		await create_match()
+		play_button.disabled = false
+		return
+	
 	var game_instance: BoardGame = game_info.game_scene.instantiate()
-	game_instance.setup(joined_players, joined_players[0]) # TODO: Replace temporary code "joined_players[0]"
+	game_instance.setup(match_state.joined_players, GameService.local_player)
 	game_instance.start()
 	
 	Main.change_scene(game_instance)
