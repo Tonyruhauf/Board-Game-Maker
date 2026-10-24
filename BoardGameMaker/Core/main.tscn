@@ -42,7 +42,7 @@ theme_override_constants/separation = 0
 z_index = 1
 layout_mode = 2
 
-[node name="SceneContainer" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=149529927]
+[node name="SceneContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=357017170]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
 

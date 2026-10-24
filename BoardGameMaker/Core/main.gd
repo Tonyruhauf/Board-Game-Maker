@@ -24,14 +24,13 @@ func _ready() -> void:
 	top_bar.hide()
 	
 	# Realtime connection
-	SupabaseRealtime.message_received.connect(_on_broadcast_message_received)
 	SupabaseRealtime.channel_error.connect(func(room, reason): push_error("%s: %s" % [room, reason]))
 	SupabaseRealtime.connect_realtime(SupabaseManager.current_access_token)
 	
-	if await SupabaseManager.try_restore_session():
-		_on_login_success()
-	else:
-		login_screen.popup(true)
+	#if await SupabaseManager.try_restore_session():
+		#_on_login_success()
+	#else:
+	login_screen.popup(true)
 
 
 func _on_login_success() -> void:
@@ -64,29 +63,14 @@ func _setup_local_player():
 	SupabaseRealtime.subscribe_to_table(channel_name, "invites", filter, "INSERT")
 
 
-func _on_postgres_changes_received(room: String, table: String, event_type: String, payload: Dictionary) -> void:
+func _on_postgres_changes_received(room: String, table: String, event_type: String, data: Dictionary) -> void:
 	if table == "invites" and event_type == "INSERT":
-		var invite_data = payload.get("new", {})
+		var invite_data = data.get("record", {})
 		_on_match_invite_received(invite_data)
 
 
-func _on_broadcast_message_received(
-	room: String,
-	event: String,
-	payload: Dictionary
-):
-	
-	print("Received")
-	print(room)
-	print(event)
-	print(payload)
-	
-	match event:
-		"match_invite":
-			_on_match_invite_received(payload)
-
-
 func _on_match_invite_received(data: Dictionary) -> void:
+	print("received match invite")
 	match_invite.popup(data)
 
 

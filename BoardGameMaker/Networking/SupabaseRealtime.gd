@@ -13,7 +13,7 @@ signal disconnected
 signal message_received(room: String, event: String, payload: Dictionary)
 
 ## Emitted when a database change (INSERT, UPDATE, DELETE) is received.
-signal postgres_changes_received(room: String, table: String, event_type: String, payload: Dictionary)
+signal postgres_changes_received(room: String, table: String, event_type: String, data: Dictionary)
 
 ## Emitted when the server confirms a channel join.
 signal channel_joined(room: String)
@@ -300,7 +300,7 @@ func _send_heartbeat() -> void:
 
 
 func _handle_packet(json_text: String) -> void:
-	print("RT <- ", json_text)
+	#print("RT <- ", json_text)
 	
 	var json := JSON.new()
 	if json.parse(json_text) != OK:
@@ -326,9 +326,9 @@ func _handle_packet(json_text: String) -> void:
 
 		"postgres_changes":
 			if payload is Dictionary:
-				var table_name: String = str(payload.get("table", ""))
-				var event_type: String = str(payload.get("eventType", ""))
-				postgres_changes_received.emit(room, table_name, event_type, payload)
+				var table_name: String = str(payload.data.get("table", ""))
+				var event_type: String = str(payload.data.get("type", ""))
+				postgres_changes_received.emit(room, table_name, event_type, payload.data)
 
 		"phx_reply":
 			if topic == "phoenix":

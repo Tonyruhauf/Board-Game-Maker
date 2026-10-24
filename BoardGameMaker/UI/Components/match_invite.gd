@@ -12,12 +12,6 @@ var sender_data: Dictionary
 
 
 func popup(invite_data: Dictionary):
-	#var invite_data: Dictionary = {
-		#"sender": GameService.get_player_id(),
-		#"recipient": found_user_profile.id,
-		#"match_id": match_id
-	#}
-	
 	match_data = await GameService.get_match(invite_data.match_id)
 	sender_data = await GameService.get_player_profile(invite_data.sender)
 	

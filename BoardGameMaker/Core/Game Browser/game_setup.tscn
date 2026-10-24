@@ -39,26 +39,23 @@ corner_detail = 5
 [sub_resource type="Theme" id="Theme_i488e"]
 PopupMenu/font_sizes/font_size = 36
 
-[node name="GameSetup" type="Control" unique_id=1208002965]
-layout_mode = 3
+[node name="GameSetup" type="MarginContainer" unique_id=1593918257]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 460.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_i488e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2050572127]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Thumbnail" type="TextureRect" parent="VBoxContainer" unique_id=502275675]
+custom_minimum_size = Vector2(0, 540)
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("PlaceholderTexture2D_l66rp")
@@ -158,54 +155,50 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_m6pou")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wsrov")
 text = "Play"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1811815977]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScrollContainer" unique_id=1710724189]
-custom_minimum_size = Vector2(0, 800)
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1710724189]
+custom_minimum_size = Vector2(0, 1000)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4uxca")
 
-[node name="GameOptions" type="ScrollContainer" parent="VBoxContainer/ScrollContainer/PanelContainer" unique_id=432844317]
+[node name="GameOptions" type="ScrollContainer" parent="VBoxContainer/PanelContainer" unique_id=432844317]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions" unique_id=1433681066]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/GameOptions" unique_id=1433681066]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="OptionsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer" unique_id=410703315]
+[node name="OptionsContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer" unique_id=410703315]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlayersPanel" type="PanelContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer" unique_id=1233301845]
+[node name="PlayersPanel" type="PanelContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer" unique_id=1233301845]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_poy3h")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel" unique_id=557945777]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel" unique_id=557945777]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer" unique_id=841564693]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer" unique_id=841564693]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer" unique_id=79509295]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer" unique_id=79509295]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 30
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1723306727]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1723306727]
 layout_mode = 2
 
-[node name="PlayersCountButton" type="OptionButton" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer" unique_id=1478929920]
+[node name="PlayersCountButton" type="OptionButton" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer" unique_id=1478929920]
 custom_minimum_size = Vector2(105, 40)
 layout_mode = 2
 theme = SubResource("Theme_i488e")
@@ -220,7 +213,7 @@ popup/item_1/id = 1
 popup/item_2/text = "4"
 popup/item_2/id = 2
 
-[node name="Players" type="HFlowContainer" parent="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1744987165]
+[node name="Players" type="HFlowContainer" parent="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1744987165]
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
@@ -228,4 +221,4 @@ alignment = 1
 last_wrap_alignment = 3
 
 [connection signal="pressed" from="VBoxContainer/Thumbnail/GameInfos/MarginContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="item_selected" from="VBoxContainer/ScrollContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer/PlayersCountButton" to="." method="_on_players_count_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/PanelContainer/GameOptions/HBoxContainer/PlayersPanel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer/PlayersCountButton" to="." method="_on_players_count_button_item_selected"]
