@@ -55,8 +55,19 @@ func _try_load_local_player() -> bool:
 
 
 func _setup_local_player():
-	var user_channel: String = "user-%s" % GameService.local_player.username
-	SupabaseRealtime.join_channel(user_channel)
+	var channel_name = "user-invites-%s" % GameService.local_player.ID
+	
+	if not SupabaseRealtime.postgres_changes_received.is_connected(_on_postgres_changes_received):
+		SupabaseRealtime.postgres_changes_received.connect(_on_postgres_changes_received)
+	
+	var filter = "recipient=eq.%s" % GameService.local_player.ID
+	SupabaseRealtime.subscribe_to_table(channel_name, "invites", filter, "INSERT")
+
+
+func _on_postgres_changes_received(room: String, table: String, event_type: String, payload: Dictionary) -> void:
+	if table == "invites" and event_type == "INSERT":
+		var invite_data = payload.get("new", {})
+		_on_match_invite_received(invite_data)
 
 
 func _on_broadcast_message_received(

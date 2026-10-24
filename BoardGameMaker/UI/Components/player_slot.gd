@@ -85,3 +85,6 @@ func _on_invite_button_pressed() -> void:
 	if result.code == 201:
 		var channel: String = "user-%s" % found_user_profile.username
 		SupabaseRealtime.send_broadcast(channel, "match_invite", result.data[0])
+	else:
+		printerr(invite_data)
+		printerr(result)

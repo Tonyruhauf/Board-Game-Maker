@@ -2,6 +2,7 @@ class_name MatchState extends RefCounted
 
 
 @export var match_id: String
+@export var host_id: String
 @export var joined_players: Array[String]
 @export var invited_players: Array[String]
 
@@ -25,7 +26,7 @@ func to_dict() -> Dictionary:
 static func from_dict(data: Dictionary) -> MatchState:
 	var instance: MatchState = MatchState.new()
 	
-	instance.match_id = data.get("match_id", "")
+	instance.match_id = data.get("id", "")
 	instance.joined_players.assign(data.get("joined_players", []))
 	instance.invited_players.assign(data.get("invited_players", []))
 	

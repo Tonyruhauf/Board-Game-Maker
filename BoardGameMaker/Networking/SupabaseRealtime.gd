@@ -12,6 +12,9 @@ signal disconnected
 ## [param payload]: The Dictionary payload containing the message data.
 signal message_received(room: String, event: String, payload: Dictionary)
 
+## Emitted when a database change (INSERT, UPDATE, DELETE) is received.
+signal postgres_changes_received(room: String, table: String, event_type: String, payload: Dictionary)
+
 ## Emitted when the server confirms a channel join.
 signal channel_joined(room: String)
 
@@ -40,7 +43,7 @@ var _access_token: String = ""
 var _reconnect_attempts: int = 0
 var _reconnect_timer: float = -1.0
 
-## room_name -> { "private": bool, "receive_own": bool, "join_ref": String, "joined": bool }
+## room_name -> { "private": bool, "receive_own": bool, "join_ref": String, "joined": bool, "postgres_changes": Array }
 var _channels: Dictionary = {}
 
 
@@ -70,16 +73,11 @@ func _process(delta: float) -> void:
 					_handle_packet(packet.get_string_from_utf8())
 
 		WebSocketPeer.STATE_CLOSED:
-			# Also covers a failed initial connection (never reached OPEN).
 			if _is_connected or _connecting:
 				_on_closed()
 
 
 ## Connects to the Supabase Realtime WebSocket server.[br]
-## [param custom_access_token]: Optional JWT access token to authenticate private channels. Leave empty to use anonymous connection.
-##
-## Example Usage:[br]
-## SupabaseRealtime.connect_realtime(SupabaseManager.current_access_token)
 func connect_realtime(custom_access_token: String = "") -> Error:
 	if supabase_url.is_empty() or supabase_key.is_empty():
 		push_error("SupabaseRealtime: supabase_url and supabase_key must be set.")
@@ -98,15 +96,14 @@ func connect_realtime(custom_access_token: String = "") -> Error:
 	return _open_socket()
 
 
-## Closes the connection and disables auto-reconnect. Joined channels are kept
-## and will be rejoined on the next connect_realtime() call.
+## Closes the connection and disables auto-reconnect.
 func disconnect_realtime() -> void:
 	_wants_connection = false
 	_reconnect_timer = -1.0
 	socket.close()
 
 
-## Updates the JWT (e.g. after a token refresh) on the live connection and all channels.
+## Updates the JWT on the live connection and all channels.
 func set_access_token(token: String) -> void:
 	_access_token = token
 	if not _is_connected:
@@ -120,34 +117,65 @@ func set_access_token(token: String) -> void:
 
 
 ## Joins a specific broadcast channel (topic).[br]
-## Can be called before the socket is open; the join is sent once connected.[br]
-## [param room_name]: The name of the channel room (e.g., "game-room-42").[br]
-## [param private]: Require authorization (RLS) for this channel.[br]
-## [param receive_own]: If true, you also receive your own broadcasts.
-##
-## Example Usage:[br]
-## SupabaseRealtime.join_channel("game-room-42")
 func join_channel(room_name: String, private: bool = false, receive_own: bool = false) -> void:
 	if _channels.has(room_name):
+		# Update configuration if it already exists but ensure channel configs merge nicely
+		_channels[room_name]["private"] = private
+		_channels[room_name]["receive_own"] = receive_own
 		return
+		
 	_channels[room_name] = {
 		"private": private,
 		"receive_own": receive_own,
 		"join_ref": "",
 		"joined": false,
+		"postgres_changes": [],
 	}
 	if _is_connected:
 		_send_join(room_name)
 
 
-## Broadcasts a message to the other clients listening on that channel.[br]
-## The channel must be joined (wait for [signal channel_joined]).[br]
-## [param room_name]: The channel room name.[br]
-## [param event_name]: A string identifier for the event (e.g., "player_move").[br]
-## [param data]: A Dictionary containing the data you want to broadcast.
-##
-## Example Usage:[br]
-## SupabaseRealtime.send_broadcast("game-room-42", "player_move", {"x": 100, "y": 200})
+## Subscribes to database table changes (Postgres Changes) over a channel topic.[br]
+## [param room_name]: The channel/room name.[br]
+## [param table]: Database table to watch (e.g., "invites").[br]
+## [param filter]: Optional row filter (e.g., "recipient=eq.SOME_UUID").[br]
+## [param event]: Database event to watch ("INSERT", "UPDATE", "DELETE", or "*").[br]
+## [param schema]: Database schema (default is "public").[br]
+## [param private]: Whether the channel requires authorization.
+func subscribe_to_table(
+	room_name: String,
+	table: String,
+	filter: String = "",
+	event: String = "INSERT",
+	schema: String = "public",
+	private: bool = false
+) -> void:
+	if not _channels.has(room_name):
+		_channels[room_name] = {
+			"private": private,
+			"receive_own": false,
+			"join_ref": "",
+			"joined": false,
+			"postgres_changes": [],
+		}
+	
+	var change_config = {
+		"event": event,
+		"schema": schema,
+		"table": table
+	}
+	if not filter.is_empty():
+		change_config["filter"] = filter
+		
+	var changes: Array = _channels[room_name]["postgres_changes"]
+	changes.append(change_config)
+	
+	if _is_connected:
+		# If already connected/joined, re-join to update channel configuration
+		_send_join(room_name)
+
+
+## Broadcasts a message to other clients listening on that channel.[br]
 func send_broadcast(room_name: String, event_name: String, data: Dictionary) -> void:
 	var ch: Dictionary = _channels.get(room_name, {})
 	if ch.is_empty() or not ch.joined or not _is_connected:
@@ -164,10 +192,6 @@ func send_broadcast(room_name: String, event_name: String, data: Dictionary) -> 
 
 
 ## Leaves an active channel room.[br]
-## [param room_name]: The name of the channel to leave.[br]
-##
-## Example Usage:[br]
-## SupabaseRealtime.leave_channel("game-room-42")
 func leave_channel(room_name: String) -> void:
 	var ch: Dictionary = _channels.get(room_name, {})
 	if ch.is_empty():
@@ -243,6 +267,7 @@ func _send_join(room_name: String) -> void:
 	var join_ref := str(_get_next_ref())
 	ch.join_ref = join_ref
 	ch.joined = false
+	
 	_send_json([
 		join_ref,
 		join_ref,
@@ -252,7 +277,7 @@ func _send_join(room_name: String) -> void:
 			"config": {
 				"broadcast": {"ack": false, "self": ch.receive_own},
 				"presence": {"key": ""},
-				"postgres_changes": [],
+				"postgres_changes": ch.get("postgres_changes", []),
 				"private": ch.private,
 			},
 			"access_token": _access_token if _access_token != "" else supabase_key,
@@ -267,7 +292,6 @@ func _send_json(data: Array) -> void:
 
 func _send_heartbeat() -> void:
 	if _pending_heartbeat_ref != "":
-		# Previous heartbeat was never answered: connection is dead.
 		push_warning("SupabaseRealtime: heartbeat timeout, closing socket.")
 		socket.close()
 		return
@@ -299,6 +323,12 @@ func _handle_packet(json_text: String) -> void:
 				var inner_payload: Variant = payload.get("payload", {})
 				if inner_payload is Dictionary:
 					message_received.emit(room, inner_event, inner_payload)
+
+		"postgres_changes":
+			if payload is Dictionary:
+				var table_name: String = str(payload.get("table", ""))
+				var event_type: String = str(payload.get("eventType", ""))
+				postgres_changes_received.emit(room, table_name, event_type, payload)
 
 		"phx_reply":
 			if topic == "phoenix":

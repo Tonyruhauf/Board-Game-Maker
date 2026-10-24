@@ -41,11 +41,36 @@ func update_display():
 	_update_players_display()
 
 
+func update_match_data() -> void:
+	var match_data: Dictionary = await get_match_data(match_state.match_id)
+	if match_data.is_empty(): return
+	
+	match_state = MatchState.from_dict(match_data)
+	game_info = GameInfo.from_dict(match_data.game_info)
+
+
+func get_match_data(match_id: String) -> Dictionary:
+	var result: Dictionary = await SupabaseManager.select(
+		"matches",
+		"id=eq.%s" % match_id
+	)
+	
+	if result.code == 200:
+		return result.data[0]
+	else:
+		printerr("Can't get match data: ", result)
+		return {}
+
+
+func get_match_channel() -> String:
+	if not match_state: return ""
+	return "match-%s" % match_state.match_id
+
+
 func create_match() -> void:
 	match_state = MatchState.new()
-	
+	match_state.host_id = GameService.local_player.ID
 	match_state.joined_players = [GameService.local_player.ID]
-	update_display()
 	
 	var result: Dictionary = await SupabaseManager.insert("matches", {
 		"created_by": GameService.local_player.ID,
@@ -57,18 +82,75 @@ func create_match() -> void:
 	if result.code == 201:
 		match_state.match_id = result.data[0].id
 		
-		result = await SupabaseManager.insert("match_players", {
-			"match_id": result.data[0].id,
-			"user_id": GameService.local_player.ID,
-			"seat": 0
-		})
+		var match_data: Dictionary = result.data[0]
+		join_match(match_data)
 
 
 func join_match(match_data: Dictionary) -> void:
 	match_state = MatchState.from_dict(match_data)
 	game_info = GameInfo.from_dict(match_data.game_info)
 	
+	if not SupabaseRealtime.message_received.is_connected(_on_broadcast_message_received):
+		SupabaseRealtime.message_received.connect(_on_broadcast_message_received)
+	
+	SupabaseRealtime.join_channel(get_match_channel())
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	SupabaseRealtime.send_broadcast(
+		get_match_channel(),
+		"player_joined",
+		{"player_id": GameService.local_player.ID}
+	)
+	
 	update_display()
+
+
+func _on_broadcast_message_received(
+	room: String,
+	event: String,
+	payload: Dictionary
+):
+	
+	match event:
+		"player_joined":
+			_on_player_joined(payload.player_id)
+		"match_data_changed":
+			await update_match_data()
+			update_display()
+
+
+func _on_player_joined(player_id: String) -> void:
+	if GameService.local_player.ID != match_state.host_id:
+		return
+	
+	var result = await SupabaseManager.insert("match_players", {
+		"match_id": match_state.match_id,
+		"user_id": player_id,
+		"seat": 0
+	})
+	
+	if result.code == 201:
+		match_state.joined_players.append(player_id)
+		match_state.invited_players.erase(player_id)
+		
+		result = await SupabaseManager.update(
+			"matches",
+			"id=eq.%s" % match_state.match_id,
+			{
+				"joined_players": match_state.joined_players,
+				"invited_players": match_state.invited_players
+			}
+		)
+		
+		if result == 200:
+			SupabaseRealtime.send_broadcast(
+				get_match_channel(),
+				"match_data_changed",
+				{}
+			)
+		else:
+			printerr("Updating match entry FAILED")
 
 
 func _update_players_display() -> void:
