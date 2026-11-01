@@ -10,7 +10,7 @@ func _create_game_state() -> void:
 
 
 func start() -> void:
-	if state.players.is_empty(): return
+	if turn_manager.players.is_empty(): return
 	
 	start_first_turn()
 
@@ -21,19 +21,6 @@ func end() -> void:
 
 func reset() -> void:
 	pass
-
-
-func start_first_turn() -> void:
-	turn_manager.start_turn(state.players[0])
-
-
-func request_action(action: GameAction) -> bool:
-	if not validate_action(action):
-		return false
-	
-	execute_action(action)
-	emit_action_event(action)
-	return true
 
 
 func validate_action(action: GameAction) -> bool:

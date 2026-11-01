@@ -82,8 +82,8 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"94b47226-88ed-45f0-b33b-892009a979a2",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
+				"2733c79e-c925-49b9-b41d-57f5e3b11a23",
 				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
 			]
 		},
@@ -91,6 +91,12 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"705de67d-0371-454b-b6ab-93d6e57c5d34",
+				"b193ea20-6a41-4f09-8b3d-fc2907382d9b",
+				"8aeb888d-ed46-4f55-86c6-64b1a61158a5",
+				"94b47226-88ed-45f0-b33b-892009a979a2",
+				"be1ec388-92ac-4b5b-a350-059f1ccd23b6",
+				"9e68fe50-abf0-40ce-b391-f732b6ca02cf",
 				"35cf52b8-f5c8-4887-bb32-f69ea667bf87",
 				"ca0d0362-4b26-4d70-a44e-286d5ad9905a",
 				"c72edacb-d38d-4797-ad3b-50182b1a2e0d",
@@ -509,6 +515,48 @@
 			"title": "Implement starting a game",
 			"description": "",
 			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
+			"steps": []
+		},
+		{
+			"uuid": "2733c79e-c925-49b9-b41d-57f5e3b11a23",
+			"title": "Implement database cleaning",
+			"description": "The matches, invites, etc... should be cleared from the database when they become irrelevant.",
+			"category": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
+			"steps": []
+		},
+		{
+			"uuid": "be1ec388-92ac-4b5b-a350-059f1ccd23b6",
+			"title": "Implemented auto-connect for testing & debugging",
+			"description": "",
+			"category": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
+			"steps": []
+		},
+		{
+			"uuid": "9e68fe50-abf0-40ce-b391-f732b6ca02cf",
+			"title": "31/10/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "b193ea20-6a41-4f09-8b3d-fc2907382d9b",
+			"title": "Implement multiplayer in the BoardGame class",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "705de67d-0371-454b-b6ab-93d6e57c5d34",
+			"title": "Add basic documentation for creating a game",
+			"description": "",
+			"category": "6bced1c8-2d50-488a-b97e-23293fab8bb8",
+			"steps": []
+		},
+		{
+			"uuid": "8aeb888d-ed46-4f55-86c6-64b1a61158a5",
+			"title": "01/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
 			"steps": []
 		}
 	],

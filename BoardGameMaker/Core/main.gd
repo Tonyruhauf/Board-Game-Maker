@@ -23,14 +23,24 @@ func _ready() -> void:
 	
 	top_bar.hide()
 	
-	# Realtime connection
 	SupabaseRealtime.channel_error.connect(func(room, reason): push_error("%s: %s" % [room, reason]))
 	SupabaseRealtime.connect_realtime(SupabaseManager.current_access_token)
 	
-	#if await SupabaseManager.try_restore_session():
-		#_on_login_success()
-	#else:
-	login_screen.popup(true)
+	if EngineDebugger.is_active():
+		var args: PackedStringArray = OS.get_cmdline_args()
+		if args.has("player_1"):
+			login_screen.login_email_edit.text = "Test@gmail.com"
+			login_screen.login_password_edit.text = "123456"
+			login_screen._try_login()
+		elif args.has("player_2"):
+			login_screen.login_email_edit.text = "Tonyhauf@gmail.com"
+			login_screen.login_password_edit.text = "monjeudeplateau007"
+			login_screen._try_login()
+	
+	elif await SupabaseManager.try_restore_session():
+		_on_login_success()
+	else:
+		login_screen.popup(true)
 
 
 func _on_login_success() -> void:
@@ -81,6 +91,7 @@ func join_match(match_data: Dictionary) -> void:
 func change_scene(
 	scene: Variant,
 	properties_override: Dictionary[String, Variant] = {},
+	on_ready_calls: Dictionary[String, Array] = {}
 ) -> Node:
 	
 	if current_scene:
@@ -105,5 +116,9 @@ func change_scene(
 	
 	scene_container.add_child(new_scene)
 	current_scene = new_scene
+	
+	for method_name in on_ready_calls:
+		var arguments: Array = on_ready_calls[method_name]
+		current_scene.callv(method_name, arguments)
 	
 	return current_scene

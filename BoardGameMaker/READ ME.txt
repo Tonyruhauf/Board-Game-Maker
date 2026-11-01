@@ -4,3 +4,10 @@
 --| Installation instructions
 Drop the "BoardGameMaker" folder into your project.
 Then, move the "script_templates" folder inside it into your root "res://" directory.
+
+--| Creating a new game
+Start by creating a new script that extends BoardGame and is named in CamelCase.
+You should name the script as follows:
+	CatanGame, ChessGame, UnoGame, MonopolyGame, etc...
+	
+Then, just follow the guide implemented into the base template ;)

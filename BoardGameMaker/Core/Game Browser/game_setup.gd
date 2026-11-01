@@ -69,7 +69,7 @@ func _exit_tree() -> void:
 		elif _confirmed:
 			_send("player_left", {"player_id": _local_id()})
 
-	if match_state != null and SupabaseRealtime.has_method("leave_channel"):
+	if match_state != null:
 		SupabaseRealtime.leave_channel(get_match_channel())
 
 
@@ -78,13 +78,12 @@ func _exit_tree() -> void:
 # =====================================================================
 
 func _log(msg: String, data: Variant = null) -> void:
-	if DEBUG_LOG or OS.is_debug_build():
+	if DEBUG_LOG:
 		print("[Lobby %s] %s %s" % [_local_id(), msg, "" if data == null else str(data)])
+		print("\n\n")
 
 
 func _local_id() -> String:
-	if GameService.local_player == null:
-		return ""
 	return GameService.local_player.ID
 
 
@@ -265,6 +264,7 @@ func create_match() -> bool:
 	var result: Dictionary = await SupabaseManager.insert("matches", {
 		"created_by": host_id,
 		"game_info": game_info.to_dict(),
+		"game_state": {},
 		"joined_players": [host_id],
 		"invited_players": [],
 	})
@@ -472,23 +472,23 @@ func _on_play_button_pressed() -> void:
 		_creating = false
 		update_display()
 		return
-
+	
 	# second press: start the game (host only)
 	if not is_hosting_match() or _match_started:
 		return
 	var min_players: int = game_info.min_players if game_info else 1
 	if match_state.joined_players.size() < min_players:
 		return
-
+	
 	_match_started = true
 	_update_play_button()
-
+	
 	# send a few times so a dropped packet can't strand a guest
 	for i in START_BROADCAST_REPEATS:
 		_broadcast_state()
 		_send("match_started", {})
 		await get_tree().create_timer(START_BROADCAST_GAP).timeout
-
+	
 	_start_game()
 
 
@@ -500,10 +500,15 @@ func _start_game() -> void:
 
 	_game_started = true
 	var game_instance: BoardGame = game_info.game_scene.instantiate()
-	game_instance.setup(match_state.joined_players, GameService.local_player)
-	game_instance.start()
 
-	Main.change_scene(game_instance)
+	Main.change_scene(
+		game_instance,
+		{},
+		{
+			"setup": [match_state, GameService.local_player],
+			"start": []
+		}
+	)
 
 
 # =====================================================================

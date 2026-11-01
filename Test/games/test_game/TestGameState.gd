@@ -8,7 +8,7 @@ func set_player_score(player_id: String, value: int):
 	players_scores[player_id] = value
 
 
-func get_player_score(player_id: int) -> int:
+func get_player_score(player_id: String) -> int:
 	return players_scores.get(player_id, 0)
 
 
