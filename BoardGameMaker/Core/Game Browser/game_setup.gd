@@ -505,7 +505,7 @@ func _start_game() -> void:
 		game_instance,
 		{},
 		{
-			"setup": [match_state, GameService.local_player],
+			"setup": [match_state],
 			"start": []
 		}
 	)

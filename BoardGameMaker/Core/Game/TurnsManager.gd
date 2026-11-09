@@ -3,10 +3,14 @@ class_name TurnManager extends RefCounted
 
 var players: Array[String]
 var current_player: Player
+var hotseat_mode: bool = false
 
 
 func start_turn(player_id: String):
 	current_player = await GameService.get_player(player_id)
+	
+	if hotseat_mode:
+		GameService.local_player = current_player
 
 
 func end_turn():
@@ -17,4 +21,5 @@ func end_turn():
 
 
 func is_current_player(player_ID: String) -> bool:
+	#if hotseat_mode: return true
 	return player_ID == current_player.ID

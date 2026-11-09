@@ -41,7 +41,7 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "r
 [file_customization]
 
 folder_colors={
-"res://BoardGameMaker/": "blue",
+"res://BoardGameMaker/": "orange",
 "res://BoardGameMaker/Core/": "orange",
 "res://BoardGameMaker/Networking/": "gray",
 "res://BoardGameMaker/Registries/": "red",
@@ -49,7 +49,7 @@ folder_colors={
 "res://BoardGameMaker/Shared Assets/": "green",
 "res://BoardGameMaker/Systems/": "purple",
 "res://BoardGameMaker/UI/": "teal",
-"res://script_templates/": "blue"
+"res://script_templates/": "orange"
 }
 
 [global_group]

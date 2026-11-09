@@ -91,6 +91,10 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"8fd4c8f0-60b9-4e88-abf2-d469a9441dc1",
+				"3279e7e7-f611-4289-a8de-a0598b0da8d0",
+				"3364259e-862e-4de8-9121-7c9bb5a708ca",
+				"79f7240c-1fe9-4ef8-8f9e-9cf8a71e409a",
 				"705de67d-0371-454b-b6ab-93d6e57c5d34",
 				"b193ea20-6a41-4f09-8b3d-fc2907382d9b",
 				"8aeb888d-ed46-4f55-86c6-64b1a61158a5",
@@ -557,6 +561,34 @@
 			"title": "01/11/2026",
 			"description": "",
 			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "3364259e-862e-4de8-9121-7c9bb5a708ca",
+			"title": "Implemented Hotseat",
+			"description": "Allow playing on the same pc, without the database.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "79f7240c-1fe9-4ef8-8f9e-9cf8a71e409a",
+			"title": "09/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "8fd4c8f0-60b9-4e88-abf2-d469a9441dc1",
+			"title": "Implemented the GameMaker",
+			"description": "A scene to quickly create game files for a new game.",
+			"category": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
+			"steps": []
+		},
+		{
+			"uuid": "3279e7e7-f611-4289-a8de-a0598b0da8d0",
+			"title": "Implemented Playground",
+			"description": "A scene to quickly launch a game and start playing it.\nCan be used for games that does't need a GameBrowser.",
+			"category": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
 			"steps": []
 		}
 	],

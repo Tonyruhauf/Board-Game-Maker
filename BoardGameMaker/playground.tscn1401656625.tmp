@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://mctff602sh74"]
+
+[ext_resource type="Script" uid="uid://c01d5l7pnn0t" path="res://BoardGameMaker/playground.gd" id="1_5mqaw"]
+[ext_resource type="Resource" uid="uid://bxudorpmr1r3x" path="res://Test/games/test_game/GameInfo.tres" id="2_cnop8"]
+
+[node name="Playground" type="Control" unique_id=1807100733]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5mqaw")
+game = ExtResource("2_cnop8")

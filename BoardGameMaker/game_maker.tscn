@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ryshdaal1dir"]
+
+[ext_resource type="Script" uid="uid://cpw42wov2wmey" path="res://BoardGameMaker/game_maker.gd" id="1_ehwee"]
+
+[node name="GameMaker" type="Node2D" unique_id=2117144267]
+script = ExtResource("1_ehwee")
+game_name = "Fishing Game"
+game_desc = "A fishing game prototype."

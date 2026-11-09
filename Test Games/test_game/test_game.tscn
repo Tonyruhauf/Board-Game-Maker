@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co3kymccpdbww"]
 
-[ext_resource type="Script" uid="uid://dcfrfuesqde8w" path="res://Test/games/test_game/TestGame.gd" id="1_6by2c"]
-[ext_resource type="Script" uid="uid://dybjv00qliupg" path="res://Test/games/test_game/score_label.gd" id="2_38kim"]
+[ext_resource type="Script" uid="uid://dcfrfuesqde8w" path="res://Test Games/test_game/TestGame.gd" id="1_6by2c"]
+[ext_resource type="Script" uid="uid://dybjv00qliupg" path="res://Test Games/test_game/score_label.gd" id="2_38kim"]
 
 [node name="TestGame" type="Control" unique_id=391380196]
 layout_mode = 3

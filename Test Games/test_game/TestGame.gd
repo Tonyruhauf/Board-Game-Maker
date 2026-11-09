@@ -53,8 +53,8 @@ func emit_action_event(action: GameAction) -> void:
 
 
 func _on_next_turn_button_pressed() -> void:
-	request_action(EndTurnAction.new(local_player.ID))
+	request_action(EndTurnAction.new(GameService.local_player.ID))
 
 
 func _on_score_button_pressed() -> void:
-	request_action(AddScoreAction.new(local_player.ID, 10))
+	request_action(AddScoreAction.new(GameService.local_player.ID, 10))

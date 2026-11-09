@@ -5,20 +5,22 @@ var turn_manager: TurnManager = TurnManager.new()
 var match_state: MatchState
 var game_state: GameState
 
-var local_player: Player
+var hotseat_mode: bool = false
 
 signal setup_finished
 
 
-func setup(_match_state: MatchState, _local_player) -> void:
+func setup(_match_state: MatchState) -> void:
 	match_state = _match_state
+	
 	turn_manager.players = match_state.joined_players
-	local_player = _local_player
+	turn_manager.hotseat_mode = hotseat_mode
 	
-	SupabaseRealtime.connect_realtime(SupabaseManager.current_access_token)
-	SupabaseRealtime.message_received.connect(_on_broadcast_message_received)
-	
-	SupabaseRealtime.join_channel(get_match_room(), false, true)
+	if not hotseat_mode:
+		SupabaseRealtime.connect_realtime(SupabaseManager.current_access_token)
+		SupabaseRealtime.message_received.connect(_on_broadcast_message_received)
+		
+		SupabaseRealtime.join_channel(get_match_room(), false, true)
 	
 	_create_game_state()
 	
@@ -30,6 +32,7 @@ func get_match_room() -> String:
 
 
 func is_hosting_match() -> bool:
+	if hotseat_mode: return true
 	return match_state.host_id == GameService.local_player.ID
 
 
@@ -83,11 +86,12 @@ func request_action(action: GameAction) -> bool:
 	
 	_on_requested_action_validated(action)
 	
-	SupabaseRealtime.send_broadcast(
-		get_match_room(),
-		"execute_action",
-		{"action": var_to_bytes_with_objects(action) as Array}
-	)
+	if not hotseat_mode:
+		SupabaseRealtime.send_broadcast(
+			get_match_room(),
+			"execute_action",
+			{"action": var_to_bytes_with_objects(action) as Array}
+		)
 	
 	return true
 
