@@ -16,13 +16,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Board Game Maker"
 config/description="Enter an interesting project description here!"
-run/main_scene="uid://bgl1xgnaxeso8"
+run/main_scene="uid://mctff602sh74"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
 
 [autoload]
 
-EventsBus="*uid://xdyjyg3sm11d"
+EventBus="*uid://xdyjyg3sm11d"
 SupabaseManager="*uid://m8qf2mhjcjx2"
 SupabaseRealtime="*uid://pvoqk2nta152"
 GameService="*uid://bdl1g4qwu21pe"

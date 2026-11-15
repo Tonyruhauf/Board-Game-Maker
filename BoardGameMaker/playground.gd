@@ -17,6 +17,8 @@ func _ready() -> void:
 	])
 	
 	game_instance = game.game_scene.instantiate()
+	
+	GameService.board_game = game_instance
 	add_child(game_instance)
 	
 	game_instance.hotseat_mode = true

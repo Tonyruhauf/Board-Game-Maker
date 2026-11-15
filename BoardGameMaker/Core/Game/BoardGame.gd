@@ -51,7 +51,7 @@ func _on_broadcast_message_received(room: String, event: String, payload: Dictio
 		"execute_action":
 			if not is_hosting_match():
 				var action: GameAction = bytes_to_var_with_objects(payload.action) as GameAction
-				_on_requested_action_validated(action)
+				execute_action(action)
 
 
 func start() -> void:
@@ -73,18 +73,10 @@ func start_first_turn() -> void:
 
 
 func request_action(action: GameAction) -> bool:
-	if not is_hosting_match():
-		SupabaseRealtime.send_broadcast(
-			get_match_room(),
-			"request_game_action",
-			{"action": var_to_bytes_with_objects(action) as Array}
-		)
-		return false
-	
 	if not validate_action(action):
 		return false
 	
-	_on_requested_action_validated(action)
+	execute_action(action)
 	
 	if not hotseat_mode:
 		SupabaseRealtime.send_broadcast(
@@ -96,18 +88,9 @@ func request_action(action: GameAction) -> bool:
 	return true
 
 
-func _on_requested_action_validated(action: GameAction) -> void:
-	execute_action(action)
-	emit_action_event(action)
-
-
 func validate_action(action: GameAction) -> bool:
 	return false
 
 
 func execute_action(action: GameAction) -> void:
-	pass
-
-
-func emit_action_event(action: GameAction) -> void:
-	pass
+	EventBus.emit_action_event(action)

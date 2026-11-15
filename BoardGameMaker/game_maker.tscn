@@ -4,5 +4,4 @@
 
 [node name="GameMaker" type="Node2D" unique_id=2117144267]
 script = ExtResource("1_ehwee")
-game_name = "Fishing Game"
-game_desc = "A fishing game prototype."
+game_name = "Test Game"

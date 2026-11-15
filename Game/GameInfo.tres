@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GameInfo" format=3 uid="uid://dhnxpxnnogkqe"]
+
+[ext_resource type="PackedScene" uid="uid://jcgtnvktk623" path="res://Game/board.tscn" id="1_qefqg"]
+[ext_resource type="Script" uid="uid://bh7nj7vd28sju" path="res://Game/TestGameState.gd" id="2_gc7ql"]
+[ext_resource type="Script" uid="uid://bgu3cbpvv54yk" path="res://BoardGameMaker/Core/Game/GameInfo.gd" id="3_vs45s"]
+
+[resource]
+script = ExtResource("3_vs45s")
+game_scene = ExtResource("1_qefqg")
+game_state_class = ExtResource("2_gc7ql")
+name = "Test Game"

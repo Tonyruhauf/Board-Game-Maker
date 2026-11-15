@@ -1,0 +1,1 @@
+class_name TestGameState extends GameState

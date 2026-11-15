@@ -14,7 +14,6 @@ const GAME_SETUP_SCENE: String = "res://BoardGameMaker/Core/Game Browser/game_se
 
 
 func _ready() -> void:
-	GameService.Main = self
 	top_bar.Main = self
 	login_screen.Main = self
 	match_invite.Main = self

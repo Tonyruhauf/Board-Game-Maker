@@ -5,7 +5,6 @@
 class_name _CLASS_ extends BoardGame
 
 
-# TODO: You should create the _CLASS_State class, which should extends from GameState.
 var state: _CLASS_State:
 	get(): return game_state as _CLASS_State
 
@@ -48,15 +47,9 @@ func execute_action(action: GameAction) -> void:
 	
 	elif action is AddScoreAction: # Feel free to remove this example.
 		state.increase_player_score(action.player_id, action.value)
-
-
-# You should create an event for each game action, and emit it here.
-func emit_action_event(action: GameAction) -> void:
-	if action is EndTurnAction:
-		EventsBus.send_event(TurnEndedEvent.new())
 	
-	elif action is AddScoreAction: # Feel free to remove this example.
-		EventsBus.send_event(PlayerScoredEvent.new(action.player_id))
+	# THIS SHOULD ALWAYS BE AT THE END OF THIS FUNCTION
+	EventBus.emit_action_event(action)
 
 
 # --| Examples of game-specific logic. |--

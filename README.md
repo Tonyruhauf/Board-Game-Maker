@@ -1,2 +1,4 @@
 # Board Game Maker
-A framework to create board games inside Godot, inspired by BGA.
+
+A framework to create board games inside Godot, inspired by BGA and Tabletopia.
+

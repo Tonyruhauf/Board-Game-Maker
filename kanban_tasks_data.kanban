@@ -82,18 +82,22 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"2733c79e-c925-49b9-b41d-57f5e3b11a23",
-				"279f1812-ab56-4075-8c8e-fc1d54b2b9ed"
+				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"94196cde-5689-4f78-980e-249f73ab71df",
+				"c2bdd231-d3fc-4b9c-8564-f5e0aa707ab1",
+				"163a6866-9e84-43c4-8276-c1887e340bb5",
+				"609fbfa5-a08e-4568-8073-a18711a9d3c2",
+				"a2a3b526-d9e6-4113-904a-7762dd2e1c53",
 				"8fd4c8f0-60b9-4e88-abf2-d469a9441dc1",
 				"3279e7e7-f611-4289-a8de-a0598b0da8d0",
 				"3364259e-862e-4de8-9121-7c9bb5a708ca",
+				"5ecc0dde-9ff2-43b0-9923-71c70f7b90ae",
 				"79f7240c-1fe9-4ef8-8f9e-9cf8a71e409a",
 				"705de67d-0371-454b-b6ab-93d6e57c5d34",
 				"b193ea20-6a41-4f09-8b3d-fc2907382d9b",
@@ -354,13 +358,6 @@
 			"steps": []
 		},
 		{
-			"uuid": "279f1812-ab56-4075-8c8e-fc1d54b2b9ed",
-			"title": "Add basic session management",
-			"description": "Handle returning to the hub, exiting a match, and ending a game when everyone has left.",
-			"category": "9295a900-9731-4fe2-ab12-14a46d99b5ee",
-			"steps": []
-		},
-		{
 			"uuid": "5169a007-672d-4e3b-873c-df4540180ca6",
 			"title": "Create GameInfo resource class",
 			"description": "Resource containing a game's metadata: ID, name, description, icon, preview image, player limits, and the scene or entry point used to launch it.",
@@ -522,13 +519,6 @@
 			"steps": []
 		},
 		{
-			"uuid": "2733c79e-c925-49b9-b41d-57f5e3b11a23",
-			"title": "Implement database cleaning",
-			"description": "The matches, invites, etc... should be cleared from the database when they become irrelevant.",
-			"category": "28e879b1-3264-45a8-bfc7-fbe8488a6fd5",
-			"steps": []
-		},
-		{
 			"uuid": "be1ec388-92ac-4b5b-a350-059f1ccd23b6",
 			"title": "Implemented auto-connect for testing & debugging",
 			"description": "",
@@ -572,7 +562,7 @@
 		},
 		{
 			"uuid": "79f7240c-1fe9-4ef8-8f9e-9cf8a71e409a",
-			"title": "09/11/2026",
+			"title": "NEW SYSTEM",
 			"description": "",
 			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
 			"steps": []
@@ -589,6 +579,48 @@
 			"title": "Implemented Playground",
 			"description": "A scene to quickly launch a game and start playing it.\nCan be used for games that does't need a GameBrowser.",
 			"category": "fcd76c34-7455-406a-b504-ac5c0ed9193e",
+			"steps": []
+		},
+		{
+			"uuid": "a2a3b526-d9e6-4113-904a-7762dd2e1c53",
+			"title": "14/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "5ecc0dde-9ff2-43b0-9923-71c70f7b90ae",
+			"title": "09/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "609fbfa5-a08e-4568-8073-a18711a9d3c2",
+			"title": "Cleaned and reorganized the files",
+			"description": "",
+			"category": "d7eec21d-bff8-4a74-a2f0-b5c183337dfe",
+			"steps": []
+		},
+		{
+			"uuid": "163a6866-9e84-43c4-8276-c1887e340bb5",
+			"title": "Implemented BoardObject",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "c2bdd231-d3fc-4b9c-8564-f5e0aa707ab1",
+			"title": "Improved and simplified BoardGame system",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "94196cde-5689-4f78-980e-249f73ab71df",
+			"title": "Improved EventBus",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		}
 	],

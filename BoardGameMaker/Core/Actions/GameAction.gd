@@ -1,5 +1,5 @@
 class_name GameAction extends Resource
-## A base class representing any game action (ending turn, placing a card, picking a card, etc...).
+## A base class representing any game action (ending turn, placing a card, drawing a card, etc...).
 ##[br][br]
 ##IMPORTANT: Every variable should have the "@exported" prefix.
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jcgtnvktk623"]
+
+[ext_resource type="Script" uid="uid://dt6rtdxkqyl57" path="res://Game/board.gd" id="1_fji08"]
+[ext_resource type="Texture2D" uid="uid://c1nvpsrx2r06b" path="res://icon.png" id="2_nt2nu"]
+[ext_resource type="Script" uid="uid://0ws5j7dc7b8i" path="res://BoardGameMaker/Systems/BoardGameComponents/BoardObject.gd" id="3_gn7pi"]
+
+[node name="Board" type="Control" unique_id=449379175]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fji08")
+
+[node name="BoardObject" type="TextureRect" parent="." unique_id=1970584822]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 170.0
+offset_right = 416.0
+offset_bottom = 335.0
+texture = ExtResource("2_nt2nu")
+script = ExtResource("3_gn7pi")
+metadata/_custom_type_script = "uid://0ws5j7dc7b8i"

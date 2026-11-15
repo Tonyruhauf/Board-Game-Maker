@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgl1xgnaxeso8"]
 
-[ext_resource type="Script" uid="uid://dxkiuicha2pvv" path="res://BoardGameMaker/Core/main.gd" id="1_mvayl"]
+[ext_resource type="Script" uid="uid://dxkiuicha2pvv" path="res://BoardGameMaker/Core/Game Browser/main.gd" id="1_mvayl"]
 [ext_resource type="PackedScene" uid="uid://buyc1mbm2rayt" path="res://BoardGameMaker/UI/Components/top_bar.tscn" id="2_hm7iv"]
 [ext_resource type="PackedScene" uid="uid://cow2bin18prxn" path="res://BoardGameMaker/UI/Components/login_screen.tscn" id="3_hm7iv"]
 [ext_resource type="PackedScene" uid="uid://bavhqjc3ndei4" path="res://BoardGameMaker/UI/Components/match_invite.tscn" id="4_u5ijw"]

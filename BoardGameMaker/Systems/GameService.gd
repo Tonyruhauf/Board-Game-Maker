@@ -1,10 +1,24 @@
 extends Node # GameService.gd
 
 
-var Main: MainNode
+var board_game: BoardGame
+
+var occupied_ids: Array[int]
 
 var cached_players: Dictionary[String, Player] = {}
 var local_player: Player
+
+
+func get_board_game() -> BoardGame:
+	return board_game
+
+
+func create_id() -> int:
+	var new_id: int = -1
+	while new_id == -1 or occupied_ids.has(new_id):
+		new_id = randi()
+	occupied_ids.append(new_id)
+	return new_id
 
 
 func register_player_in_cache(id: String, player: Player) -> void:
