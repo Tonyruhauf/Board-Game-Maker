@@ -89,8 +89,35 @@ func request_action(action: GameAction) -> bool:
 
 
 func validate_action(action: GameAction) -> bool:
+	if action is StartMovingObjectAction:
+		return true
+	
+	elif action is MoveObjectAction:
+		return true
+	
+	elif action is FlipCardAction:
+		return true
+	
 	return false
 
 
 func execute_action(action: GameAction) -> void:
+	if not action.default_behavior_prevented:
+		_execute_default_action(action)
+	
 	EventBus.emit_action_event(action)
+
+
+func _execute_default_action(action) -> void:
+	if action is EndTurnAction:
+		turn_manager.end_turn()
+	
+	elif action is MoveObjectAction:
+		var object: BoardObject = GameService.get_object(action.object_id)
+		if object:
+			object.global_position = action.new_pos
+	
+	elif action is FlipCardAction:
+		var card: Card = GameService.get_object(action.card_id)
+		if card:
+			card._flip(action.new_side)

@@ -3,10 +3,16 @@ class_name GameAction extends Resource
 ##[br][br]
 ##IMPORTANT: Every variable should have the "@exported" prefix.
 
-@export var ID: int = ResourceUID.create_id()
+@export var action_id: int = GameService.create_id(self)
 
 @export var player_id: String
+
+var default_behavior_prevented: bool = false
 
 
 func _init(_player_id: String = "") -> void:
 	player_id = _player_id
+
+
+func prevent_default_behavior() -> void:
+	default_behavior_prevented = true

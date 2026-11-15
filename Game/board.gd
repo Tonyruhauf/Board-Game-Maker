@@ -27,20 +27,11 @@ func validate_action(action: GameAction) -> bool:
 	#if not turn_manager.is_current_player(action.player_id):
 		#return false
 	
-	if action is EndTurnAction:
-		return true
+	#if action is EndTurnAction:
+		#return true
 	
-	if action is StartMovingObjectAction:
-		return true
-	
-	if action is MoveObjectAction:
-		return true
-	
-	return false
+	return super(action)
 
 
 func execute_action(action: GameAction) -> void:
-	if action is EndTurnAction:
-		turn_manager.end_turn()
-	
-	EventBus.emit_action_event(action)
+	super(action)

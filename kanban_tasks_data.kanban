@@ -89,6 +89,9 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"0d5b119c-7eb5-49bc-8c90-53722b3e1915",
+				"2856a301-9af2-474d-9494-9bfd82805da4",
+				"fbc37627-c7cd-45d4-8cb3-13e842028569",
 				"94196cde-5689-4f78-980e-249f73ab71df",
 				"c2bdd231-d3fc-4b9c-8564-f5e0aa707ab1",
 				"163a6866-9e84-43c4-8276-c1887e340bb5",
@@ -611,7 +614,7 @@
 		},
 		{
 			"uuid": "c2bdd231-d3fc-4b9c-8564-f5e0aa707ab1",
-			"title": "Improved and simplified BoardGame system",
+			"title": "Improved and simplified BoardGame systems",
 			"description": "",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
@@ -619,6 +622,27 @@
 		{
 			"uuid": "94196cde-5689-4f78-980e-249f73ab71df",
 			"title": "Improved EventBus",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "fbc37627-c7cd-45d4-8cb3-13e842028569",
+			"title": "15/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "2856a301-9af2-474d-9494-9bfd82805da4",
+			"title": "Implemented a basic Card class",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "0d5b119c-7eb5-49bc-8c90-53722b3e1915",
+			"title": "Improved the BoardGame architecture",
 			"description": "",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []

@@ -37,22 +37,21 @@ func validate_action(action: GameAction) -> bool:
 	if action is EndTurnAction:
 		return true
 	
-	return false
+	return super(action)
 
 
 func execute_action(action: GameAction) -> void:
-	# You probably want to keep this for turn based games.
-	if action is EndTurnAction:
-		turn_manager.end_turn()
+	if action is CustomAction:
+		# Do something cool
 	
 	elif action is AddScoreAction: # Feel free to remove this example.
 		state.increase_player_score(action.player_id, action.value)
+		action.prevent_default_behavior()
 	
-	# THIS SHOULD ALWAYS BE AT THE END OF THIS FUNCTION
-	EventBus.emit_action_event(action)
+	super(action)
 
 
-# --| Examples of game-specific logic. |--
+# --| Examples of buttons logic. |--
 # You can remove those.
 
 func _on_next_turn_button_pressed() -> void:

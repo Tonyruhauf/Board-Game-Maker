@@ -3,11 +3,16 @@ class_name BoardObject extends TextureRect
 
 @onready var game: BoardGame = GameService.get_board_game()
 
-var ID: int = GameService.create_id()
+var id: int = GameService.create_id(self)
 
+var hovered: bool = false
 var dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 var original_pos: Vector2
+
+
+func _ready() -> void:
+	pass
 
 
 func _process(_delta: float) -> void:
@@ -22,6 +27,9 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		hovered = get_rect().has_point(get_global_mouse_position())
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if dragging and not event.pressed:
 			_stop_drag()
@@ -33,7 +41,7 @@ func _start_drag() -> void:
 	
 	var action: GameAction = StartMovingObjectAction.new(
 		GameService.local_player.ID,
-		ID
+		id
 	)
 	
 	if not game.validate_action(action):
@@ -53,7 +61,7 @@ func _stop_drag() -> void:
 	
 	var action: GameAction = MoveObjectAction.new(
 		GameService.local_player.ID,
-		ID,
+		id,
 		global_position
 	)
 	
