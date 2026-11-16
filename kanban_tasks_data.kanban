@@ -47,7 +47,7 @@
 		},
 		{
 			"uuid": "46ad6a55-2209-43ac-a839-687605a431d5",
-			"title": "UI",
+			"title": "Visuals",
 			"color": "8f4ce0"
 		},
 		{
@@ -82,13 +82,15 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40"
+				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
+				"95660678-a806-443d-a108-d1ae5311dcd0"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"14a86c0a-1f50-410e-b0c5-b99b21abb084",
 				"0d5b119c-7eb5-49bc-8c90-53722b3e1915",
 				"2856a301-9af2-474d-9494-9bfd82805da4",
 				"fbc37627-c7cd-45d4-8cb3-13e842028569",
@@ -645,6 +647,20 @@
 			"title": "Improved the BoardGame architecture",
 			"description": "",
 			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "14a86c0a-1f50-410e-b0c5-b99b21abb084",
+			"title": "Implement objects stacking",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "95660678-a806-443d-a108-d1ae5311dcd0",
+			"title": "Add a drop shadow to the BoardObject class",
+			"description": "This could make things like card stacks look better. Worth to try at least.",
+			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
 			"steps": []
 		}
 	],

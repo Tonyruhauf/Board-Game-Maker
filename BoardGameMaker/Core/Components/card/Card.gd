@@ -1,4 +1,4 @@
-class_name Card extends BoardObject
+class_name Card extends StackableBoardObject
 
 
 @export var data: CardData
@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 	_update_size()
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	position = -size / 2
+	position += -size / 2
 	_update_texture()
 
 

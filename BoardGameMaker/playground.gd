@@ -3,24 +3,25 @@ extends Control
 
 @onready var hotseat_manager: HotseatManager = HotseatManager.new()
 
-@export var game: GameInfo
-
-var game_instance: BoardGame
+@export var game_info: GameInfo
 
 
 func _ready() -> void:
-	if not game: return
+	if not game_info: return
 	
 	var match_state: MatchState = await hotseat_manager.create_hotseat_match([
 		"Player A",
 		"Player B"
 	])
 	
-	game_instance = game.game_scene.instantiate()
+	var game: BoardGame = game_info.game_class.new()
+	var board: Board = game_info.board_scene.instantiate()
 	
-	GameService.board_game = game_instance
-	add_child(game_instance)
+	GameService.game = game
+	GameService.board = board
 	
-	game_instance.hotseat_mode = true
-	game_instance.setup(match_state)
-	game_instance.start()
+	add_child(board)
+	
+	game.hotseat_mode = true
+	game.setup(match_state)
+	game.start()

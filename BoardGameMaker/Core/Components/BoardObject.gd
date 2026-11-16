@@ -28,11 +28,26 @@ func _gui_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		hovered = get_rect().has_point(get_global_mouse_position())
+		if dragging:
+			set_hovered(false)
+		else:
+			set_hovered(get_rect().has_point(get_global_mouse_position()))
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if dragging and not event.pressed:
 			_stop_drag()
+
+
+func set_hovered(value: bool) -> void:
+	if hovered == value:
+		return
+	
+	hovered = value
+	
+	if hovered:
+		GameService.add_object_to_hover_list(self)
+	else:
+		GameService.remove_object_from_hover_list(self)
 
 
 func _start_drag() -> void:
@@ -50,7 +65,9 @@ func _start_drag() -> void:
 	original_pos = global_position
 	drag_offset = global_position - get_global_mouse_position()
 	get_parent().move_child(self, -1)  # Draw above everything else
+	
 	dragging = true
+	set_hovered(false)
 
 
 func _stop_drag() -> void:

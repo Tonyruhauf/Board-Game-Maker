@@ -26,6 +26,7 @@ EventBus="*uid://xdyjyg3sm11d"
 SupabaseManager="*uid://m8qf2mhjcjx2"
 SupabaseRealtime="*uid://pvoqk2nta152"
 GameService="*uid://bdl1g4qwu21pe"
+StackingManager="*uid://crspyt7axkpwv"
 
 [display]
 

@@ -1,7 +1,8 @@
 class_name GameInfo extends Resource	
 
 
-@export var game_scene: PackedScene
+@export var board_scene: PackedScene
+@export var game_class: GDScript
 @export var game_state_class: GDScript
 
 @export_multiline() var name: String
@@ -14,7 +15,7 @@ class_name GameInfo extends Resource
 
 func to_dict() -> Dictionary:
 	return {
-		"game_scene": game_scene.resource_path if game_scene != null else "",
+		"board_scene": board_scene.resource_path if board_scene != null else "",
 		"game_state_class": game_state_class.resource_path if game_state_class != null else "",
 		"name": name,
 		"description": description,

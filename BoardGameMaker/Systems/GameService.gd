@@ -1,23 +1,27 @@
 extends Node # GameService.gd
 
 
-var board_game: BoardGame
+var game: BoardGame
+var board: Board
 
 var occupied_ids: Dictionary[int, Object]
 
 var cached_players: Dictionary[String, Player] = {}
 var local_player: Player
 
+var hovered_objects: Array[BoardObject]
+
 
 func get_board_game() -> BoardGame:
-	return board_game
+	return game
+
+
+func get_board() -> Board:
+	return board
 
 
 func get_object(id: int) -> BoardObject:
-	if occupied_ids.has(id):
-		return occupied_ids[id]
-	else:
-		return null
+	return occupied_ids.get(id)
 
 
 func create_id(object: Object) -> int:
@@ -26,6 +30,27 @@ func create_id(object: Object) -> int:
 		new_id = randi()
 	occupied_ids[new_id] = object
 	return new_id
+
+
+func release_id(id: int) -> void:
+	occupied_ids.erase(id)
+
+
+func get_hovered_object() -> BoardObject:
+	if hovered_objects.is_empty(): return null
+	return hovered_objects.front()
+
+
+func add_object_to_hover_list(object: BoardObject) -> void:
+	if hovered_objects.has(object):
+		return
+	
+	hovered_objects.append(object)
+	hovered_objects.sort_custom(func(a, b): return a.z_index > b.z_index)
+
+
+func remove_object_from_hover_list(object: BoardObject) -> void:
+	hovered_objects.erase(object)
 
 
 func register_player_in_cache(id: String, player: Player) -> void:

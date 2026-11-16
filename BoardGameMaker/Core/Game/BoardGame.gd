@@ -1,4 +1,4 @@
-class_name BoardGame extends Node
+class_name BoardGame extends RefCounted
 
 
 var turn_manager: TurnManager = TurnManager.new()
