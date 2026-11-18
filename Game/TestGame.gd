@@ -24,13 +24,16 @@ func reset() -> void:
 
 
 func validate_action(action: GameAction) -> bool:
+	if not super(action):  # structural check first
+		return false
+	
 	#if not turn_manager.is_current_player(action.player_id):
 		#return false
 	
 	#if action is EndTurnAction:
 		#return true
 	
-	return super(action)
+	return true
 
 
 func execute_action(action: GameAction) -> void:

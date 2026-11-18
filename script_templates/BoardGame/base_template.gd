@@ -27,24 +27,27 @@ func reset() -> void:
 	pass
 
 
-# This is a basic example of how you can validate actions.
-# Feel free to replace it with your own validation logic.
+# This is a basic example of how to validate actions.
 func validate_action(action: GameAction) -> bool:
+	if not super(action):
+		return false
+	
 	# You probably want to keep this for turn based games.
 	if not turn_manager.is_current_player(action.player_id):
 		return false
 	
 	if action is EndTurnAction:
-		return true
+		return your_condition
 	
-	return super(action)
+	return true
 
 
+# This is a basic example of how to execute actions.
 func execute_action(action: GameAction) -> void:
 	if action is CustomAction:
 		# Do something cool
 	
-	elif action is AddScoreAction: # Feel free to remove this example.
+	elif action is AddScoreAction:
 		state.increase_player_score(action.player_id, action.value)
 		action.prevent_default_behavior()
 	

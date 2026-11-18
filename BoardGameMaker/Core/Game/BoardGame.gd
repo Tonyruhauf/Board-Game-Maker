@@ -72,6 +72,44 @@ func start_first_turn() -> void:
 	turn_manager.start_turn(turn_manager.players[0])
 
 
+func _on_object_released(object: BoardObject) -> void:
+	var action: GameAction
+	
+	# CardHand
+	if object is Card:
+		var hand: CardHand = GameService.board.hand
+		if hand and hand.is_hovered:
+			action = AddCardToHandAction.new(
+				GameService.local_player.ID,
+				object.id,
+				hand.id
+			)
+			if request_action(action): return
+	
+	# Stacking
+	if object is StackableBoardObject:
+		var stack_candidate: StackableBoardObject = object.stack_candidate
+		if stack_candidate:
+			if object.can_stack(stack_candidate):
+				action = StackWithObjectAction.new(
+					GameService.local_player.ID,
+					object.id,
+					stack_candidate.id
+				)
+				if request_action(action): return
+	
+	# Moving
+	action = MoveObjectAction.new(
+		GameService.local_player.ID,
+		object.id,
+		object.global_position
+	)
+	if request_action(action): return
+	
+	# Rejected: fall back
+	object.return_to_origin()
+
+
 func request_action(action: GameAction) -> bool:
 	if not validate_action(action):
 		return false
@@ -98,6 +136,15 @@ func validate_action(action: GameAction) -> bool:
 	elif action is FlipCardAction:
 		return true
 	
+	elif action is StackWithObjectAction:
+		return true
+	
+	elif action is TakeFromStackAction:
+		return true
+	
+	elif action is AddCardToHandAction:
+		return true
+	
 	return false
 
 
@@ -116,8 +163,28 @@ func _execute_default_action(action) -> void:
 		var object: BoardObject = GameService.get_object(action.object_id)
 		if object:
 			object.global_position = action.new_pos
+			object.original_pos = action.new_pos
 	
 	elif action is FlipCardAction:
 		var card: Card = GameService.get_object(action.card_id)
 		if card:
 			card._flip(action.new_side)
+	
+	elif action is StackWithObjectAction:
+		var first_object: StackableBoardObject =\
+			GameService.get_object(action.first_object_id)
+		var second_object:StackableBoardObject =\
+			GameService.get_object(action.second_object_id)
+		
+		if first_object:
+			first_object._stack_with(second_object)
+	
+	elif action is TakeFromStackAction:
+		var stack: BoardObjectStack = GameService.get_object(action.stack_id)
+		stack._pickup_objects(action.take_amount)
+	
+	elif action is AddCardToHandAction:
+		var hand: CardHand = GameService.get_object(action.hand_id)
+		var card: Card = GameService.get_object(action.card_id)
+		if hand and card:
+			hand.add_card(card, action.index)

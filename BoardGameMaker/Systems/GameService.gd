@@ -20,7 +20,7 @@ func get_board() -> Board:
 	return board
 
 
-func get_object(id: int) -> BoardObject:
+func get_object(id: int) -> Node:
 	return occupied_ids.get(id)
 
 

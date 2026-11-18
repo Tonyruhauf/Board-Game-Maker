@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://rkjb0mww011p"]
+
+[ext_resource type="Shader" uid="uid://da4bq7h8e5l5h" path="res://BoardGameMaker/Resources/shaders/gradient.gdshader" id="1_176hb"]
+[ext_resource type="Script" uid="uid://s8ijp3nbhsrf" path="res://BoardGameMaker/Systems/cards_hand.gd" id="1_mmhjl"]
+[ext_resource type="Script" uid="uid://drrcrnbvafn7i" path="res://modules/ImprovedBoxContainer.gd" id="2_uxt27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k35mi"]
+shader = ExtResource("1_176hb")
+shader_parameter/start_color = Color(1, 0.65999997, 0.14999998, 0)
+shader_parameter/end_color = Color(1, 0.65999997, 0.14999998, 1)
+shader_parameter/start_point = Vector2(0, 0)
+shader_parameter/end_point = Vector2(0, 2.2)
+
+[node name="CardsHand" type="Control" unique_id=996024733]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mmhjl")
+
+[node name="CardsContainer" type="Control" parent="." unique_id=1704180726]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_uxt27")
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_custom_type_script = "uid://drrcrnbvafn7i"
+
+[node name="EntryArea" type="Control" parent="." unique_id=2145098888]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 323.0
+offset_top = -49.0
+offset_right = -323.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="EntryEffect" type="ColorRect" parent="EntryArea" unique_id=221889341]
+material = SubResource("ShaderMaterial_k35mi")
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.73, 0.19, 1)

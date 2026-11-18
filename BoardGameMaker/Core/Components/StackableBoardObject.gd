@@ -25,7 +25,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			if stack_candidate:
-				stack_with(stack_candidate)
+				request_stack_with(stack_candidate)
 
 
 func _clear_stack_candidate() -> void:
@@ -37,7 +37,16 @@ func is_in_stack() -> bool:
 	return stack != null
 
 
-func stack_with(object: StackableBoardObject):
+func request_stack_with(object: StackableBoardObject):
+	var action: GameAction = StackWithObjectAction.new(
+		GameService.local_player.ID,
+		self.id,
+		object.id
+	)
+	game.request_action(action)
+
+
+func _stack_with(object: StackableBoardObject):
 	if object.is_in_stack():
 		object.stack.add_object(self)
 		return
@@ -52,4 +61,5 @@ func can_stack(other: StackableBoardObject) -> bool:
 
 
 func _can_stack_with(other: StackableBoardObject) -> bool:
+	if other is Card and GameService.board.hand.has_card(other): return false
 	return true

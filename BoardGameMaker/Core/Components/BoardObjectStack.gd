@@ -72,7 +72,7 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if _is_mouse_down and not selected:
 			_is_mouse_down = false
-			_pickup_objects(1)
+			request_pickup_objects(1)
 
 
 func add_object(object: StackableBoardObject) -> void:
@@ -104,6 +104,15 @@ func remove_object(object: StackableBoardObject) -> void:
 		queue_free()
 	
 	update_display()
+
+
+func request_pickup_objects(amount: int) -> void:
+	var action = TakeFromStackAction.new(
+		GameService.local_player.ID,
+		id,
+		amount
+	)
+	game.request_action(action)
 
 
 func _pickup_objects(amount: int) -> void:

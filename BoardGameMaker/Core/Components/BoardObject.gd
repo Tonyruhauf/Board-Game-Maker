@@ -16,8 +16,12 @@ var original_pos: Vector2
 
 var locked: bool = false
 
+signal released(object: BoardObject)
+
 
 func _ready() -> void:
+	released.connect(GameService.game._on_object_released)
+	
 	add_child(shadow)
 
 
@@ -49,7 +53,7 @@ func _input(event: InputEvent) -> void:
 				set_selected(false)
 		
 		if dragging and not event.pressed:
-			_stop_drag()
+			_on_drag_ended()
 
 
 func set_hovered(value: bool) -> void:
@@ -94,20 +98,13 @@ func _start_drag() -> void:
 	set_hovered(false)
 
 
-func _stop_drag() -> void:
-	if locked: return
-	if not dragging: return
-	
+func _on_drag_ended() -> void:
 	set_dragging(false)
-	
-	var action: GameAction = MoveObjectAction.new(
-		GameService.local_player.ID,
-		id,
-		global_position
-	)
-	
-	if not game.request_action(action):
-		global_position = original_pos
+	released.emit(self)
+
+
+func return_to_origin():
+	global_position = original_pos
 
 
 func set_locked(value: bool) -> void:
