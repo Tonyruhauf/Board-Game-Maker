@@ -82,14 +82,18 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"95660678-a806-443d-a108-d1ae5311dcd0"
+				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"88169e4c-8b08-4f95-8266-2c0a805f4aa9",
+				"207683f8-8e7b-413f-984d-8fe826421e56",
+				"95660678-a806-443d-a108-d1ae5311dcd0",
+				"5adf579f-b2d1-4dea-a209-ab76812c1f83",
+				"38eef052-7826-4bdd-9e41-8260f538d3ca",
 				"14a86c0a-1f50-410e-b0c5-b99b21abb084",
 				"0d5b119c-7eb5-49bc-8c90-53722b3e1915",
 				"2856a301-9af2-474d-9494-9bfd82805da4",
@@ -658,9 +662,37 @@
 		},
 		{
 			"uuid": "95660678-a806-443d-a108-d1ae5311dcd0",
-			"title": "Add a drop shadow to the BoardObject class",
-			"description": "This could make things like card stacks look better. Worth to try at least.",
+			"title": "Add a drop shadow to the BoardObject",
+			"description": "This could make things like card stacks look better. Worth to try at least.\nEdit: ended up making a shadow simulation lol.",
 			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "5adf579f-b2d1-4dea-a209-ab76812c1f83",
+			"title": "Fixed the BoardObjectStack not working correctly",
+			"description": "",
+			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "38eef052-7826-4bdd-9e41-8260f538d3ca",
+			"title": "17/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "207683f8-8e7b-413f-984d-8fe826421e56",
+			"title": "Implemented selection system",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "88169e4c-8b08-4f95-8266-2c0a805f4aa9",
+			"title": "Improved BoardObjectStack features",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		}
 	],

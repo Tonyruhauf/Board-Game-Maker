@@ -44,3 +44,57 @@ offset_bottom = 385.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
 metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Card4" type="TextureRect" parent="." unique_id=1074176687]
+offset_left = 100.0
+offset_top = 72.0
+offset_right = 140.0
+offset_bottom = 112.0
+script = ExtResource("4_gn7pi")
+data = ExtResource("5_xtqq7")
+metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Card5" type="TextureRect" parent="." unique_id=943431356]
+offset_left = 457.0
+offset_top = 164.0
+offset_right = 497.0
+offset_bottom = 204.0
+script = ExtResource("4_gn7pi")
+data = ExtResource("5_xtqq7")
+metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Card6" type="TextureRect" parent="." unique_id=364759589]
+offset_left = 194.0
+offset_top = 345.0
+offset_right = 234.0
+offset_bottom = 385.0
+script = ExtResource("4_gn7pi")
+data = ExtResource("5_xtqq7")
+metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Card7" type="TextureRect" parent="." unique_id=1919486115]
+offset_left = 100.0
+offset_top = 72.0
+offset_right = 140.0
+offset_bottom = 112.0
+script = ExtResource("4_gn7pi")
+data = ExtResource("5_xtqq7")
+metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Card8" type="TextureRect" parent="." unique_id=973855106]
+offset_left = 457.0
+offset_top = 164.0
+offset_right = 497.0
+offset_bottom = 204.0
+script = ExtResource("4_gn7pi")
+data = ExtResource("5_xtqq7")
+metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Card9" type="TextureRect" parent="." unique_id=1163074398]
+offset_left = 194.0
+offset_top = 345.0
+offset_right = 234.0
+offset_bottom = 385.0
+script = ExtResource("4_gn7pi")
+data = ExtResource("5_xtqq7")
+metadata/_custom_type_script = "uid://b287j3hmroy1h"

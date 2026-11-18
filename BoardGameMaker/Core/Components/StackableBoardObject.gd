@@ -33,12 +33,22 @@ func _clear_stack_candidate() -> void:
 	modulate = Color.WHITE
 
 
+func is_in_stack() -> bool:
+	return stack != null
+
+
 func stack_with(object: StackableBoardObject):
+	if object.is_in_stack():
+		object.stack.add_object(self)
+		return
+	
 	StackingManager.create_stack(object, self)
 
 
 func can_stack(other: StackableBoardObject) -> bool:
-	return other != self and _can_stack_with(other) and other._can_stack_with(self)
+	if is_in_stack(): return false
+	if other == self: return false
+	return _can_stack_with(other) and other._can_stack_with(self)
 
 
 func _can_stack_with(other: StackableBoardObject) -> bool:

@@ -38,18 +38,25 @@ func release_id(id: int) -> void:
 
 func get_hovered_object() -> BoardObject:
 	if hovered_objects.is_empty(): return null
+	if not is_instance_valid(hovered_objects[0]): return null
 	return hovered_objects.front()
 
 
 func add_object_to_hover_list(object: BoardObject) -> void:
-	if hovered_objects.has(object):
-		return
+	if not is_instance_valid(object): return
+	if hovered_objects.has(object): return
+	
+	if not object.tree_exiting.is_connected(remove_object_from_hover_list):
+		object.tree_exiting.connect(remove_object_from_hover_list.bind(object))
 	
 	hovered_objects.append(object)
 	hovered_objects.sort_custom(func(a, b): return a.z_index > b.z_index)
 
 
 func remove_object_from_hover_list(object: BoardObject) -> void:
+	if object.tree_exiting.is_connected(remove_object_from_hover_list):
+		object.tree_exiting.disconnect(remove_object_from_hover_list.bind(object))
+	
 	hovered_objects.erase(object)
 
 

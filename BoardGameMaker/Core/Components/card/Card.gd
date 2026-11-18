@@ -8,6 +8,8 @@ class_name Card extends StackableBoardObject
 func _ready() -> void:
 	super()
 	
+	shadow.object_thickness = 2.0
+	
 	_update_size()
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	position += -size / 2
