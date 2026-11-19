@@ -82,6 +82,14 @@ func set_selected(value: bool) -> void:
 
 func set_dragging(value: bool) -> void:
 	dragging = value
+	
+	if dragging:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		GameService.set_held_object(self)
+	else:
+		mouse_filter = Control.MOUSE_FILTER_PASS
+		GameService.set_held_object(null)
+	
 	queue_redraw()
 
 

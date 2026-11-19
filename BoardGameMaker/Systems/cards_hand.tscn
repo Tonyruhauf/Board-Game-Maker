@@ -34,15 +34,38 @@ horizontal_alignment = 2
 vertical_alignment = 2
 metadata/_custom_type_script = "uid://drrcrnbvafn7i"
 
-[node name="EntryArea" type="Control" parent="." unique_id=2145098888]
+[node name="VisualContainer" type="Control" parent="." unique_id=950263066]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 323.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_uxt27")
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_custom_type_script = "uid://drrcrnbvafn7i"
+
+[node name="Spacer" type="Control" parent="VisualContainer" unique_id=1916983658]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+anchors_preset = 0
+offset_left = 910.0
+offset_right = 1010.0
+mouse_filter = 2
+
+[node name="EntryArea" type="Control" parent="." unique_id=2145098888]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -600.0
 offset_top = -49.0
-offset_right = -323.0
+offset_right = 600.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2

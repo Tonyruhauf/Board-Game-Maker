@@ -85,7 +85,7 @@
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"ec4cb3f3-fb7b-4cbc-8b26-3285eed031b5",
+				"14072604-eb7f-48f7-996e-bd1929d904d1",
 				"3f49b276-dc74-4057-858e-19fd219cec76",
 				"34747703-10e0-4f69-a14c-638cf74fed9e"
 			]
@@ -94,6 +94,8 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"ec4cb3f3-fb7b-4cbc-8b26-3285eed031b5",
+				"13476a29-57de-4fcc-836e-4c1ce687057a",
 				"2e256e11-bf4d-4246-be8e-6769fcc0ef3c",
 				"f7aea588-d4ac-4f64-b91a-cc865b490e4b",
 				"1d7cc4ec-bd01-4c1d-be15-a5a85e2354b2",
@@ -774,6 +776,20 @@
 			"title": "Fixed stacks PlaceholderTexture being visible",
 			"description": "",
 			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "13476a29-57de-4fcc-836e-4c1ce687057a",
+			"title": "19/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "14072604-eb7f-48f7-996e-bd1929d904d1",
+			"title": "Implement Hiding/Showing the hand",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		}
 	],

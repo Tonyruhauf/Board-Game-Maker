@@ -10,6 +10,7 @@ var cached_players: Dictionary[String, Player] = {}
 var local_player: Player
 
 var hovered_objects: Array[BoardObject]
+var held_object: BoardObject
 
 
 func get_board_game() -> BoardGame:
@@ -34,6 +35,14 @@ func create_id(object: Object) -> int:
 
 func release_id(id: int) -> void:
 	occupied_ids.erase(id)
+
+
+func get_held_object() -> BoardObject:
+	return held_object
+
+
+func set_held_object(object: BoardObject) -> void:
+	held_object = object
 
 
 func get_hovered_object() -> BoardObject:
