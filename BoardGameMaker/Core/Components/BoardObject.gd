@@ -4,6 +4,7 @@ class_name BoardObject extends TextureRect
 @onready var game: BoardGame = GameService.get_board_game()
 
 var shadow: ObjectShadow = ObjectShadow.new()
+var _selection_border: SelectionBorder
 
 var id: int = GameService.create_id(self)
 
@@ -21,6 +22,9 @@ signal released(object: BoardObject)
 
 func _ready() -> void:
 	released.connect(GameService.game._on_object_released)
+	
+	_selection_border = SelectionBorder.new()
+	add_child(_selection_border)
 	
 	add_child(shadow)
 
@@ -57,6 +61,9 @@ func _input(event: InputEvent) -> void:
 
 
 func set_hovered(value: bool) -> void:
+	if locked:
+		return
+	
 	if hovered == value:
 		return
 	
@@ -111,6 +118,11 @@ func set_locked(value: bool) -> void:
 	locked = value
 
 
+func _update_border() -> void:
+	if _selection_border:
+		_selection_border.visible = (selected and not dragging)
+		_selection_border.queue_redraw()
+
+
 func _draw() -> void:
-	if selected and not dragging:
-		draw_rect(Rect2(Vector2.ZERO, size).grow(2), Color.HOT_PINK, false, 4.0)
+	_update_border()

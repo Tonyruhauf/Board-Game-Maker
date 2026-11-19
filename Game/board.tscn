@@ -2,21 +2,48 @@
 
 [ext_resource type="Script" uid="uid://iac844oa3jil" path="res://Game/test_board.gd" id="1_fji08"]
 [ext_resource type="Texture2D" uid="uid://c1nvpsrx2r06b" path="res://icon.png" id="2_nt2nu"]
-[ext_resource type="Script" uid="uid://0ws5j7dc7b8i" path="res://BoardGameMaker/Core/Components/BoardObject.gd" id="3_gn7pi"]
+[ext_resource type="Script" uid="uid://46mmmus18g3m" path="res://BoardGameMaker/Core/Components/StackableBoardObject.gd" id="3_gn7pi"]
 [ext_resource type="Script" uid="uid://b287j3hmroy1h" path="res://BoardGameMaker/Core/Components/card/Card.gd" id="4_gn7pi"]
 [ext_resource type="Resource" uid="uid://fanwomlfofoo" path="res://Game/resources/cards/card_1.tres" id="5_xtqq7"]
 
 [node name="Board" type="Node2D" unique_id=1401451773]
 script = ExtResource("1_fji08")
 
-[node name="BoardObject" type="TextureRect" parent="." unique_id=1970584822]
+[node name="BoardObject" type="TextureRect" parent="." unique_id=1773206985]
 offset_left = 251.0
 offset_top = 170.0
 offset_right = 416.0
 offset_bottom = 335.0
 texture = ExtResource("2_nt2nu")
 script = ExtResource("3_gn7pi")
-metadata/_custom_type_script = "uid://0ws5j7dc7b8i"
+metadata/_custom_type_script = "uid://46mmmus18g3m"
+
+[node name="BoardObject2" type="TextureRect" parent="." unique_id=1971993873]
+offset_left = 251.0
+offset_top = 170.0
+offset_right = 416.0
+offset_bottom = 335.0
+texture = ExtResource("2_nt2nu")
+script = ExtResource("3_gn7pi")
+metadata/_custom_type_script = "uid://46mmmus18g3m"
+
+[node name="BoardObject3" type="TextureRect" parent="." unique_id=495315924]
+offset_left = 251.0
+offset_top = 170.0
+offset_right = 416.0
+offset_bottom = 335.0
+texture = ExtResource("2_nt2nu")
+script = ExtResource("3_gn7pi")
+metadata/_custom_type_script = "uid://46mmmus18g3m"
+
+[node name="BoardObject4" type="TextureRect" parent="." unique_id=1605911422]
+offset_left = 251.0
+offset_top = 170.0
+offset_right = 416.0
+offset_bottom = 335.0
+texture = ExtResource("2_nt2nu")
+script = ExtResource("3_gn7pi")
+metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="Card" type="TextureRect" parent="." unique_id=2010803809]
 offset_left = 100.0
