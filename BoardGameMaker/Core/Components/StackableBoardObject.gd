@@ -67,5 +67,5 @@ func can_stack(other: StackableBoardObject) -> bool:
 
 
 func _can_stack_with(other: StackableBoardObject) -> bool:
-	if other is Card and GameService.board.hand.has_card(other): return false
+	if other is Card and GameService.board.hand.has_object(other): return false
 	return true

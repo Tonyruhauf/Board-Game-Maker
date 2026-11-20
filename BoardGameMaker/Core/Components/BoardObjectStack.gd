@@ -12,13 +12,15 @@ var active_type: Script = null
 const OBJECTS_SEPARATION: float = 5.0
 
 
-func _init(_objects: Array[StackableBoardObject]) -> void:
+func setup(_objects: Array[StackableBoardObject]) -> BoardObjectStack:
 	assert(_objects.size() >= 2, "Can't create a BoardObjectStack with less than two StackableBoardObjects!")
 	
 	global_position = _objects[0].global_position
 	
 	for object in _objects:
 		add_object(object)
+	
+	return self
 
 
 func _ready() -> void:
@@ -29,6 +31,11 @@ func _ready() -> void:
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	stretch_mode = TextureRect.STRETCH_SCALE
 	self_modulate.a = 0.0
+	
+	if objects.is_empty():
+		for obj in get_children():
+			if obj is BoardObject:
+				objects.append(obj)
 	
 	update_display()
 
@@ -85,8 +92,6 @@ func update_display() -> void:
 	var new_rise: float = (objects.size() - 1) * OBJECTS_SEPARATION
 	var stack_rect: Rect2
 	
-	shadow.object_thickness = 0.0
-	
 	# Keep the draw order identical to the array order (index 0 = bottom).
 	if shadow.get_parent() == self:
 		move_child(shadow, 0)
@@ -96,18 +101,17 @@ func update_display() -> void:
 		move_child(obj, -1)
 		obj.position = Vector2(0.0, new_rise - i * OBJECTS_SEPARATION)
 		
-		shadow.object_thickness += obj.shadow.object_thickness
-		
 		var obj_rect := Rect2(obj.position, obj.size)
 		stack_rect = obj_rect if i == 0 else stack_rect.merge(obj_rect)
 	
-	# Move the stack only by the *change* in rise, so the bottom object stays visually in place.
+	# Shadow = bottom object's shape, swept along the light by the stack's height.
+	shadow.source = objects[0]
+	shadow.show_edge = false
+	shadow.object_thickness = new_rise + objects.back().shadow.object_thickness
+	
 	position.y -= new_rise - _rise
 	_rise = new_rise
-	
-	# Fit the stack to its children.
 	size = stack_rect.size
-	
 	queue_redraw()
 
 
@@ -127,6 +131,13 @@ func _gui_input(event: InputEvent) -> void:
 		if _is_mouse_down and not selected:
 			_is_mouse_down = false
 			request_pickup_objects(1)
+
+
+func set_locked(value: bool) -> void:
+	super(value)
+	
+	for obj in objects:
+		obj.set_locked(value)
 
 
 func add_object(object: StackableBoardObject, index: int = -1) -> void:
@@ -206,10 +217,10 @@ func _pickup_objects(amount: int) -> void:
 # Detaches one object from the stack without deciding what happens to the stack itself.
 func _release_object(object: StackableBoardObject) -> void:
 	objects.erase(object)
-	
+
 	object.stack_id = -1
 	object.stack = null
-	object.reparent(GameService.get_board())  # keeps global transform
+	object.reparent(GameService.get_board())
 	object.set_locked(false)
 
 

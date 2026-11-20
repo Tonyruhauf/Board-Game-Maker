@@ -75,16 +75,15 @@ func start_first_turn() -> void:
 func _on_object_released(object: BoardObject) -> void:
 	var action: GameAction
 	
-	# CardHand
-	if object is Card:
-		var hand: CardHand = GameService.board.hand
-		if hand and hand.is_hovered:
-			action = AddCardToHandAction.new(
-				GameService.local_player.ID,
-				object.id,
-				hand.id
-			)
-			if request_action(action): return
+	# Adding to Hand
+	var hand: Hand = GameService.board.hand
+	if hand.is_focused() and hand.can_accept(object):
+		action = AddObjectToHandAction.new(
+			GameService.local_player.ID,
+			object.id,
+			hand.id
+		)
+		if request_action(action): return
 	
 	# Stacking
 	if object is StackableBoardObject:
@@ -142,7 +141,7 @@ func validate_action(action: GameAction) -> bool:
 	elif action is TakeFromStackAction:
 		return true
 	
-	elif action is AddCardToHandAction:
+	elif action is AddObjectToHandAction:
 		return true
 	
 	return false
@@ -183,8 +182,8 @@ func _execute_default_action(action) -> void:
 		var stack: BoardObjectStack = GameService.get_object(action.stack_id)
 		stack._pickup_objects(action.take_amount)
 	
-	elif action is AddCardToHandAction:
-		var hand: CardHand = GameService.get_object(action.hand_id)
-		var card: Card = GameService.get_object(action.card_id)
-		if hand and card:
-			hand.add_card(card, action.index)
+	elif action is AddObjectToHandAction:
+		var hand: Hand = GameService.get_object(action.hand_id)
+		var object: BoardObject = GameService.get_object(action.object_id)
+		if hand and object:
+			hand.try_accept(object, action.index)

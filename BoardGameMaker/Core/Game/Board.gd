@@ -2,9 +2,9 @@ class_name Board extends Node2D
 
 
 var interface: Control
-var hand: CardHand
+var hand: Hand
 
-const CARDS_HAND_SCENE: PackedScene = preload("res://BoardGameMaker/Systems/cards_hand.tscn")
+const HAND_SCENE: PackedScene = preload("res://BoardGameMaker/Systems/hand.tscn")
 
 
 func _ready() -> void:
@@ -13,5 +13,5 @@ func _ready() -> void:
 	interface.size = get_viewport_rect().size
 	add_child(interface)
 	
-	hand = CARDS_HAND_SCENE.instantiate()
+	hand = HAND_SCENE.instantiate()
 	interface.add_child(hand)
