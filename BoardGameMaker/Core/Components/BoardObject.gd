@@ -20,8 +20,16 @@ var locked: bool = false
 signal released(object: BoardObject)
 
 
+func _init() -> void:
+	pass
+
+
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	released.connect(GameService.game._on_object_released)
+	
+	original_pos = global_position
 	
 	_selection_border = SelectionBorder.new()
 	add_child(_selection_border)
@@ -30,6 +38,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	
 	if dragging:
 		global_position = get_global_mouse_position() + drag_offset
 
@@ -133,4 +143,6 @@ func _update_border() -> void:
 
 
 func _draw() -> void:
+	if Engine.is_editor_hint(): return
+	
 	_update_border()

@@ -86,13 +86,15 @@
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"3f49b276-dc74-4057-858e-19fd219cec76",
-				"34747703-10e0-4f69-a14c-638cf74fed9e"
+				"a48f3ea7-4393-4e4c-b830-ddcb3e2fef86"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"34747703-10e0-4f69-a14c-638cf74fed9e",
+				"9c396f7e-9154-417d-96e8-79894932ad23",
 				"76dc21ca-40aa-491b-b685-f9f2728d4daa",
 				"4aba3cb2-f988-4e9e-a530-d715eb6d7e19",
 				"14072604-eb7f-48f7-996e-bd1929d904d1",
@@ -806,6 +808,20 @@
 			"title": "Greatly improved shadows in object stacks",
 			"description": "",
 			"category": "46ad6a55-2209-43ac-a839-687605a431d5",
+			"steps": []
+		},
+		{
+			"uuid": "a48f3ea7-4393-4e4c-b830-ddcb3e2fef86",
+			"title": "Implement Camera panning",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "9c396f7e-9154-417d-96e8-79894932ad23",
+			"title": "21/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
 			"steps": []
 		}
 	],

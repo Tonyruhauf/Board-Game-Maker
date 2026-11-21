@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://46mmmus18g3m" path="res://BoardGameMaker/Core/Components/StackableBoardObject.gd" id="3_gn7pi"]
 [ext_resource type="Script" uid="uid://b287j3hmroy1h" path="res://BoardGameMaker/Core/Components/card/Card.gd" id="4_gn7pi"]
 [ext_resource type="Resource" uid="uid://fanwomlfofoo" path="res://Game/resources/cards/card_1.tres" id="5_xtqq7"]
+[ext_resource type="Script" uid="uid://cqw2j4gi4rn04" path="res://BoardGameMaker/Core/Components/die/Die.gd" id="6_xtqq7"]
+[ext_resource type="Resource" uid="uid://lq0mlcvlmj1q" path="res://BoardGameMaker/Resources/dices/d6.tres" id="7_f38gw"]
 
 [node name="Board" type="Node2D" unique_id=1401451773]
 script = ExtResource("1_fji08")
@@ -125,3 +127,13 @@ offset_bottom = 385.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
 metadata/_custom_type_script = "uid://b287j3hmroy1h"
+
+[node name="Die" type="TextureRect" parent="." unique_id=1908127915]
+custom_minimum_size = Vector2(160, 160)
+offset_left = 951.0
+offset_top = 570.0
+offset_right = 1111.0
+offset_bottom = 730.0
+script = ExtResource("6_xtqq7")
+data = ExtResource("7_f38gw")
+metadata/_custom_type_script = "uid://cqw2j4gi4rn04"
