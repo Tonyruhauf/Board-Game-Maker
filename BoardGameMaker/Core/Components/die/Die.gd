@@ -93,10 +93,17 @@ func _init() -> void:
 
 func _ready() -> void:
 	super()
-	
 	resized.connect(queue_redraw)
-	await get_tree().create_timer(2).timeout
-	roll()
+
+
+func _input(event: InputEvent) -> void:
+	super(event)
+	
+	if event.is_action_pressed("roll_dice") and hovered:
+		request_roll()
+	
+	if event.is_action_pressed("flip_object") and hovered:
+		request_flip()
 
 
 ## Rolls the die (random side) and returns its value.
@@ -110,9 +117,15 @@ func roll() -> String:
 	
 	await face_animation_finished
 	await shake_animation_finished
-	
 	is_rolling = false
 	return get_current_side().text
+
+
+func flip_side() -> void:
+	if is_rolling: return
+	
+	side_index = (side_index + 1) % get_sides_count()
+	shake()
 
 
 func get_text() -> String:
@@ -126,6 +139,33 @@ func get_current_side() -> DieSide:
 	return data.sides.get(side_index)
 
 
+func get_sides_count() -> int:
+	if not data: return 0
+	return data.sides.size()
+
+
+func request_roll() -> void:
+	var action: GameAction = RollDieAction.new(
+		GameService.local_player.ID,
+		id
+	)
+	game.request_action(action)
+
+
+func request_flip() -> void:
+	var action: GameAction = FlipDieAction.new(
+		GameService.local_player.ID,
+		id
+	)
+	game.request_action(action)
+
+
+func can_interact() -> bool:
+	if not super():
+		return false
+	return not is_rolling
+
+
 func _play_face_animation() -> void:
 	var delay := 0.0
 	var slowdown_speed := 0.01
@@ -137,27 +177,33 @@ func _play_face_animation() -> void:
 		var new_side_index := randi_range(0, data.sides.size() - 2)
 		if new_side_index >= previous_side_index:
 			new_side_index += 1
-	
+		
 		side_index = new_side_index
 		previous_side_index = side_index
-	
+		
 		queue_redraw()
 		delay += slowdown_speed
 	
 	await get_tree().create_timer(maxf(0.0, ROLL_ANIMATION_DURATION - 2.76)).timeout
+	face_animation_finished.emit()
 
 
 func _play_shake_animation() -> void:
-	var delay := ROLL_ANIMATION_DURATION / SHAKE_STEPS
-	
 	for i in SHAKE_STEPS:
-		position = original_pos + Vector2(
-			randf_range(-5.0, 5.0),
-			randf_range(-5.0, 5.0)
-		)
-		queue_redraw()
-		await get_tree().create_timer(delay).timeout
+		await shake()
+	shake_animation_finished.emit()
+
+
+func shake() -> void:
+	var delay: float = ROLL_ANIMATION_DURATION / SHAKE_STEPS
 	
+	position = original_pos + Vector2(
+		randf_range(-5.0, 5.0),
+		randf_range(-5.0, 5.0)
+	)
+	
+	queue_redraw()
+	await get_tree().create_timer(delay).timeout
 	return_to_origin()
 
 

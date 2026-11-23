@@ -75,9 +75,7 @@
 		{
 			"uuid": "a549cb8e-33c4-4150-ac7e-0bccba3425e2",
 			"title": "Ideas for later",
-			"tasks": [
-				"a731b55f-5405-4189-815d-cf1613dbf603"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "08c0258f-53c0-47de-b29f-f2fb2cb07369",
@@ -86,13 +84,19 @@
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
 				"3f49b276-dc74-4057-858e-19fd219cec76",
-				"a48f3ea7-4393-4e4c-b830-ddcb3e2fef86"
+				"a48f3ea7-4393-4e4c-b830-ddcb3e2fef86",
+				"a731b55f-5405-4189-815d-cf1613dbf603"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"c3f49be5-0bd1-4ab3-9126-01cf868fc791",
+				"c1366e3e-244b-4387-8b71-5c8985a455b4",
+				"a0dc20e5-9013-48ee-909c-33be27e69e1c",
+				"ed8f33eb-d3d8-46a0-acb4-c989683338c3",
+				"99c02177-2dce-44ea-bdce-550f62a2010e",
 				"34747703-10e0-4f69-a14c-638cf74fed9e",
 				"9c396f7e-9154-417d-96e8-79894932ad23",
 				"76dc21ca-40aa-491b-b685-f9f2728d4daa",
@@ -822,6 +826,41 @@
 			"title": "21/11/2026",
 			"description": "",
 			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "ed8f33eb-d3d8-46a0-acb4-c989683338c3",
+			"title": "Implemented ways to manipulate dices",
+			"description": "R to roll, F to cycle through the die sides.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "99c02177-2dce-44ea-bdce-550f62a2010e",
+			"title": "23/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "a0dc20e5-9013-48ee-909c-33be27e69e1c",
+			"title": "The hand is't hovered when picking an object from it",
+			"description": "Fix: Picking an object from the hand automatically expand and show the hand.",
+			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "c1366e3e-244b-4387-8b71-5c8985a455b4",
+			"title": "Die should not be movable when rolling",
+			"description": "",
+			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "c3f49be5-0bd1-4ab3-9126-01cf868fc791",
+			"title": "Fixed a data loss bug with the hand \"fake objects\"",
+			"description": "",
+			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
 			"steps": []
 		}
 	],

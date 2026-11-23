@@ -144,6 +144,12 @@ func validate_action(action: GameAction) -> bool:
 	elif action is AddObjectToHandAction:
 		return true
 	
+	elif action is RollDieAction:
+		return true
+	
+	elif action is FlipDieAction:
+		return true
+	
 	return false
 
 
@@ -187,3 +193,11 @@ func _execute_default_action(action) -> void:
 		var object: BoardObject = GameService.get_object(action.object_id)
 		if hand and object:
 			hand.try_accept(object, action.index)
+	
+	elif action is RollDieAction:
+		var die: Die = GameService.get_object(action.die_id)
+		die.roll()
+	
+	elif action is FlipDieAction:
+		var die: Die = GameService.get_object(action.die_id)
+		die.flip_side()

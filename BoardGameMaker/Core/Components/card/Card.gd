@@ -37,7 +37,7 @@ func _update_texture() -> void:
 func _input(event: InputEvent) -> void:
 	super(event)
 	
-	if event.is_action_pressed("flip_card") and hovered:
+	if event.is_action_pressed("flip_object") and hovered:
 		request_flip()
 
 

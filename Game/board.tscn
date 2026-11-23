@@ -130,10 +130,10 @@ metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Die" type="TextureRect" parent="." unique_id=1908127915]
 custom_minimum_size = Vector2(160, 160)
-offset_left = 951.0
-offset_top = 570.0
-offset_right = 1111.0
-offset_bottom = 730.0
+offset_left = 884.0
+offset_top = 531.0
+offset_right = 1044.0
+offset_bottom = 691.0
 script = ExtResource("6_xtqq7")
 data = ExtResource("7_f38gw")
 metadata/_custom_type_script = "uid://cqw2j4gi4rn04"

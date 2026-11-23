@@ -1,12 +1,12 @@
 class_name BoardObject extends TextureRect
 
 
-@onready var game: BoardGame = GameService.get_board_game()
+@onready var game: BoardGame = GameService.get_board_game() if not Engine.is_editor_hint() else null
 
-var shadow: ObjectShadow = ObjectShadow.new()
+var shadow: ObjectShadow = ObjectShadow.new() if not Engine.is_editor_hint() else null
 var _selection_border: SelectionBorder
 
-var id: int = GameService.create_id(self)
+var id: int = GameService.create_id(self) if not Engine.is_editor_hint() else 0
 
 var drop_shadow_enabled: bool = true
 var selected: bool = false
@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
-	if locked:
+	if not can_interact():
 		return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -60,6 +60,9 @@ func _input(event: InputEvent) -> void:
 			set_hovered(false)
 		else:
 			set_hovered(get_global_rect().has_point(get_global_mouse_position()))
+	
+	if not can_interact():
+		return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if selected and event.pressed:
@@ -101,6 +104,14 @@ func set_dragging(value: bool) -> void:
 		GameService.set_held_object(null)
 	
 	queue_redraw()
+
+
+func is_locked() -> bool:
+	return locked
+
+
+func can_interact() -> bool:
+	return not is_locked()
 
 
 func _start_drag() -> void:
