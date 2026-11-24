@@ -9,13 +9,19 @@ var _selection_border: SelectionBorder
 var id: int = GameService.create_id(self) if not Engine.is_editor_hint() else 0
 
 var drop_shadow_enabled: bool = true
+var locked: bool = false
 var selected: bool = false
 var hovered: bool = false
 var dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 var original_pos: Vector2
+var rotating: bool = false
+var _rotate_start_mouse_angle: float = 0.0
+var _rotate_start_rotation: float = 0.0
+var _rotation_tween: Tween
+var _rotation_target: float = 0.0
 
-var locked: bool = false
+const ROTATE_STEP: float = PI / 2.0
 
 signal released(object: BoardObject)
 
@@ -28,7 +34,9 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	released.connect(GameService.game._on_object_released)
+	resized.connect(_on_resized)
 	
+	pivot_offset = size / 2.0  # Rotate around the center
 	original_pos = global_position
 	
 	_selection_border = SelectionBorder.new()
@@ -42,6 +50,8 @@ func _process(_delta: float) -> void:
 	
 	if dragging:
 		global_position = get_global_mouse_position() + drag_offset
+	elif rotating:
+		_update_rotation_from_mouse()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -51,26 +61,51 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			set_selected(true)
-			_start_drag()
+			if event.is_command_or_control_pressed():
+				_start_rotate()
+			else:
+				_start_drag()
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if dragging:
+		if dragging or rotating:
 			set_hovered(false)
 		else:
-			set_hovered(get_global_rect().has_point(get_global_mouse_position()))
+			set_hovered(_is_mouse_over())
 	
 	if not can_interact():
 		return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if selected and event.pressed:
-			if not get_global_rect().has_point(get_global_mouse_position()):
+			if not _is_mouse_over():
 				set_selected(false)
 		
-		if dragging and not event.pressed:
-			_on_drag_ended()
+		if not event.pressed:
+			if dragging:
+				_on_drag_ended()
+			elif rotating:
+				_on_rotate_ended()
+	
+	if event is InputEventKey and event.pressed and not event.echo and selected and not rotating:
+		match event.keycode:
+			KEY_E:
+				rotate_by_step(ROTATE_STEP)    # clockwise
+			KEY_A:
+				rotate_by_step(-ROTATE_STEP)   # counter-clockwise
+
+
+func _on_resized() -> void:
+	pivot_offset = size / 2.0
+
+
+func _get_visual_rotation() -> float:
+	return rotation
+
+
+func _set_visual_rotation(value: float) -> void:
+	rotation = value
 
 
 func set_hovered(value: bool) -> void:
@@ -118,9 +153,10 @@ func _start_drag() -> void:
 	if locked: return
 	if dragging: return
 	
-	var action: GameAction = StartMovingObjectAction.new(
+	var action: GameAction = MoveObjectAction.new(
 		GameService.local_player.ID,
-		id
+		id,
+		true
 	)
 	
 	if not game.validate_action(action):
@@ -137,6 +173,80 @@ func _start_drag() -> void:
 func _on_drag_ended() -> void:
 	set_dragging(false)
 	released.emit(self)
+
+
+func _get_center() -> Vector2:
+	# Global position of the pivot (works with any current rotation)
+	return get_global_transform() * pivot_offset
+
+
+func _contains_local_point(point: Vector2) -> bool:
+	return Rect2(Vector2.ZERO, size).has_point(point)
+
+
+func _is_mouse_over() -> bool:
+	var local_mouse: Vector2 = get_global_transform().affine_inverse() * get_global_mouse_position()
+	return _contains_local_point(local_mouse)
+
+
+func _start_rotate() -> void:
+	if locked or dragging or rotating: return
+	
+	var action: GameAction = RotateObjectAction.new(
+		GameService.local_player.ID,
+		id,
+		true,
+		_get_visual_rotation()
+	)
+	
+	if not game.validate_action(action):
+		return
+	
+	if _rotation_tween:
+		_rotation_tween.kill()
+	
+	rotating = true
+	_rotate_start_rotation = _get_visual_rotation()
+	_rotate_start_mouse_angle = (get_global_mouse_position() - _get_center()).angle()
+	get_parent().move_child(self, -1)
+	set_hovered(false)
+	queue_redraw()
+
+
+func _update_rotation_from_mouse() -> void:
+	var current_angle: float = (get_global_mouse_position() - _get_center()).angle()
+	_set_visual_rotation(_rotate_start_rotation + (current_angle - _rotate_start_mouse_angle))
+
+
+func _on_rotate_ended() -> void:
+	rotating = false
+	queue_redraw()
+	# TODO: if rotation should sync in multiplayer, send a RotateObjectAction here
+
+
+func rotate_by_step(step: float) -> void:
+	if locked: return
+	
+	var action: GameAction = RotateObjectAction.new(
+		GameService.local_player.ID,
+		id,
+		true,
+		_get_visual_rotation()
+	)
+	
+	if not game.validate_action(action):
+		return
+	
+	var base: float = _rotation_target if (_rotation_tween and _rotation_tween.is_running()) \
+		else _get_visual_rotation()
+	_rotation_target = snappedf(base + step, ROTATE_STEP)
+	
+	if _rotation_tween:
+		_rotation_tween.kill()
+	
+	_rotation_tween = create_tween()
+	_rotation_tween.tween_method(_set_visual_rotation, _get_visual_rotation(), _rotation_target, 0.1)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 
 func return_to_origin():

@@ -101,6 +101,7 @@ func _on_object_released(object: BoardObject) -> void:
 	action = MoveObjectAction.new(
 		GameService.local_player.ID,
 		object.id,
+		false,
 		object.global_position
 	)
 	if request_action(action): return
@@ -126,10 +127,10 @@ func request_action(action: GameAction) -> bool:
 
 
 func validate_action(action: GameAction) -> bool:
-	if action is StartMovingObjectAction:
+	if action is MoveObjectAction:
 		return true
 	
-	elif action is MoveObjectAction:
+	elif action is RotateObjectAction:
 		return true
 	
 	elif action is FlipCardAction:
@@ -165,10 +166,17 @@ func _execute_default_action(action) -> void:
 		turn_manager.end_turn()
 	
 	elif action is MoveObjectAction:
-		var object: BoardObject = GameService.get_object(action.object_id)
-		if object:
-			object.global_position = action.new_pos
-			object.original_pos = action.new_pos
+		if not action.is_drag_start:
+			var object: BoardObject = GameService.get_object(action.object_id)
+			if object:
+				object.global_position = action.new_pos
+				object.original_pos = action.new_pos
+	
+	elif action is RotateObjectAction:
+		if not action.is_rotation_starting:
+			var object: BoardObject = GameService.get_object(action.object_id)
+			if object:
+				object._set_visual_rotation(action.new_rotation)
 	
 	elif action is FlipCardAction:
 		var card: Card = GameService.get_object(action.card_id)
