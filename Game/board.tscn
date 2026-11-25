@@ -7,18 +7,11 @@
 [ext_resource type="Resource" uid="uid://fanwomlfofoo" path="res://Game/resources/cards/card_1.tres" id="5_xtqq7"]
 [ext_resource type="Script" uid="uid://cqw2j4gi4rn04" path="res://BoardGameMaker/Core/Components/die/Die.gd" id="6_xtqq7"]
 [ext_resource type="Resource" uid="uid://lq0mlcvlmj1q" path="res://BoardGameMaker/Resources/dices/d6.tres" id="7_f38gw"]
+[ext_resource type="Script" uid="uid://cw0tnboejn7cw" path="res://BoardGameMaker/Core/Components/bag/Bag.gd" id="8_3ku0t"]
+[ext_resource type="Texture2D" uid="uid://0hyywhoep002" path="res://BoardGameMaker/Shared Assets/Bag.png" id="8_3owx7"]
 
 [node name="Board" type="Node2D" unique_id=1401451773]
 script = ExtResource("1_fji08")
-
-[node name="BoardObject" type="TextureRect" parent="." unique_id=1773206985]
-offset_left = 251.0
-offset_top = 170.0
-offset_right = 416.0
-offset_bottom = 335.0
-texture = ExtResource("2_nt2nu")
-script = ExtResource("3_gn7pi")
-metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="BoardObject2" type="TextureRect" parent="." unique_id=1971993873]
 offset_left = 251.0
@@ -39,6 +32,15 @@ script = ExtResource("3_gn7pi")
 metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="BoardObject4" type="TextureRect" parent="." unique_id=1605911422]
+offset_left = 251.0
+offset_top = 170.0
+offset_right = 416.0
+offset_bottom = 335.0
+texture = ExtResource("2_nt2nu")
+script = ExtResource("3_gn7pi")
+metadata/_custom_type_script = "uid://46mmmus18g3m"
+
+[node name="BoardObject5" type="TextureRect" parent="." unique_id=435256170]
 offset_left = 251.0
 offset_top = 170.0
 offset_right = 416.0
@@ -137,3 +139,13 @@ offset_bottom = 691.0
 script = ExtResource("6_xtqq7")
 data = ExtResource("7_f38gw")
 metadata/_custom_type_script = "uid://cqw2j4gi4rn04"
+
+[node name="Bag" type="TextureRect" parent="." unique_id=117009154]
+offset_left = 603.0
+offset_top = 552.0
+offset_right = 1322.0
+offset_bottom = 1496.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_3owx7")
+script = ExtResource("8_3ku0t")
+metadata/_custom_type_script = "uid://cw0tnboejn7cw"

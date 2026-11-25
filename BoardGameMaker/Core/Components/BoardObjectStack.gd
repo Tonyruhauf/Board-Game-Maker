@@ -275,12 +275,7 @@ func _pickup_objects(amount: int) -> void:
 	for i in amount:
 		var obj: StackableBoardObject = objects.back()
 		_release_object(obj)
-		
-		# Initialise the drag the same way _start_drag() does.
-		obj.original_pos = obj.global_position
-		obj.drag_offset = obj.global_position - mouse
-		obj.get_parent().move_child(obj, -1)
-		obj.set_dragging(true)
+		obj._start_drag()
 	
 	_after_removal()
 

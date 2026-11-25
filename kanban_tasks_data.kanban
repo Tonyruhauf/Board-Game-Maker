@@ -83,15 +83,16 @@
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40",
-				"5ecf12f2-43c1-40a8-9738-c03fe54fd917",
-				"a48f3ea7-4393-4e4c-b830-ddcb3e2fef86",
-				"a731b55f-5405-4189-815d-cf1613dbf603"
+				"22d21c32-e2d5-4f28-bb3f-178a4d1a7a09",
+				"a48f3ea7-4393-4e4c-b830-ddcb3e2fef86"
 			]
 		},
 		{
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"a731b55f-5405-4189-815d-cf1613dbf603",
+				"5ecf12f2-43c1-40a8-9738-c03fe54fd917",
 				"32abbb43-2c03-439d-919b-fbe4cc201212",
 				"3f49b276-dc74-4057-858e-19fd219cec76",
 				"2eb69043-fd8e-4ae1-9547-df77476c9722",
@@ -885,6 +886,13 @@
 			"title": "Rotating stacks with E/A keys does't seem to work",
 			"description": "",
 			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "22d21c32-e2d5-4f28-bb3f-178a4d1a7a09",
+			"title": "Improve objects selection outline",
+			"description": "",
+			"category": "2a4f5820-9594-47fb-8e96-b95153bfc2bf",
 			"steps": []
 		}
 	],

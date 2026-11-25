@@ -85,6 +85,11 @@ func _on_object_released(object: BoardObject) -> void:
 		)
 		if request_action(action): return
 	
+	# Adding to Bag
+	var hovered_obj: BoardObject = GameService.get_hovered_object()
+	if hovered_obj and hovered_obj is Bag:
+		if hovered_obj.try_adding_object(object): return
+	
 	# Stacking
 	if object is StackableBoardObject:
 		var stack_candidate: StackableBoardObject = object.stack_candidate
@@ -142,7 +147,13 @@ func validate_action(action: GameAction) -> bool:
 	elif action is TakeFromStackAction:
 		return true
 	
+	elif action is TakeFromBagAction:
+		return true
+	
 	elif action is AddObjectToHandAction:
+		return true
+	
+	elif action is AddObjectToBagAction:
 		return true
 	
 	elif action is RollDieAction:
@@ -194,7 +205,13 @@ func _execute_default_action(action) -> void:
 	
 	elif action is TakeFromStackAction:
 		var stack: BoardObjectStack = GameService.get_object(action.stack_id)
-		stack._pickup_objects(action.take_amount)
+		if stack:
+			stack._pickup_objects(action.take_amount)
+	
+	elif action is TakeFromBagAction:
+		var bag: Bag = GameService.get_object(action.bag_id)
+		if bag:
+			bag._pickup_object()
 	
 	elif action is AddObjectToHandAction:
 		var hand: Hand = GameService.get_object(action.hand_id)
@@ -202,10 +219,18 @@ func _execute_default_action(action) -> void:
 		if hand and object:
 			hand.try_accept(object, action.index)
 	
+	elif action is AddObjectToBagAction:
+		var bag: Bag = GameService.get_object(action.bag_id)
+		var object: BoardObject = GameService.get_object(action.object_id)
+		if bag and object:
+			bag._add_object(object)
+	
 	elif action is RollDieAction:
 		var die: Die = GameService.get_object(action.die_id)
-		die.roll()
+		if die:
+			die.roll()
 	
 	elif action is FlipDieAction:
 		var die: Die = GameService.get_object(action.die_id)
-		die.flip_side()
+		if die:
+			die.flip_side()

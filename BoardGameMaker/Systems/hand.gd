@@ -80,20 +80,13 @@ func add_object(object: BoardObject, index: int = -1) -> void:
 
 
 func add_fake_object(original_object: BoardObject) -> void:
-	var copy: BoardObject = original_object.duplicate()
+	var copy: BoardObject = original_object.copy()
 	
 	visual_container.add_child(copy)
 	visual_container.move_child(spacer, -1)
 	visual_container.move_child(copy, original_object.get_index())
 	
-	for property in original_object.get_property_list():
-		if property.type == TYPE_OBJECT:
-			continue
-		
-		if property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
-			copy.set(property.name, original_object.get(property.name))
-	
-	copy.id = original_object.id
+	copy.set_meta("original_id", original_object.id)
 	copy.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	copy.set_locked(true)
 
@@ -107,7 +100,7 @@ func remove_fake_object(object: BoardObject) -> void:
 func get_fake_object(object: BoardObject) -> BoardObject:
 	for child in visual_container.get_children():
 		if child is BoardObject:
-			if child.id == object.id:
+			if child.get_meta("original_id") == object.id:
 				return child
 	return null
 

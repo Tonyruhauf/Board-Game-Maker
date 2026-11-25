@@ -64,7 +64,7 @@ func _gui_input(event: InputEvent) -> void:
 			if event.is_command_or_control_pressed():
 				_start_rotate()
 			else:
-				_start_drag()
+				request_drag()
 
 
 func _input(event: InputEvent) -> void:
@@ -149,7 +149,7 @@ func can_interact() -> bool:
 	return not is_locked()
 
 
-func _start_drag() -> void:
+func request_drag() -> void:
 	if locked: return
 	if dragging: return
 	
@@ -162,6 +162,10 @@ func _start_drag() -> void:
 	if not game.validate_action(action):
 		return
 	
+	_start_drag()
+
+
+func _start_drag() -> void:
 	original_pos = global_position
 	drag_offset = global_position - get_global_mouse_position()
 	get_parent().move_child(self, -1)  # Draw above everything else
@@ -187,6 +191,10 @@ func _contains_local_point(point: Vector2) -> bool:
 func _is_mouse_over() -> bool:
 	var local_mouse: Vector2 = get_global_transform().affine_inverse() * get_global_mouse_position()
 	return _contains_local_point(local_mouse)
+
+
+func center_on_mouse() -> void:
+	global_position = get_global_mouse_position() - size / 2
 
 
 func _start_rotate() -> void:
@@ -255,6 +263,20 @@ func return_to_origin():
 
 func set_locked(value: bool) -> void:
 	locked = value
+
+
+func copy() -> BoardObject:
+	var _copy: BoardObject = self.duplicate()
+	
+	for property in get_property_list():
+		if property.type == TYPE_OBJECT:
+			continue
+		
+		if property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
+			_copy.set(property.name, get(property.name))
+	
+	_copy.id = GameService.create_id(_copy)
+	return _copy
 
 
 func _update_border() -> void:
