@@ -37,6 +37,8 @@ func _ready() -> void:
 	stretch_mode = TextureRect.STRETCH_SCALE
 	self_modulate.a = 0.0
 	
+	_selection_border.use_only_rect = true
+	
 	if objects.is_empty():
 		for obj in get_children():
 			if obj is BoardObject:
