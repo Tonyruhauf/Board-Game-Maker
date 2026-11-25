@@ -23,8 +23,6 @@ config/icon="res://icon.png"
 [autoload]
 
 EventBus="*uid://xdyjyg3sm11d"
-SupabaseManager="*uid://m8qf2mhjcjx2"
-SupabaseRealtime="*uid://pvoqk2nta152"
 GameService="*uid://bdl1g4qwu21pe"
 StackingManager="*uid://crspyt7axkpwv"
 
@@ -42,14 +40,13 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "r
 [file_customization]
 
 folder_colors={
-"res://BoardGameMaker/": "orange",
-"res://BoardGameMaker/Core/": "orange",
-"res://BoardGameMaker/Networking/": "gray",
-"res://BoardGameMaker/Registries/": "red",
-"res://BoardGameMaker/Resources/": "yellow",
-"res://BoardGameMaker/Shared Assets/": "green",
-"res://BoardGameMaker/Systems/": "purple",
-"res://BoardGameMaker/UI/": "teal",
+"res://BoardGameEngine/": "orange",
+"res://BoardGameEngine/Core/": "orange",
+"res://BoardGameEngine/Registries/": "red",
+"res://BoardGameEngine/Resources/": "yellow",
+"res://BoardGameEngine/Shared Assets/": "green",
+"res://BoardGameEngine/Systems/": "purple",
+"res://BoardGameEngine/UI/": "teal",
 "res://script_templates/": "orange"
 }
 

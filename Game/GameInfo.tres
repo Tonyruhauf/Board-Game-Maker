@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://jcgtnvktk623" path="res://Game/board.tscn" id="1_qefqg"]
 [ext_resource type="Script" uid="uid://bh7nj7vd28sju" path="res://Game/TestGameState.gd" id="2_gc7ql"]
 [ext_resource type="Script" uid="uid://b8orwap874lw0" path="res://Game/TestGame.gd" id="2_vs45s"]
-[ext_resource type="Script" uid="uid://bgu3cbpvv54yk" path="res://BoardGameMaker/Core/Game/GameInfo.gd" id="3_vs45s"]
+[ext_resource type="Script" uid="uid://bgu3cbpvv54yk" path="res://BoardGameEngine/Core/Game/GameInfo.gd" id="3_vs45s"]
 
 [resource]
 script = ExtResource("3_vs45s")

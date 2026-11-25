@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://fanwomlfofoo"]
 
-[ext_resource type="Script" uid="uid://bxkuwp2mvjcnd" path="res://BoardGameMaker/Core/Components/card/CardData.gd" id="1_cwvvx"]
-[ext_resource type="Texture2D" uid="uid://5m0uq2rychda" path="res://BoardGameMaker/Shared Assets/card_back_template.png" id="1_dns8i"]
-[ext_resource type="Texture2D" uid="uid://ccuctuejnfanr" path="res://BoardGameMaker/Shared Assets/card_template.png" id="2_c14p1"]
+[ext_resource type="Script" uid="uid://bxkuwp2mvjcnd" path="res://BoardGameEngine/Core/Components/card/CardData.gd" id="1_cwvvx"]
+[ext_resource type="Texture2D" uid="uid://5m0uq2rychda" path="res://BoardGameEngine/Shared Assets/card_back_template.png" id="1_dns8i"]
+[ext_resource type="Texture2D" uid="uid://ccuctuejnfanr" path="res://BoardGameEngine/Shared Assets/card_template.png" id="2_c14p1"]
 
 [resource]
 script = ExtResource("1_cwvvx")

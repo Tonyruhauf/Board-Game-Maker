@@ -52,7 +52,7 @@
 		},
 		{
 			"uuid": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
-			"title": "Integration",
+			"title": "Multiplayer",
 			"color": "7c9dbb"
 		},
 		{
@@ -89,6 +89,15 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"f243e590-1ca4-4073-a209-a041fd59e75a",
+				"0f6478f6-cd61-48e9-a128-e876b71b9792",
+				"4f59778a-6069-42c0-8ee9-3130446373c6",
+				"c2be0ce1-434b-4ed7-956b-42c7c6b15d45",
+				"407cf3a4-4c0e-40fd-a75d-cd44e5059881",
+				"0c4281e1-f278-420c-a8dc-552296a8afd0",
+				"387802d5-79c7-4ad5-9bf0-8a511c4f8dda",
+				"4d6b7745-c29d-4b5b-b221-6db2665c3973",
+				"0e70ba6b-ff7f-42d0-9b0b-2da04eff7c27",
 				"a48f3ea7-4393-4e4c-b830-ddcb3e2fef86",
 				"22d21c32-e2d5-4f28-bb3f-178a4d1a7a09",
 				"a731b55f-5405-4189-815d-cf1613dbf603",
@@ -893,6 +902,69 @@
 			"title": "Improve objects selection outline",
 			"description": "",
 			"category": "2a4f5820-9594-47fb-8e96-b95153bfc2bf",
+			"steps": []
+		},
+		{
+			"uuid": "387802d5-79c7-4ad5-9bf0-8a511c4f8dda",
+			"title": "Implement flipping a BoardObjectStack",
+			"description": "Should revert the stack objects list and flip the objects.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "407cf3a4-4c0e-40fd-a75d-cd44e5059881",
+			"title": "Putting a card in hand should flip it (with conditions)",
+			"description": "There should be a way to define if a card, when entering the hand, need to flip to show the front or back side, or should always flip, or should't flip at all.\n\nBecause regular playing cards should flip to show the front side on entering hand.\nBut cards like Uno Flip should always flip on entering the hand, because they does't have a main side.",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "4d6b7745-c29d-4b5b-b221-6db2665c3973",
+			"title": "BoardObject now exposes request_flip as a base func",
+			"description": "",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
+			"steps": []
+		},
+		{
+			"uuid": "0e70ba6b-ff7f-42d0-9b0b-2da04eff7c27",
+			"title": "25/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "0c4281e1-f278-420c-a8dc-552296a8afd0",
+			"title": "Picking the second last card of a stack put the last one in front",
+			"description": "",
+			"category": "b387926a-9bc2-4530-84ac-7f2a77eb51f9",
+			"steps": []
+		},
+		{
+			"uuid": "f243e590-1ca4-4073-a209-a041fd59e75a",
+			"title": "Properly implement Hotseat mode",
+			"description": "It was implemented before, but only the \"launch game\" part, there is't really a hotseat mode yet.",
+			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
+			"steps": []
+		},
+		{
+			"uuid": "c2be0ce1-434b-4ed7-956b-42c7c6b15d45",
+			"title": "Renamed the main engine folder",
+			"description": "\"Board Game Maker\" -> \"Board Game Engine\"",
+			"category": "b38dfdd7-c810-470a-a4a8-5fea65ae8f77",
+			"steps": []
+		},
+		{
+			"uuid": "4f59778a-6069-42c0-8ee9-3130446373c6",
+			"title": "Remove Supabase integration (BUT SAVE IT FIRST)",
+			"description": "Save it by doing a Github Release.",
+			"category": "2a4f5820-9594-47fb-8e96-b95153bfc2bf",
+			"steps": []
+		},
+		{
+			"uuid": "0f6478f6-cd61-48e9-a128-e876b71b9792",
+			"title": "Reworked architecture for Multiplayer gamemodes",
+			"description": "",
+			"category": "d7eec21d-bff8-4a74-a2f0-b5c183337dfe",
 			"steps": []
 		}
 	],

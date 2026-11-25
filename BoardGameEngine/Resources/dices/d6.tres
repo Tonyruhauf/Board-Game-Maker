@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DieData" format=3 uid="uid://lq0mlcvlmj1q"]
+
+[ext_resource type="Script" uid="uid://bj0486uec00wr" path="res://BoardGameEngine/Core/Components/die/DieData.gd" id="1_2gvej"]
+[ext_resource type="Script" uid="uid://c2jkti4puuluc" path="res://BoardGameEngine/Core/Components/die/DieSide.gd" id="2_jtw2r"]
+
+[sub_resource type="Resource" id="Resource_2gvej"]
+script = ExtResource("2_jtw2r")
+side_name = "1"
+text = "1"
+
+[sub_resource type="Resource" id="Resource_jtw2r"]
+script = ExtResource("2_jtw2r")
+side_name = "2"
+text = "2"
+
+[sub_resource type="Resource" id="Resource_c4yrx"]
+script = ExtResource("2_jtw2r")
+side_name = "3"
+text = "3"
+
+[sub_resource type="Resource" id="Resource_ts23s"]
+script = ExtResource("2_jtw2r")
+side_name = "4"
+text = "4"
+
+[sub_resource type="Resource" id="Resource_x86hr"]
+script = ExtResource("2_jtw2r")
+side_name = "5"
+text = "5"
+
+[sub_resource type="Resource" id="Resource_fnah4"]
+script = ExtResource("2_jtw2r")
+side_name = "6"
+text = "6"
+
+[resource]
+script = ExtResource("1_2gvej")
+die_name = "d6"
+sides = Array[ExtResource("2_jtw2r")]([SubResource("Resource_2gvej"), SubResource("Resource_jtw2r"), SubResource("Resource_c4yrx"), SubResource("Resource_ts23s"), SubResource("Resource_x86hr"), SubResource("Resource_fnah4")])
+metadata/_custom_type_script = "uid://bj0486uec00wr"

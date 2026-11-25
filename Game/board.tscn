@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://iac844oa3jil" path="res://Game/test_board.gd" id="1_fji08"]
 [ext_resource type="Texture2D" uid="uid://c1nvpsrx2r06b" path="res://icon.png" id="2_nt2nu"]
-[ext_resource type="Script" uid="uid://46mmmus18g3m" path="res://BoardGameMaker/Core/Components/StackableBoardObject.gd" id="3_gn7pi"]
-[ext_resource type="Script" uid="uid://b287j3hmroy1h" path="res://BoardGameMaker/Core/Components/card/Card.gd" id="4_gn7pi"]
+[ext_resource type="Script" uid="uid://46mmmus18g3m" path="res://BoardGameEngine/Core/Components/StackableBoardObject.gd" id="3_gn7pi"]
+[ext_resource type="Script" uid="uid://b287j3hmroy1h" path="res://BoardGameEngine/Core/Components/card/Card.gd" id="4_gn7pi"]
 [ext_resource type="Resource" uid="uid://fanwomlfofoo" path="res://Game/resources/cards/card_1.tres" id="5_xtqq7"]
-[ext_resource type="Script" uid="uid://cqw2j4gi4rn04" path="res://BoardGameMaker/Core/Components/die/Die.gd" id="6_xtqq7"]
-[ext_resource type="Resource" uid="uid://lq0mlcvlmj1q" path="res://BoardGameMaker/Resources/dices/d6.tres" id="7_f38gw"]
-[ext_resource type="Script" uid="uid://cw0tnboejn7cw" path="res://BoardGameMaker/Core/Components/bag/Bag.gd" id="8_3ku0t"]
-[ext_resource type="Texture2D" uid="uid://0hyywhoep002" path="res://BoardGameMaker/Shared Assets/Bag.png" id="8_3owx7"]
+[ext_resource type="Script" uid="uid://cqw2j4gi4rn04" path="res://BoardGameEngine/Core/Components/die/Die.gd" id="6_xtqq7"]
+[ext_resource type="Resource" uid="uid://lq0mlcvlmj1q" path="res://BoardGameEngine/Resources/dices/d6.tres" id="7_f38gw"]
+[ext_resource type="Script" uid="uid://cw0tnboejn7cw" path="res://BoardGameEngine/Core/Components/bag/Bag.gd" id="8_3ku0t"]
+[ext_resource type="Texture2D" uid="uid://0hyywhoep002" path="res://BoardGameEngine/Shared Assets/Bag.png" id="8_3owx7"]
 
 [node name="Board" type="Node2D" unique_id=1401451773]
 script = ExtResource("1_fji08")
@@ -21,7 +21,6 @@ offset_right = 1775.0
 offset_bottom = 1768.0
 texture = ExtResource("2_nt2nu")
 script = ExtResource("3_gn7pi")
-metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="BoardObject3" type="TextureRect" parent="." unique_id=495315924]
 offset_left = 1610.0
@@ -30,7 +29,6 @@ offset_right = 1775.0
 offset_bottom = 1768.0
 texture = ExtResource("2_nt2nu")
 script = ExtResource("3_gn7pi")
-metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="BoardObject4" type="TextureRect" parent="." unique_id=1605911422]
 offset_left = 1610.0
@@ -39,7 +37,6 @@ offset_right = 1775.0
 offset_bottom = 1768.0
 texture = ExtResource("2_nt2nu")
 script = ExtResource("3_gn7pi")
-metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="BoardObject5" type="TextureRect" parent="." unique_id=435256170]
 offset_left = 1610.0
@@ -48,7 +45,6 @@ offset_right = 1775.0
 offset_bottom = 1768.0
 texture = ExtResource("2_nt2nu")
 script = ExtResource("3_gn7pi")
-metadata/_custom_type_script = "uid://46mmmus18g3m"
 
 [node name="Card" type="TextureRect" parent="." unique_id=2010803809]
 offset_left = 1459.0
@@ -57,7 +53,6 @@ offset_right = 1499.0
 offset_bottom = 1545.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card2" type="TextureRect" parent="." unique_id=1085495630]
 offset_left = 1816.0
@@ -66,7 +61,6 @@ offset_right = 1856.0
 offset_bottom = 1637.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card3" type="TextureRect" parent="." unique_id=797697866]
 offset_left = 1553.0
@@ -75,7 +69,6 @@ offset_right = 1593.0
 offset_bottom = 1818.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card4" type="TextureRect" parent="." unique_id=1074176687]
 offset_left = 1459.0
@@ -84,7 +77,6 @@ offset_right = 1499.0
 offset_bottom = 1545.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card5" type="TextureRect" parent="." unique_id=943431356]
 offset_left = 1816.0
@@ -93,7 +85,6 @@ offset_right = 1856.0
 offset_bottom = 1637.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card6" type="TextureRect" parent="." unique_id=364759589]
 offset_left = 1553.0
@@ -102,7 +93,6 @@ offset_right = 1593.0
 offset_bottom = 1818.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card7" type="TextureRect" parent="." unique_id=1919486115]
 offset_left = 1459.0
@@ -111,7 +101,6 @@ offset_right = 1499.0
 offset_bottom = 1545.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card8" type="TextureRect" parent="." unique_id=973855106]
 offset_left = 1816.0
@@ -120,7 +109,6 @@ offset_right = 1856.0
 offset_bottom = 1637.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Card9" type="TextureRect" parent="." unique_id=1163074398]
 offset_left = 1553.0
@@ -129,7 +117,6 @@ offset_right = 1593.0
 offset_bottom = 1818.0
 script = ExtResource("4_gn7pi")
 data = ExtResource("5_xtqq7")
-metadata/_custom_type_script = "uid://b287j3hmroy1h"
 
 [node name="Die" type="TextureRect" parent="." unique_id=1908127915]
 custom_minimum_size = Vector2(160, 160)
@@ -139,7 +126,6 @@ offset_right = 2403.0
 offset_bottom = 2124.0
 script = ExtResource("6_xtqq7")
 data = ExtResource("7_f38gw")
-metadata/_custom_type_script = "uid://cqw2j4gi4rn04"
 
 [node name="Bag" type="TextureRect" parent="." unique_id=117009154]
 offset_left = 1961.9999
@@ -149,4 +135,3 @@ offset_bottom = 2929.0
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("8_3owx7")
 script = ExtResource("8_3ku0t")
-metadata/_custom_type_script = "uid://cw0tnboejn7cw"
