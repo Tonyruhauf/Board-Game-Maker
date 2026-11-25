@@ -19,13 +19,18 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				if not objects.is_empty():
-					set_dragging(false)
-					request_pickup_object()
+				if event.shift_pressed: return
+				if objects.is_empty(): return
+				set_dragging(false)
+				set_selected(false)
+				request_pickup_object()
 
 
 func try_adding_object(obj: BoardObject) -> bool:
 	if not obj: return false
+	if objects.has(obj): return false
+	if obj is BoardObjectStack: return false
+	
 	request_adding_object(obj)
 	return true
 
@@ -48,9 +53,6 @@ func request_pickup_object() -> void:
 
 
 func _add_object(obj: BoardObject) -> void:
-	if not obj: return
-	if objects.has(obj): return
-	
 	objects.append(obj.copy())
 	obj.queue_free()
 
