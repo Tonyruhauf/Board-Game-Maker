@@ -82,7 +82,6 @@
 			"title": "📋 Todo",
 			"tasks": [
 				"f2616c12-0e06-4d8e-9c15-494bb96260b3",
-				"f243e590-1ca4-4073-a209-a041fd59e75a",
 				"feebaa5c-c7fb-49d4-87a0-0fd03ec9cf40"
 			]
 		},
@@ -90,6 +89,9 @@
 			"uuid": "d5c8ccba-8494-498a-9fdf-2eef6f6c4c3f",
 			"title": "✅ Completed",
 			"tasks": [
+				"ece13da4-adf2-417f-bd4d-6448aa22d6a4",
+				"f243e590-1ca4-4073-a209-a041fd59e75a",
+				"f6baafee-26e2-42c6-a8fd-5fc5e2e84234",
 				"e340edff-bbb8-4c27-a745-1dfa8d4f7204",
 				"b6e48327-d2ba-412c-8485-e62d385b8a56",
 				"0f6478f6-cd61-48e9-a128-e876b71b9792",
@@ -943,9 +945,9 @@
 		},
 		{
 			"uuid": "f243e590-1ca4-4073-a209-a041fd59e75a",
-			"title": "Properly implement Hotseat mode",
+			"title": "Implemented CommonUI",
 			"description": "",
-			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
+			"category": "4d096707-4085-4dda-930c-197d016c00c7",
 			"steps": []
 		},
 		{
@@ -979,6 +981,20 @@
 		{
 			"uuid": "e340edff-bbb8-4c27-a745-1dfa8d4f7204",
 			"title": "Improved the turn manager",
+			"description": "",
+			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
+			"steps": []
+		},
+		{
+			"uuid": "f6baafee-26e2-42c6-a8fd-5fc5e2e84234",
+			"title": "27/11/2026",
+			"description": "",
+			"category": "e4504c36-30ac-488a-bc61-7614e79cfe09",
+			"steps": []
+		},
+		{
+			"uuid": "ece13da4-adf2-417f-bd4d-6448aa22d6a4",
+			"title": "Properly implement Hotseat mode",
 			"description": "",
 			"category": "a6fb1065-b4d9-423b-be4c-b46c7ded508a",
 			"steps": []

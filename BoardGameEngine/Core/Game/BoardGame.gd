@@ -21,6 +21,7 @@ func setup(_match_state: MatchState) -> void:
 	match_state = _match_state
 
 	turn_manager.players = match_state.joined_players
+	turn_manager.turn_finished.connect(start_next_turn)
 
 	_create_game_state()
 
@@ -59,18 +60,26 @@ func reset() -> void:
 
 
 func start_first_turn() -> void:
-	turn_manager.start_turn([turn_manager.players[0]])
-	_update_local_player()
+	# Game-specific turn logic goes there.
+	_on_turn_started()
 
 
-func end_turn() -> void:
-	await turn_manager.end_turn()
+func start_next_turn() -> void:
+	# Game-specific turn logic goes there.
+	_on_turn_started()
+
+
+func _on_turn_started() -> void:
 	_update_local_player()
 
 
 func _update_local_player() -> void:
 	if is_game_mode(GameMode.HOTSEAT):
-		GameService.set_local_player(turn_manager.current_player)
+		assert(
+			not turn_manager.active_players.is_empty(),
+			"There is no active players, did you forgot to override start_first_turn and start_next_turn in BoardGame?"
+		)
+		GameService.set_local_player(turn_manager.active_players[0])
 
 
 func _on_object_released(object: BoardObject) -> void:
@@ -128,7 +137,10 @@ func validate_action(action: GameAction) -> bool:
 	if not turn_manager.is_player_active(action.player_id):
 		return false
 	
-	if action is MoveObjectAction:
+	if action is EndTurnAction:
+		return true
+	
+	elif action is MoveObjectAction:
 		return true
 	
 	elif action is RotateObjectAction:
@@ -173,7 +185,7 @@ func execute_action(action: GameAction) -> void:
 
 func _execute_default_action(action) -> void:
 	if action is EndTurnAction:
-		end_turn()
+		turn_manager.finish_player_turn(action.player_id)
 	
 	elif action is MoveObjectAction:
 		if not action.is_drag_start:

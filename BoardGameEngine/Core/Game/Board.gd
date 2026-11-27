@@ -12,6 +12,7 @@ class_name Board extends Node2D
 		show_bounds_in_editor = value
 		queue_redraw()
 
+var common_ui: CommonUI
 var interface: Control
 var hand: Hand
 var camera: BoardCamera

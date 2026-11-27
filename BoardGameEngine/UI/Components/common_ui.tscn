@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://kvsoulrkqjkh"]
+
+[ext_resource type="Script" uid="uid://c4bt7648d7csa" path="res://BoardGameEngine/UI/Components/common_ui.gd" id="1_7br5s"]
+
+[node name="CommonUI" type="CanvasLayer" unique_id=2086391801]
+script = ExtResource("1_7br5s")
+
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=496630339]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="LeftSlot" type="HBoxContainer" parent="TopBar" unique_id=864456902]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="CenterSlot" type="HBoxContainer" parent="TopBar" unique_id=263525800]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="RightSlot" type="HBoxContainer" parent="TopBar" unique_id=615531019]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="." unique_id=1764855637]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="LeftSlot" type="HBoxContainer" parent="BottomBar" unique_id=584878423]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="CenterSlot" type="HBoxContainer" parent="BottomBar" unique_id=1459144785]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="RightSlot" type="HBoxContainer" parent="BottomBar" unique_id=655557337]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 2
+
+[node name="EndTurnButton" type="Button" parent="BottomBar/RightSlot" unique_id=1292271704]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "End Turn"
+
+[node name="LeftBar" type="VBoxContainer" parent="." unique_id=10907338]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopSlot" type="VBoxContainer" parent="LeftBar" unique_id=1603715313]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CenterSlot" type="VBoxContainer" parent="LeftBar" unique_id=1327054067]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="BottomSlot" type="VBoxContainer" parent="LeftBar" unique_id=1240338795]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 2
+
+[node name="SettingsButton" type="Button" parent="LeftBar/BottomSlot" unique_id=1455478556]
+layout_mode = 2
+text = "Settings"
+
+[node name="RightBar" type="VBoxContainer" parent="." unique_id=265694428]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopSlot" type="VBoxContainer" parent="RightBar" unique_id=417996923]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CenterSlot" type="VBoxContainer" parent="RightBar" unique_id=1545457170]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="BottomSlot" type="VBoxContainer" parent="RightBar" unique_id=108418720]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 2
+
+[connection signal="pressed" from="BottomBar/RightSlot/EndTurnButton" to="." method="_on_end_turn_button_pressed"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	var match_state: MatchState = HotseatManager.create_match([
 		"Player A",
-		"Player B"
+		"Player B",
 	])
 	
 	var game: BoardGame = GameLauncher.launch(
