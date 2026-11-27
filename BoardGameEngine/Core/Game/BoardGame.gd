@@ -59,7 +59,7 @@ func reset() -> void:
 
 
 func start_first_turn() -> void:
-	await turn_manager.start_turn(turn_manager.players[0])
+	turn_manager.start_turn([turn_manager.players[0]])
 	_update_local_player()
 
 
@@ -125,7 +125,7 @@ func request_action(action: GameAction) -> bool:
 
 
 func validate_action(action: GameAction) -> bool:
-	if not turn_manager.is_current_player(action.player_id):
+	if not turn_manager.is_player_active(action.player_id):
 		return false
 	
 	if action is MoveObjectAction:

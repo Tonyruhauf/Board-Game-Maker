@@ -27,12 +27,6 @@ func validate_action(action: GameAction) -> bool:
 	if not super(action):  # structural check first
 		return false
 	
-	#if not turn_manager.is_current_player(action.player_id):
-		#return false
-	
-	#if action is EndTurnAction:
-		#return true
-	
 	return true
 
 

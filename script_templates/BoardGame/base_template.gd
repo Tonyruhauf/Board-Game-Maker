@@ -33,7 +33,7 @@ func validate_action(action: GameAction) -> bool:
 		return false
 	
 	# You probably want to keep this for turn based games.
-	if not turn_manager.is_current_player(action.player_id):
+	if not turn_manager.is_player_active(action.player_id):
 		return false
 	
 	if action is EndTurnAction:

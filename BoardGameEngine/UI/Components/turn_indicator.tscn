@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cgvcf5fduhctx"]
+
+[ext_resource type="Script" uid="uid://cjl7q14pelbsr" path="res://BoardGameEngine/UI/Components/turn_indicator.gd" id="1_kuh6y"]
+
+[node name="TurnIndicator" type="Control" unique_id=1844114930]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kuh6y")
+
+[node name="Label" type="Label" parent="." unique_id=1915930243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "Player 1 turn"
+horizontal_alignment = 1
+vertical_alignment = 1

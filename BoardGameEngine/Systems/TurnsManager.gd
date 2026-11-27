@@ -2,24 +2,42 @@ class_name TurnManager extends RefCounted
 
 
 var players: Array[String]
-var current_player: Player
+var active_players: Array[Player]
+var finished_players: Array[String]
+
+signal active_players_changed(players: Array[Player])
+signal turn_finished
 
 
-func start_turn(player_id: String) -> void:
-	current_player = await GameService.get_player(player_id)
+func start_turn(player_ids: Array[String]) -> void:
+	active_players.clear()
+
+	for player_id in player_ids:
+		var player: Player = GameService.get_player(player_id)
+		if player:
+			active_players.append(player)
+
+	active_players_changed.emit(active_players)
 
 
-func end_turn() -> void:
-	if players.is_empty() or current_player == null:
+func finish_player_turn(player_id: String) -> void:
+	if not is_player_active(player_id):
 		return
 
-	var current_index: int = players.find(current_player.ID)
-	if current_index == -1:
+	if finished_players.has(player_id):
 		return
 
-	var next_index: int = (current_index + 1) % players.size()
-	await start_turn(players[next_index])
+	finished_players.append(player_id)
+
+	if finished_players.size() == active_players.size():
+		# All active players have finished.
+		# The game can now advance to the next turn.
+		turn_finished.emit()
 
 
-func is_current_player(player_id: String) -> bool:
-	return current_player != null and player_id == current_player.ID
+func is_player_active(player_id: String) -> bool:
+	for player in active_players:
+		if player.ID == player_id:
+			return true
+
+	return false

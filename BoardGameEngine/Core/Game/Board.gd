@@ -15,8 +15,10 @@ class_name Board extends Node2D
 var interface: Control
 var hand: Hand
 var camera: BoardCamera
+var turn_indicator: Control
 
 const HAND_SCENE: PackedScene = preload("res://BoardGameEngine/Systems/hand.tscn")
+const TURN_INDICATOR_SCENE: PackedScene = preload("res://BoardGameEngine/UI/Components/turn_indicator.tscn")
 
 
 func _ready() -> void:
@@ -32,7 +34,9 @@ func _ready() -> void:
 	add_child(canva_layer)
 	
 	hand = HAND_SCENE.instantiate()
+	turn_indicator = TURN_INDICATOR_SCENE.instantiate()
 	interface.add_child(hand)
+	interface.add_child(turn_indicator)
 	
 	camera = BoardCamera.new()
 	camera.board = self
